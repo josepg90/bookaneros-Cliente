@@ -9,6 +9,10 @@ import { LogoutComponent } from './component/shared/routed/logout/logout.compone
 import { MenuComponent } from './component/shared/unrouted/menu/menu.component';
 import { HeaderComponent } from './component/shared/unrouted/header/header.component';
 import { FooterComponent } from './component/shared/unrouted/footer/footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { SessionService } from './service/session.service';
+import { SessionResolver } from './resolver/session-resolve';
 
 @NgModule({
   declarations: [
@@ -21,10 +25,16 @@ import { FooterComponent } from './component/shared/unrouted/footer/footer.compo
     FooterComponent
   ],
   imports: [
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    SessionService,
+    SessionResolver
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,5 +4,7 @@
     <li>Series</li>
     <li>Deportes</li>
     <li>Niños</li>
-    <li>Libreria</li>
+    <li [class.active]="strUrl=='/login'" [routerLink]="['/login']">Login</li>
+    <li [class.active]="strUrl=='/logout'" [routerLink]="['/logout']">Logout</li>
+
 </ul>

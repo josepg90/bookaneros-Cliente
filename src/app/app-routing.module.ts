@@ -1,10 +1,15 @@
+import { LoginComponent } from './component/shared/routed/login/login.component';
 import { HomeComponent } from './component/shared/routed/home/home.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LogoutComponent } from './component/shared/routed/logout/logout.component';
 
 const routes: Routes = [
   { path:'', component: HomeComponent },
-  { path:'home', component: HomeComponent}
+  { path:'home', component: HomeComponent},
+  { path:'login', component: LoginComponent},
+  { path:'logout', component: LogoutComponent}
+
 ];
 
 @NgModule({

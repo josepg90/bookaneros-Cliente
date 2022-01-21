@@ -1,1 +1,13 @@
-<p>logout works!</p>
+<app-menu></app-menu>
+
+<div class="logout">
+    <h1>Logout</h1>
+    <h3 class="">¿Está seguro de que quiere desconenctarse?</h3>             
+
+                <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center">
+                    <button class="btn btn-warning mx-1" (click)="closeSession()"> Salir de la sesión</button>
+                    <a class="btn btn-primary mx-1" [routerLink]="['/home']"> Página
+                        principal</a>
+                    <button class="btn btn-primary mx-1" (click)="goBack()"> Volver </button>
+                </div>
+</div>
