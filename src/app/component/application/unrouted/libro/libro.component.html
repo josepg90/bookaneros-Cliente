@@ -1,0 +1,67 @@
+<div class="row justify-content-between my-3">
+    <div class="col-md text-start">
+      <h6>{{strFilteredMessage}}</h6>
+    </div>  
+    <div class="col-md text-center">
+      <form>
+        <div class="input-group input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text"></span>
+          </div>
+          <input type="text" class="form-control" placeholder="{{'Filtro de ' + strTitlePlural}}" placeholder="Search"
+            (keyup)="onKeyUpFilter($event)" [(ngModel)]="strFilter" name="buscar" aria-label="Small"
+            aria-describedby="inputGroup-sizing-sm" />
+        </div>
+      </form>
+    </div>
+    <div class="col-md text-end">
+      <h4 class="text-muted">{{nTotalElements}} {{strTitlePlural}}</h4>
+    </div>
+  </div>
+  
+  <div class="row justify-content-between">
+    <div class="col-md text-start">
+      <nav aria-label="pagination">
+        <ul class="pagination">
+          <li class="page-item" aria-current="page" *ngFor="let p of aPaginationBar"
+            [ngClass]="{'active': (nPage+'' == p)}">
+            <a class="page-link" (click)="nPage=(+p);jumpToPage()" href="#">{{p}}</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  
+    <div class="col-md text-center">
+      <ng-content select="header"></ng-content>
+    </div>
+  
+    <div class="col-md text-end">
+      <div class="dropdown mb-3">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Productos por página: {{nPageSize}}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" (click)="nPageSize=10;getPage()">10</a></li>
+          <li><a class="dropdown-item" (click)="nPageSize=50;getPage()">50</a></li>
+          <li><a class="dropdown-item" (click)="nPageSize=100;getPage()">100</a></li>
+          <li><a class="dropdown-item" (click)="nPageSize=1000;getPage()">1000</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper">
+  <div class="card" *ngFor="let libro of aLibros">
+    <img class="card-img-top" [src]="'http://localhost:8082/file/' + libro.imagen" height="400px" width="180px" />
+    <div class="container">
+        <a [href]="'producto/view/'+libro.id"> {{libro.titulo}} </a>
+        <p>{{libro.tipolibro.genero}}<br />
+            <em>{{libro.autor}}</em><br />
+            <strong>{{libro.paginas}} paginas</strong>
+          </p>
+    </div>
+    <p>Resumen: {{libro.resumen}}€</p>
+  </div>
+</div> 
+  
+  

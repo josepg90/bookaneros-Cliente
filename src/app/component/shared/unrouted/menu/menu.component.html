@@ -1,8 +1,8 @@
 <ul class="menu-bar">
-    <li>Ver Ahora</li>
-    <li>Peliculas</li>
-    <li>Series</li>
-    <li>Deportes</li>
+    <li [class.active]="strUrl=='/home'" [routerLink]="['/home']">Home</li>
+    <li>Libros</li>
+    <li>Novedad</li>
+    <li>Premios</li>
     <li>Niños</li>
     <li [class.active]="strUrl=='/login'" [routerLink]="['/login']">Login</li>
     <li [class.active]="strUrl=='/logout'" [routerLink]="['/logout']">Logout</li>

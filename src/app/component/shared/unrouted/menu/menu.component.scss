@@ -3,7 +3,7 @@
   height: fit-content;
   display: inline-flex;
 
-  background-color: #32e50c;
+  background-color: rgba(0, 0, 0, .4);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   align-items: center;
@@ -33,7 +33,7 @@
     }
     &:hover {
       &::before {
-        background: linear-gradient(to bottom, #39f510, #2eb004);
+        background: linear-gradient(to bottom, #2fd70b, #2dc60c);
         box-shadow: 0px 3px 20px 0px black;
         transform: scale(1.2);
       }

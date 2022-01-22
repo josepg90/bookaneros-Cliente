@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SessionService } from './service/session.service';
 import { SessionResolver } from './resolver/session-resolve';
+import { LibroComponent } from './component/application/unrouted/libro/libro.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SessionResolver } from './resolver/session-resolve';
     LogoutComponent,
     MenuComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LibroComponent
   ],
   imports: [
     HttpClientModule,
