@@ -1,10 +1,9 @@
 <ul class="menu-bar">
     <li [class.active]="strUrl=='/home'" [routerLink]="['/home']">Home</li>
-    <li>Libros</li>
-    <li>Novedad</li>
+    <li [class.active]="strUrl=='/libro'" [routerLink]="['/libro']">Libros</li>
+    <li [class.active]="strUrl=='/novedad'" [routerLink]="['/novedad']">Novedad</li>
     <li>Premios</li>
     <li>Niños</li>
     <li [class.active]="strUrl=='/login'" [routerLink]="['/login']">Login</li>
     <li [class.active]="strUrl=='/logout'" [routerLink]="['/logout']">Logout</li>
-
 </ul>

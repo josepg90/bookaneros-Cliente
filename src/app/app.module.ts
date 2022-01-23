@@ -1,3 +1,7 @@
+import { PaginationService } from './service/pagination.service';
+import { IconService } from './service/icon.service';
+import { FileService } from './service/file.service';
+import { LibroService } from 'src/app/service/libro.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -14,7 +18,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { SessionService } from './service/session.service';
 import { SessionResolver } from './resolver/session-resolve';
 import { LibroComponent } from './component/application/unrouted/libro/libro.component';
-
+import { LibroViewComponent } from './component/application/routed/libro/view/libro-view.component';
+import { NewComponent } from './component/application/routed/libro/new/new.component';
+import { EditComponent } from './component/application/routed/libro/edit/edit.component';
+import { RemoveComponent } from './component/application/routed/libro/remove/remove.component';
+import { LibroPlistComponent } from './component/application/routed/libro/plist/libro-plist.component';
+import { LibroListaComponent } from './component/application/unrouted/libro-lista/libro-lista.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +33,13 @@ import { LibroComponent } from './component/application/unrouted/libro/libro.com
     MenuComponent,
     HeaderComponent,
     FooterComponent,
-    LibroComponent
+    LibroComponent,
+    LibroViewComponent,
+    NewComponent,
+    EditComponent,
+    RemoveComponent,
+    LibroPlistComponent,
+    LibroListaComponent
   ],
   imports: [
     HttpClientModule,
@@ -35,7 +50,11 @@ import { LibroComponent } from './component/application/unrouted/libro/libro.com
   ],
   providers: [
     SessionService,
-    SessionResolver
+    SessionResolver,
+    LibroService,
+    FileService,
+    IconService,
+    PaginationService
   ],
   bootstrap: [AppComponent]
 })

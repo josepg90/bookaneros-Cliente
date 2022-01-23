@@ -21,12 +21,12 @@ import { API_URL, httpOptions } from "src/environments/environment";
       return this.http.delete<ILibro>(this.sURL + "/" + id, httpOptions);
     }
   
-    newOne(oProduct: ILibro2Send): Observable<ILibro> {
-      return this.http.post<ILibro>(this.sURL + "/", oProduct, httpOptions);
+    newOne(oLibro: ILibro2Send): Observable<ILibro> {
+      return this.http.post<ILibro>(this.sURL + "/", oLibro, httpOptions);
     }
   
-    update(oProduct: ILibro2Send): Observable<ILibro> {
-      return this.http.put<ILibro>(this.sURL + "/", oProduct, httpOptions);
+    update(oLibro: ILibro2Send): Observable<ILibro> {
+      return this.http.put<ILibro>(this.sURL + "/", oLibro, httpOptions);
     }
   
     getPage(rpp: number, page: number, filter: string, order: string, direction: string, tipoproducto: number): Observable<IPageLibro> {

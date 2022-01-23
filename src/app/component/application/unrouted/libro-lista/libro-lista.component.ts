@@ -1,24 +1,23 @@
-import { IPageLibro } from './../../../../model/libro-interfaces';
-import { Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { debounceTime } from 'rxjs/internal/operators/debounceTime';
-import { ILibro } from 'src/app/model/libro-interfaces';
+import { debounceTime } from 'rxjs/operators';
+import { ILibro, IPageLibro } from 'src/app/model/libro-interfaces';
 import { IUsuario } from 'src/app/model/usuario-interfaces';
+import { IconService } from 'src/app/service/icon.service';
 import { LibroService } from 'src/app/service/libro.service';
 import { PaginationService } from 'src/app/service/pagination.service';
 
 @Component({
-  selector: 'app-libro',
-  templateUrl: './libro.component.html',
-  styleUrls: ['./libro.component.scss']
+  selector: 'app-libro-lista',
+  templateUrl: './libro-lista.component.html',
+  styleUrls: ['./libro-lista.component.scss']
 })
-export class LibroComponent implements OnInit {
-  
+export class LibroListaComponent implements OnInit {
   @Input() id_tipolibro: number = null;
   @Input() mode: boolean = true; //true=edición; false=selección
   @Output() selection = new EventEmitter<number>();
-  @ContentChild(TemplateRef) toolTemplate: TemplateRef<any>;
+  //@ContentChild(TemplateRef) toolTemplate: TemplateRef<any>;
 
   strEntity: string = "libro"
   strOperation: string = "plist"
@@ -38,23 +37,26 @@ export class LibroComponent implements OnInit {
   oUserSession: IUsuario;
   subjectFiltro$ = new Subject();
   barraPaginacion: string[];
-  randomLibros: ILibro[];
+
+
 
 
   constructor(
     private oRoute: ActivatedRoute,
     private oRouter: Router,
     private oPaginationService: PaginationService,
-    private oLibroService: LibroService
+    private oLibroService: LibroService,
+
+    public oIconService: IconService
   ) {
 
-    if (this.oRoute.snapshot.data.message) {
+    /*if (this.oRoute.snapshot.data.message) {
       this.oUserSession = this.oRoute.snapshot.data.message;
       localStorage.setItem("user", JSON.stringify(this.oRoute.snapshot.data.message));
     } else {
       localStorage.clear();
       oRouter.navigate(['/home']);
-    }
+    }*/
     this.id_tipolibro = this.oRoute.snapshot.params.id_tipolibro;
     if (this.id_tipolibro) {
       this.strFilteredMessage = "Listado filtrado por el tipo de producto " + this.id_tipolibro;
@@ -72,7 +74,6 @@ export class LibroComponent implements OnInit {
     ).subscribe(() => this.getPage());
   }
 
-
   getPage = () => {
     console.log("buscando...", this.strFilter);
     this.oLibroService.getPage(this.nPageSize, this.nPage, this.strFilter, this.strSortField, this.strSortDirection, this.id_tipolibro).subscribe((oPage: IPageLibro) => {
@@ -82,31 +83,9 @@ export class LibroComponent implements OnInit {
         this.strFilteredMessage = "";
       }
       this.aLibros = oPage.content;
-      //this.randomLibros = _.shuffle(this.aLibros);
       this.nTotalElements = oPage.totalElements;
       this.nTotalPages = oPage.totalPages;
       this.aPaginationBar = this.oPaginationService.pagination(this.nTotalPages, this.nPage);
-
-      function shuffle(arr: any) {
-        let currentIndex = arr.length, randomIndex;
-
-        // While there remain elements to shuffle...
-        while (currentIndex != 0) {
-
-            // Pick a remaining element...
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex--;
-
-            // And swap it with the current element.
-            [arr[currentIndex], arr[randomIndex]] = [
-            arr[randomIndex], arr[currentIndex]];
-        }
-
-        return arr;
-    }
-
-    shuffle(this.aLibros);
-
     })
   }
 
