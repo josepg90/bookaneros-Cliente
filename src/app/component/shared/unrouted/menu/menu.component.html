@@ -8,6 +8,6 @@
     <li [class.active]="strUrl=='/login'" [routerLink]="['/login']" *ngIf="!oUsuarioSession">Login</li>
     <li [class.active]="strUrl=='/logout'" [routerLink]="['/logout']" *ngIf="oUsuarioSession">Logout</li>
     <span *ngIf="oUsuarioSession"><i [ngClass]="oIconService.getIcon('usuario')"></i> 
-        <p>{{ oUsuarioSession?.login }}</p> <!--NO ME APARECE EL NOMBRE DE USUARIO-->
+        <p>{{ oUsuarioSession.login }}</p> <!--NO ME APARECE EL NOMBRE DE USUARIO-->
     </span>
 </ul>
