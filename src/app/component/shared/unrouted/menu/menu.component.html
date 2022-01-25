@@ -4,6 +4,10 @@
     <li [class.active]="strUrl=='/novedad'" [routerLink]="['/novedad']">Novedad</li>
     <li>Premios</li>
     <li>Niños</li>
-    <li [class.active]="strUrl=='/login'" [routerLink]="['/login']">Login</li>
-    <li [class.active]="strUrl=='/logout'" [routerLink]="['/logout']">Logout</li>
+    <li [class.active]="strUrl=='/#'" [routerLink]="['/#']" *ngIf="oUsuarioSession?.id==1">Dashboard</li> <!--NO ME APARECE-->
+    <li [class.active]="strUrl=='/login'" [routerLink]="['/login']" *ngIf="!oUsuarioSession">Login</li>
+    <li [class.active]="strUrl=='/logout'" [routerLink]="['/logout']" *ngIf="oUsuarioSession">Logout</li>
+    <span *ngIf="oUsuarioSession"><i [ngClass]="oIconService.getIcon('usuario')"></i> 
+        <p>{{ oUsuarioSession?.login }}</p> <!--NO ME APARECE EL NOMBRE DE USUARIO-->
+    </span>
 </ul>

@@ -9,7 +9,7 @@
             <button type="submit" class="btn btn-primary btn-block btn-large">Acceder</button>
         </div>
         <div class="centrar">
-            <button type="submit" class="btn btn-primary btn-block btn-large">Registrarse</button>
+            <button type="submit" class="btn btn-primary btn-block btn-large" [class.active]="strUrl=='/registro'" [routerLink]="['/registro']">Registrarse</button>
         </div>
         <div class="centrar">
             <button (click)="loginAdmin()" class="btn btn-primary btn-block btn-large">Jose Daw</button>

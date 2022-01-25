@@ -23,7 +23,8 @@ import { NewComponent } from './component/application/routed/libro/new/new.compo
 import { EditComponent } from './component/application/routed/libro/edit/edit.component';
 import { RemoveComponent } from './component/application/routed/libro/remove/remove.component';
 import { LibroPlistComponent } from './component/application/routed/libro/plist/libro-plist.component';
-import { LibroListaComponent } from './component/application/unrouted/libro-lista/libro-lista.component'
+import { LibroListaComponent } from './component/application/unrouted/libro-lista/libro-lista.component';
+import { RegistroComponent } from './component/shared/routed/registro/registro.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { LibroListaComponent } from './component/application/unrouted/libro-list
     EditComponent,
     RemoveComponent,
     LibroPlistComponent,
-    LibroListaComponent
+    LibroListaComponent,
+    RegistroComponent
   ],
   imports: [
     HttpClientModule,

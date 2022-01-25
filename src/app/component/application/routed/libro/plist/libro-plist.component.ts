@@ -15,10 +15,21 @@ import { PaginationService } from 'src/app/service/pagination.service';
 })
 export class LibroPlistComponent implements OnInit {
   
+  oUserSession: IUsuario;
 
-  constructor( ) { }
+  constructor(
+    private oRoute: ActivatedRoute,
+    private oRouter: Router,
+    private oPaginationService: PaginationService
+   ) {
+    if (this.oRoute.snapshot.data.message) {
+      this.oUserSession = this.oRoute.snapshot.data.message;
+      localStorage.setItem("user", JSON.stringify(this.oRoute.snapshot.data.message));
+    }
+   }
 
   ngOnInit(): void {
+    console.log(this.oUserSession);
     
   }
 

@@ -6,12 +6,14 @@ import { LogoutComponent } from './component/shared/routed/logout/logout.compone
 import { LibroViewComponent } from './component/application/routed/libro/view/libro-view.component';
 import { LibroPlistComponent } from './component/application/routed/libro/plist/libro-plist.component';
 import { NewComponent } from './component/application/routed/libro/new/new.component';
+import { RegistroComponent } from './component/shared/routed/registro/registro.component';
 
 const routes: Routes = [
   { path:'', component: HomeComponent },
   { path:'home', component: HomeComponent},
   { path:'login', component: LoginComponent},
   { path:'logout', component: LogoutComponent},
+  { path:'registro', component: RegistroComponent},
   { path:'libro/:id', component: LibroViewComponent},
   { path:'libro', component: LibroPlistComponent}
 
