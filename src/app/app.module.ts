@@ -25,6 +25,10 @@ import { RemoveComponent } from './component/application/routed/libro/remove/rem
 import { LibroPlistComponent } from './component/application/routed/libro/plist/libro-plist.component';
 import { LibroListaComponent } from './component/application/unrouted/libro-lista/libro-lista.component';
 import { RegistroComponent } from './component/shared/routed/registro/registro.component';
+import { RegistroModalComponent } from './component/shared/unrouted/registro-modal/registro-modal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule, MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,14 +45,18 @@ import { RegistroComponent } from './component/shared/routed/registro/registro.c
     RemoveComponent,
     LibroPlistComponent,
     LibroListaComponent,
-    RegistroComponent
+    RegistroComponent,
+    RegistroModalComponent
   ],
   imports: [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatCardModule
   ],
   providers: [
     SessionService,
@@ -56,7 +64,10 @@ import { RegistroComponent } from './component/shared/routed/registro/registro.c
     LibroService,
     FileService,
     IconService,
-    PaginationService
+    PaginationService,
+    { provide: MatDialogRef, useValue: {} },
+	{ provide: MAT_DIALOG_DATA, useValue: [] }
+   
   ],
   bootstrap: [AppComponent]
 })

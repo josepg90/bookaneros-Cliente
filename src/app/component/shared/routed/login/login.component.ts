@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IUsuario } from 'src/app/model/usuario-interfaces';
 import { CryptoService } from 'src/app/service/crypto.service';
 import { SessionService } from 'src/app/service/session.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { RegistroModalComponent } from '../../unrouted/registro-modal/registro-modal.component';
 
 declare var Swal: any;
 
@@ -22,6 +24,9 @@ export class LoginComponent implements OnInit {
   oForm: FormGroup;
   strUrl: String = "";
 
+  get f() {
+    return this.oForm.controls;
+  }
 
   constructor(
     private FormBuilder: FormBuilder,
@@ -29,15 +34,16 @@ export class LoginComponent implements OnInit {
     private oRouter: Router,
     private oSessionService: SessionService,
     private oUsuarioService: UsuarioService,
-    private oCryptoService: CryptoService
+    private oCryptoService: CryptoService,
+    public matDialog: MatDialog
   ) {
-    /*if (oRoute.snapshot.data.message) {
+    if (oRoute.snapshot.data.message) {
       this.oUserSession = this.oRoute.snapshot.data.message;
       localStorage.setItem("user", JSON.stringify(oRoute.snapshot.data.message));
       oRouter.navigate(['/home']);
     } else {
       localStorage.clear();
-    }*/
+    }
 
     this.formularioLogin = <FormGroup>this.FormBuilder.group({
       login: ['', [Validators.required, Validators.minLength(5)]],
@@ -112,4 +118,15 @@ export class LoginComponent implements OnInit {
     this.new();
   }
   }
+
+openModal() {
+  const dialogConfig = new MatDialogConfig();
+  // The user can't close the dialog by clicking outside its body
+  dialogConfig.disableClose = true;
+  dialogConfig.id = "modal-component";
+  dialogConfig.height = "350px";
+  dialogConfig.width = "600px";
+  // https://material.angular.io/components/dialog/overview
+  const modalDialog = this.matDialog.open(RegistroModalComponent, dialogConfig);
+}
 }
