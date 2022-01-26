@@ -22,9 +22,13 @@ export class LibroPlistComponent implements OnInit {
     private oRouter: Router,
     private oPaginationService: PaginationService
    ) {
-    if (this.oRoute.snapshot.data.message) {
-      this.oUserSession = this.oRoute.snapshot.data.message;
+    if (this.oRoute.snapshot.data['message']) {
+      this.oUserSession = this.oRoute.snapshot.data['message'];
+      console.log(this.oUserSession);
+
       localStorage.setItem("user", JSON.stringify(this.oRoute.snapshot.data.message));
+    } else {
+      localStorage.clear();
     }
    }
 

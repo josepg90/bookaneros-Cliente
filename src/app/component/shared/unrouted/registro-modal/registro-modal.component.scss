@@ -5,11 +5,27 @@
     grid-template-rows: repeat(1fr, 3);
 }
 
-#modal-title {
-    font-size: 22px;
+.registro {
+    display: flex;
+    flex-direction: column;
 }
 
-#modal-footer {
+.modal-title {
+    font-size: 22px;
+    align-self: center;
+}
+
+.modal-margin {
+    margin:10px;
+}
+
+.modal-imput {
+    //width:70%;
+    margin-bottom: 30px; 
+   
+}
+
+.modal-footer {
     justify-self: right;
     align-self: center;
 }
@@ -21,4 +37,8 @@
 
 #modal-cancel-button {
     background-color: #4e4e4e;
+}
+.modal-centrar {
+    display: flex;
+    justify-content: center
 }

@@ -7,15 +7,16 @@ import { LibroViewComponent } from './component/application/routed/libro/view/li
 import { LibroPlistComponent } from './component/application/routed/libro/plist/libro-plist.component';
 import { NewComponent } from './component/application/routed/libro/new/new.component';
 import { RegistroComponent } from './component/shared/routed/registro/registro.component';
+import { SessionResolver } from './resolver/session-resolve';
 
 const routes: Routes = [
-  { path:'', component: HomeComponent },
-  { path:'home', component: HomeComponent},
-  { path:'login', component: LoginComponent},
-  { path:'logout', component: LogoutComponent},
-  { path:'registro', component: RegistroComponent},
-  { path:'libro/:id', component: LibroViewComponent},
-  { path:'libro', component: LibroPlistComponent}
+  { path:'', component: HomeComponent, resolve: { message: SessionResolver }  },
+  { path:'home', component: HomeComponent, resolve: { message: SessionResolver }  } ,
+  { path:'login', component: LoginComponent, resolve: { message: SessionResolver } },
+  { path:'logout', component: LogoutComponent, resolve: { message: SessionResolver } },
+  { path:'registro', component: RegistroComponent, resolve: { message: SessionResolver } },
+  { path:'libro/:id', component: LibroViewComponent, resolve: { message: SessionResolver } },
+  { path:'libro', component: LibroPlistComponent, resolve: { message: SessionResolver } }
 
 ];
 

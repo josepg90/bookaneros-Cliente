@@ -1,36 +1,42 @@
 <div id="modal-content-wrapper">
     <div class="registro">
-        <h1>Registro</h1>
-        <form [formGroup]="oForm" (ngSubmit)="onSubmit()" novalidate>
-            <input type="text" formControlName="login" id="login" class="form-control" placeholder="Nombre de Usuario" required="required" [ngClass]="{'is-valid' : f.login.dirty && !(f.login.errors?.required || f.login.errors?.minlength) }">
-            <div *ngIf="f.login.dirty && f.login.errors?.required" class="text-danger">
+        <h1 class="modal-title modal-margin">Registro</h1>
+        <form class="modal-margin" [formGroup]="oForm" (ngSubmit)="onSubmit()" novalidate>
+          <div class="modal-imput">
+            <input class="modal-imput" type="text" formControlName="login" id="login" class="form-control" placeholder="Nombre de Usuario" required="required" [ngClass]="{'is-valid' : f.login.dirty && !(f.login.errors?.required || f.login.errors?.minlength) }">
+            <div class="modal-imput" *ngIf="f.login.dirty && f.login.errors?.required" class="text-danger">
               Se debe introducir un nombre
             </div>
-            <div *ngIf="f.login.dirty && f.login.errors?.minlength" class="text-danger">
+            <div class="modal-imput" *ngIf="f.login.dirty && f.login.errors?.minlength" class="text-danger">
               El nombre introducido es demasiado corto
             </div>
-            <input type="password" formControlName="password" id="password" class="form-control" placeholder="Password" required="required" [ngClass]="{'is-valid' : f.password.dirty && !(f.password.errors?.required || f.password.errors?.minlength) }">
+          </div>
+          <div class="modal-imput" class="modal-imput">
+            <input class="modal-imput" type="password" formControlName="password" id="password" class="form-control" placeholder="Password" required="required" [ngClass]="{'is-valid' : f.password.dirty && !(f.password.errors?.required || f.password.errors?.minlength) }">
             <div *ngIf="f.password.dirty && f.password.errors?.required" class="text-danger">
               Se debe introducir una contraseña
             </div>
             <div *ngIf="f.password.dirty && f.password.errors?.minlength" class="text-danger">
               La contraseña introducido es demasiado corto
             </div>
-            <input type="email" formControlName="email" id="email" class="form-control" placeholder="Correo Electrónico" required="required" [ngClass]="{'is-valid' : f.email.dirty && !(f.email.errors?.required || f.email.errors?.minlength) }">
+          </div>
+          <div class="modal-imput">
+            <input class="modal-imput" type="email" formControlName="email" id="email" class="form-control" placeholder="Correo Electrónico" required="required" [ngClass]="{'is-valid' : f.email.dirty && !(f.email.errors?.required || f.email.errors?.minlength) }">
             <div *ngIf="f.email.dirty && f.email.errors?.required" class="text-danger">
               Se debe introducir un correo de elctrónico válido
             </div>
             <div *ngIf="f.email.dirty && f.email.errors?.minlength" class="text-danger">
               El correo de elctrónico introducido es erroneo
             </div>
+          </div>
     
-            <div class="centrar">
+            <div class="modal-centrar">
                 <button type="submit" class="btn btn-primary btn-block btn-large" [disabled]="oForm.invalid || oForm.pristine">Registrarse</button>
             </div>
             
         </form>
-        <div class="centrar">
-            <button class="btn btn-primary btn-block btn-large" (click)="closeModal()">Cancelar</button>
-        </div>
+        <div class="modal-centrar">
+              <button class="btn btn-primary btn-block btn-large" (click)="closeModal()">Cancelar</button>
+            </div>
     </div>
 </div>
