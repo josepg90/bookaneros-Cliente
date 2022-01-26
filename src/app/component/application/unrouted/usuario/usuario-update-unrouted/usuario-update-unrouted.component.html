@@ -1,0 +1,78 @@
+<div id="modal-content-wrapper">
+    <div class="registro">
+        <h1 class="modal-title modal-margin">Registro</h1>
+        <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()" *ngIf="oForm">
+
+            <div class="row mb-3">
+
+                <label for="id" class="col-sm-2 col-form-label">Id</label>
+                <div class="col-sm-10">
+                    <div class="row mb-3">
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" placeholder="{{id}}">
+                        </div>
+                    </div>
+                </div>
+
+                <label for="nombre" class="col-sm-2 col-form-label">Nombre de usuario</label>
+                <div class="col-sm-10">
+                    <div class="row mb-3">
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="login" formControlName="login"
+                                [ngClass]="{'is-valid' : f.login.dirty && !(f.login.errors?.required || f.login.errors?.minlength) }">
+                            <div *ngIf="f.login.dirty && f.login.errors?.required" class="text-danger">
+                                Se debe introducir un nuevo nombre de usuario
+                            </div>
+                            <div *ngIf="f.login.dirty && f.login.errors?.minlength" class="text-danger">
+                                El nombre de usuario introducido es demasiado corto
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <label for="dni" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                    <div class="row mb-3">
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="password" formControlName="password"
+                                [ngClass]="{'is-valid' : f.password.dirty && !(f.password.errors?.required || f.password.errors?.minlength) }">
+                            <div *ngIf="f.password.dirty && f.password.errors?.required" class="text-danger">
+                                Se debe introducir un nuevo password
+                            </div>
+                            <div *ngIf="f.password.dirty && f.password.errors?.minlength" class="text-danger">
+                                El password introducido es demasiado corto
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <label for="email" class="col-sm-2 col-form-label">email</label>
+                <div class="col-sm-10">
+                    <div class="row mb-3">
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="email" formControlName="email"
+                                [ngClass]="{'is-valid' : f.email.dirty && !(f.email.errors?.required || f.email.errors?.minlength) }">
+                            <div *ngIf="f.email.dirty && f.email.errors?.required" class="text-danger">
+                                Se debe introducir un email
+                            </div>
+                            <div *ngIf="f.email.dirty && f.email.errors?.minlength" class="text-danger">
+                                El email introducido es demasiado corto
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3 justify-content-center">
+                    <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center">
+                        <button type="submit" class="btn btn-warning" [disabled]="oForm.invalid || oForm.pristine"><i
+                                [ngClass]="oIconService.getIcon('ok')"></i> Modificar
+                            el {{strTitleSingular}}</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="modal-centrar">
+            <button class="btn btn-primary btn-block btn-large" (click)="closeModal()">Cancelar</button>
+        </div>
+    </div>
+</div>

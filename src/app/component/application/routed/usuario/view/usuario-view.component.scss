@@ -1,0 +1,58 @@
+app-menu{        
+    margin: 0;
+    display: flex;
+    justify-content: center;     
+}
+.profile-view-centrado {  
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-view-interior-centrado {  
+    width:70%;
+    background-color: rgba(0,0,0,0.8);
+
+}
+
+.usuario-datos-fila {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 25px;
+
+  }
+
+  .usuario-datos-col {
+      flex: 1;
+  }
+  img {
+      margin:30px;
+  }
+
+ .imagen-usuario-centrar {      
+    display: flex;    
+    align-items: center;
+    justify-content: center;
+  }
+
+  .imagen-usuario-centrar a {
+      margin:10px 0;
+  }
+
+  label, label + div {
+      color: #fff;
+  }
+  button {
+      margin:20px 40px 0 10px;
+  }
+
+  .boton-editar-izq {
+    display: flex;    
+    align-items: center;
+    justify-content: flex-end;
+  }
+

@@ -8,6 +8,7 @@ import { LibroPlistComponent } from './component/application/routed/libro/plist/
 import { NewComponent } from './component/application/routed/libro/new/new.component';
 import { RegistroComponent } from './component/shared/routed/registro/registro.component';
 import { SessionResolver } from './resolver/session-resolve';
+import { UsuarioViewComponent } from './component/application/routed/usuario/view/usuario-view.component';
 
 const routes: Routes = [
   { path:'', component: HomeComponent, resolve: { message: SessionResolver }  },
@@ -16,7 +17,9 @@ const routes: Routes = [
   { path:'logout', component: LogoutComponent, resolve: { message: SessionResolver } },
   { path:'registro', component: RegistroComponent, resolve: { message: SessionResolver } },
   { path:'libro/:id', component: LibroViewComponent, resolve: { message: SessionResolver } },
-  { path:'libro', component: LibroPlistComponent, resolve: { message: SessionResolver } }
+  { path:'libro', component: LibroPlistComponent, resolve: { message: SessionResolver } },
+  { path:'usuario/:id', component: UsuarioViewComponent, resolve: { message: SessionResolver } }
+
 
 ];
 

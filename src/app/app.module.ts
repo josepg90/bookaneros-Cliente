@@ -29,6 +29,9 @@ import { RegistroModalComponent } from './component/shared/unrouted/registro-mod
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule, MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
+import { UsuarioViewComponent } from './component/application/routed/usuario/view/usuario-view.component';
+import { UpdateComponent } from './component/application/routed/usuario/update/update.component';
+import { UsuarioUpdateUnroutedComponent } from './component/application/unrouted/usuario/usuario-update-unrouted/usuario-update-unrouted.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +49,10 @@ import { MatCardModule } from '@angular/material/card';
     LibroPlistComponent,
     LibroListaComponent,
     RegistroComponent,
-    RegistroModalComponent
+    RegistroModalComponent,
+    UsuarioViewComponent,
+    UpdateComponent,
+    UsuarioUpdateUnroutedComponent
   ],
   imports: [
     HttpClientModule,

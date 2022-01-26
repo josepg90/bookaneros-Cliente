@@ -1,0 +1,165 @@
+<app-menu></app-menu>
+<div class="profile-view-centrado">
+<div class="profile-view-interior-centrado">
+<ul class="nav nav-tabs widget">
+    <li class="active"> <a data-toggle="tab" href="#profile-tab"> Profile <span class="menu-active"><i
+                    class="fa fa-caret-up"></i></span> </a></li>
+    <li> <a data-toggle="tab" href="#projects-tab"> Projects <span class="menu-active"><i
+                    class="fa fa-caret-up"></i></span> </a></li>
+    <li> <a data-toggle="tab" href="#photos-tab"> Photos <span class="menu-active"><i class="fa fa-caret-up"></i></span>
+        </a></li>
+    <li> <a data-toggle="tab" href="#friends-tab"> Friends <span class="menu-active"><i
+                    class="fa fa-caret-up"></i></span> </a></li>
+    <li> <a data-toggle="tab" href="#groups-tab"> Groups <span class="menu-active"><i class="fa fa-caret-up"></i></span>
+        </a></li>
+</ul>
+<div class="boton-editar-izq">
+    <button (click)="openModal(this.oUsuarioSession.id)">Editar</button>
+</div>
+
+<div class="usuario-datos-fila">
+    <div class="usuario-datos-col imagen-usuario-centrar">
+        <img height="180px" width="180px" />
+    </div>
+    <div class="usuario-datos-col">
+        <div>
+            <div class="usuario-datos-fila">                
+                <label>Nombre de usuario: </label>
+                <div class="final">{{oUsuarioSession?.login}}</div>                               
+            </div>
+        </div>
+        <div>
+            <div class="usuario-datos-fila">
+                <label>Correo Electrónico: </label>
+                <div>{{oUsuarioSession?.email}}</div>
+            </div>
+        </div>
+        <div>
+            <div class="usuario-datos-fila">
+                <label>Nombre: </label>
+                <div>{{oUsuarioSession?.email}}</div>
+            </div>
+        </div>
+        <div>
+            <div class="usuario-datos-fila">
+                <label>Apellido: </label>
+                <div>{{oUsuarioSession?.email}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="usuario-datos-col">
+        <div>
+            <div class="usuario-datos-fila">
+                <label>Fecha de nacimiento: </label>
+                <div>{{oUsuarioSession?.login}}</div>
+                
+            </div>
+        </div>
+        <div>
+            <div class="usuario-datos-fila">
+                <label>País: </label>
+                <div>{{oUsuarioSession?.email}}</div>
+            </div>
+        </div>
+        <div>
+            <div class="usuario-datos-fila">
+                <label>Intereses: </label>
+                <!-- ESTARIA BIÉN HACER UNA LISTA CON LOS INTERESES Y GUARDAR LOS QUE SELECCIONE COMO STRING-->
+                <div>{{oUsuarioSession?.email}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  <!--
+<div class="tab-content">
+    <div id="profile-tab" class="tab-pane active">
+        <div class="pd-20">
+            <div class="vd_info tr"> <a class="btn vd_btn btn-xs vd_bg-yellow"> <i class="fa fa-pencil append-icon"></i>
+                    Edit </a> </div>
+            <h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon"></i> ABOUT</h3>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="row mgbt-xs-0">
+                        <label class="col-xs-5 control-label">First Name:</label>
+                        <div class="col-xs-7 controls">Mariah</div>
+                        <!-- col-sm-10 -->
+                    <!--</div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row mgbt-xs-0">
+                        <label class="col-xs-5 control-label">Last Name:</label>
+                        <div class="col-xs-7 controls">Caraiban</div>
+                        <!-- col-sm-10 -->
+                    <!--</div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row mgbt-xs-0">
+                        <label class="col-xs-5 control-label">User Name:</label>
+                        <div class="col-xs-7 controls">Mariah</div>
+                        <!-- col-sm-10 -->
+                    <!--</div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row mgbt-xs-0">
+                        <label class="col-xs-5 control-label">Email:</label>
+                        <div class="col-xs-7 controls">mariah@Vendroid.com</div>
+                        <!-- col-sm-10 -->
+                   <!-- </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row mgbt-xs-0">
+                        <label class="col-xs-5 control-label">City:</label>
+                        <div class="col-xs-7 controls">Los Angeles</div>
+                        <!-- col-sm-10 -->
+                    <!--</div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row mgbt-xs-0">
+                        <label class="col-xs-5 control-label">Country:</label>
+                        <div class="col-xs-7 controls">United States</div>
+                        <!-- col-sm-10 -->
+                   <!-- </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row mgbt-xs-0">
+                        <label class="col-xs-5 control-label">Birthday:</label>
+                        <div class="col-xs-7 controls">Jan 22, 1984</div>
+                        <!-- col-sm-10 -->
+                   <!-- </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row mgbt-xs-0">
+                        <label class="col-xs-5 control-label">Interests:</label>
+                        <div class="col-xs-7 controls">Basketball, Web, Design, etc.</div>
+                        <!-- col-sm-10 -->
+                   <!-- </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row mgbt-xs-0">
+                        <label class="col-xs-5 control-label">Website:</label>
+                        <div class="col-xs-7 controls"><a href="http://Vendroid.venmond.com">Vendroid.venmond.com</a>
+                        </div>
+                        <!-- col-sm-10 -->
+                    <!--</div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row mgbt-xs-0">
+                        <label class="col-xs-5 control-label">Phone:</label>
+                        <div class="col-xs-7 controls">+1-234-5678</div>
+                        <!-- col-sm-10 -->
+                    <!--</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+</div>
+</div> 
+<div class="imagen-usuario-centrar">
+    <a class="btn btn-primary mx-2" [routerLink]="['/home']"><i class="fas fa-home"></i> Página
+        principal</a>
+    <a class="btn btn-primary mx-2" (click)="goBack()"><i class="fas fa-arrow-circle-left"></i> Volver </a>
+</div>
+<app-footer></app-footer>

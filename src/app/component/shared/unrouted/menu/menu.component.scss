@@ -10,7 +10,7 @@
   padding: 0 10px;
   margin: 20px;
   
-  li {
+  li, a {
     list-style: none;
     color: white;
     font-family: sans-serif;
@@ -39,5 +39,12 @@
       }
       color: black;
     }
+  }
+  i{
+    padding: 0 10px;
+  }
+  a{
+    color:#000;
+    font-size: 1.25rem;
   }
 }
