@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { SessionService } from 'src/app/service/session.service';
+import { Component, Inject, Input, OnInit, Optional } from '@angular/core';
 import { Location } from '@angular/common';
 import { IUsuario } from 'src/app/model/usuario-interfaces';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { IconService } from 'src/app/service/icon.service';
@@ -17,7 +18,7 @@ declare var Swal: any;
 })
 export class UsuarioUpdateUnroutedComponent implements OnInit {
 
-  @Input()  id: number = null;
+  id: number = null;
 
   usuario: IUsuario;
   oForm: FormGroup;
@@ -32,6 +33,7 @@ export class UsuarioUpdateUnroutedComponent implements OnInit {
   
   strResult: string = null;
   oUsuarioSession: IUsuario;
+  oUserSession: IUsuario;
   
 
   get f() {
@@ -39,14 +41,16 @@ export class UsuarioUpdateUnroutedComponent implements OnInit {
   }
 
   constructor(
-  public dialogRef: MatDialogRef<UsuarioUpdateUnroutedComponent>,
+    @Inject(MAT_DIALOG_DATA) data: any,
+    public dialogRef: MatDialogRef<UsuarioUpdateUnroutedComponent>,
     private oFormBuilder: FormBuilder,
     private oRouter: Router,
     private oRoute: ActivatedRoute,
     private oUsuarioService: UsuarioService,
     private oActivatedRoute: ActivatedRoute,
     private oLocation: Location,
-    public oIconService: IconService
+    public oIconService: IconService,
+    private oSessionService: SessionService
   ) {
     if (this.oRoute.snapshot.data.message) {
       this.strUsuarioSession = this.oRoute.snapshot.data.message;
@@ -55,13 +59,12 @@ export class UsuarioUpdateUnroutedComponent implements OnInit {
       localStorage.clear();
       oRouter.navigate(['/home']);
     }
-    this.oUsuarioSession = JSON.parse(localStorage.getItem("user"));
+    this.id = data.id;
+    //this.oUsuarioSession = JSON.parse(localStorage.getItem("user"));
     console.log(this.id);
 
     //this.id = this.oActivatedRoute.snapshot.params.id; 
-    
-    console.log(this.oUsuarioSession);
-   
+       
     this.getOne();
    }
 
@@ -125,10 +128,12 @@ export class UsuarioUpdateUnroutedComponent implements OnInit {
             }
           })
           
+      this.closeModal();
           Toast.fire({
             icon: 'success',
-            title: 'Registrado correctamente'
+            title: 'Editado correctamente'
           })
+          this.loguearUpdate();
           this.cerrar();
         } else {
           Swal.fire({
@@ -138,7 +143,28 @@ export class UsuarioUpdateUnroutedComponent implements OnInit {
           })
         }
       });
+      
   };
+
+  loguearUpdate (){
+    localStorage.clear();
+    const loginData = { login: this.oForm.value.login, password: this.oForm.value.password};
+    console.log("newLogin:onSubmit: ", loginData);
+    this.oSessionService.login(JSON.stringify(loginData)).subscribe(data2 => {
+      console.log(data2);
+      
+      localStorage.setItem("user", JSON.stringify(data2.toString()));
+      if (data2 != null) {
+        this.oRouter.navigate(['/home']);
+      } else {
+        localStorage.clear();
+      }
+    });
+    return false;
+    console.log(localStorage);
+    
+    
+  }
 
   cerrar(): void {
     this.oRouter.navigate(['/login']);
@@ -158,7 +184,7 @@ actionFunction() {
 // If the user clicks the cancel button a.k.a. the go back button, then\
 // just close the modal
 closeModal() {
-  this.dialogRef.close();
+  this.dialogRef.close({ event: 'close', data: this.id });
 }
 
 }

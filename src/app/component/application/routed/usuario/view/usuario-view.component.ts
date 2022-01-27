@@ -54,7 +54,9 @@ export class UsuarioViewComponent implements OnInit {
     dialogConfig.id = "modal-component";
     dialogConfig.height = "500px";
     dialogConfig.width = "600px";
-    this.id=id;
+    dialogConfig.data = { id: this.oUsuarioSession.id}
+    console.log(this.oUsuarioSession.id);
+    
     // https://material.angular.io/components/dialog/overview
     const modalDialog = this.matDialog.open(UsuarioUpdateUnroutedComponent, dialogConfig);
   }
