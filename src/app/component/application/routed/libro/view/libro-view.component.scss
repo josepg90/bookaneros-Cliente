@@ -3,3 +3,32 @@ app-menu{
     display: flex;
     justify-content: center;     
 }
+.libro-view-centrar {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.libro-view-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:70%;
+    padding: 10px 25px;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.6);
+    //HAY QUE CAMBIAR EL IMPORTANT, LA TABLA ESTA CON BOOTSTRAP, CAMBIAR A CSS
+    color: #fff !important;
+  }
+  .libro-view-col-1 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding:60px 40px;
+}
+.libro-view-col-3 {
+    flex: 3;
+    padding:60px 40px;
+    
+
+}

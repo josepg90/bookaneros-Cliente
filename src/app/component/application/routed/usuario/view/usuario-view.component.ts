@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { IUsuario } from 'src/app/model/usuario-interfaces';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { UsuarioUpdateUnroutedComponent } from '../../../unrouted/usuario/usuario-update-unrouted/usuario-update-unrouted.component';
+import { UsuarioDeleteUnroutedComponent } from '../../../unrouted/usuario/usuario-delete-unrouted/usuario-delete-unrouted.component';
 
 @Component({
   selector: 'app-usuario-view',
@@ -47,11 +48,11 @@ export class UsuarioViewComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openModal(id: number) {
+  openModalUpdate(id: number) {
     const dialogConfig = new MatDialogConfig();
     // The user can't close the dialog by clicking outside its body
     dialogConfig.disableClose = true;
-    dialogConfig.id = "modal-component";
+    dialogConfig.id = "modal-component-update";
     dialogConfig.height = "500px";
     dialogConfig.width = "600px";
     dialogConfig.data = { id: this.oUsuarioSession.id}
@@ -60,6 +61,21 @@ export class UsuarioViewComponent implements OnInit {
     // https://material.angular.io/components/dialog/overview
     const modalDialog = this.matDialog.open(UsuarioUpdateUnroutedComponent, dialogConfig);
   }
+
+  openModalDelete(id: number) {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component-delete";
+    dialogConfig.height = "500px";
+    dialogConfig.width = "600px";
+    dialogConfig.data = { id: this.oUsuarioSession.id}
+    console.log(this.oUsuarioSession.id);
+    
+    // https://material.angular.io/components/dialog/overview
+    const modalDialog = this.matDialog.open(UsuarioDeleteUnroutedComponent, dialogConfig);
+  }
+
 
   goBack() {
     this.oLocation.back();

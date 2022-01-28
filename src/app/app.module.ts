@@ -32,6 +32,7 @@ import { MatCardModule } from '@angular/material/card';
 import { UsuarioViewComponent } from './component/application/routed/usuario/view/usuario-view.component';
 import { UpdateComponent } from './component/application/routed/usuario/update/update.component';
 import { UsuarioUpdateUnroutedComponent } from './component/application/unrouted/usuario/usuario-update-unrouted/usuario-update-unrouted.component';
+import { UsuarioDeleteUnroutedComponent } from './component/application/unrouted/usuario/usuario-delete-unrouted/usuario-delete-unrouted.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +53,8 @@ import { UsuarioUpdateUnroutedComponent } from './component/application/unrouted
     RegistroModalComponent,
     UsuarioViewComponent,
     UpdateComponent,
-    UsuarioUpdateUnroutedComponent
+    UsuarioUpdateUnroutedComponent,
+    UsuarioDeleteUnroutedComponent
   ],
   imports: [
     HttpClientModule,

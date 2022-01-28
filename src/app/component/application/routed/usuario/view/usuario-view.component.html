@@ -14,7 +14,10 @@
         </a></li>
 </ul>
 <div class="boton-editar-izq">
-    <button (click)="openModal(this.oUsuarioSession.id)">Editar</button>
+    <button id="modal-component-update" (click)="openModalUpdate(this.oUsuarioSession.id)">Editar Usuario {{oUsuarioSession?.login}}</button>
+</div>
+<div class="boton-editar-izq">
+    <button id="modal-component-delete" (click)="openModalDelete(this.oUsuarioSession.id)">Eliminar Usuario {{oUsuarioSession?.login}}</button>
 </div>
 
 <div class="usuario-datos-fila">

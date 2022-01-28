@@ -1,0 +1,56 @@
+<div id="modal-content-wrapper">
+    <div class="registro">
+        <h1 class="modal-title modal-margin">Eliminar Usuario</h1>
+        <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()" *ngIf="oForm">
+
+            <div class="row mb-3">
+
+                <label for="id" class="col-sm-2 col-form-label">Id</label>
+                <div class="col-sm-10">
+                    <div class="row mb-3">
+                        <div class="col-sm-10">
+                            <input class="form-control" type="text" placeholder="{{id}}" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <label for="nombre" class="col-sm-2 col-form-label">Nombre de usuario</label>
+                <div class="col-sm-10">
+                    <div class="row mb-3">
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="login" formControlName="login" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <label for="dni" class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                    <div class="row mb-3">
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="password" formControlName="password" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <label for="email" class="col-sm-2 col-form-label">email</label>
+                <div class="col-sm-10">
+                    <div class="row mb-3">
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="email" formControlName="email" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3 justify-content-center">
+                    <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center">
+                        <button type="submit" class="btn btn-warning"><i
+                                [ngClass]="oIconService.getIcon('ok')"></i> Eliminar {{strTitleSingular}}</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="modal-centrar">
+            <button class="btn btn-primary btn-block btn-large" (click)="closeModal()">Cancelar</button>
+        </div>
+    </div>
+</div>
