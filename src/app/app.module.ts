@@ -17,9 +17,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SessionService } from './service/session.service';
 import { SessionResolver } from './resolver/session-resolve';
-import { LibroComponent } from './component/application/unrouted/libro/libro.component';
+import { LibroComponent } from './component/application/unrouted/libro/libro-carousel/libro.component';
 import { LibroViewComponent } from './component/application/routed/libro/view/libro-view.component';
-import { NewComponent } from './component/application/routed/libro/new/new.component';
+import { LibroNewComponent } from './component/application/routed/libro/new/libro-new.component';
 import { EditComponent } from './component/application/routed/libro/edit/edit.component';
 import { RemoveComponent } from './component/application/routed/libro/remove/remove.component';
 import { LibroPlistComponent } from './component/application/routed/libro/plist/libro-plist.component';
@@ -33,6 +33,13 @@ import { UsuarioViewComponent } from './component/application/routed/usuario/vie
 import { UpdateComponent } from './component/application/routed/usuario/update/update.component';
 import { UsuarioUpdateUnroutedComponent } from './component/application/unrouted/usuario/usuario-update-unrouted/usuario-update-unrouted.component';
 import { UsuarioDeleteUnroutedComponent } from './component/application/unrouted/usuario/usuario-delete-unrouted/usuario-delete-unrouted.component';
+import { DashboardComponent } from './component/application/routed/dashboard/dashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { LayoutModule } from '@angular/cdk/layout';
+import { LibroNewUnroutedComponent } from './component/application/unrouted/libro/libro-new-unrouted/libro-new-unrouted.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +51,7 @@ import { UsuarioDeleteUnroutedComponent } from './component/application/unrouted
     FooterComponent,
     LibroComponent,
     LibroViewComponent,
-    NewComponent,
+    LibroNewComponent,
     EditComponent,
     RemoveComponent,
     LibroPlistComponent,
@@ -54,7 +61,9 @@ import { UsuarioDeleteUnroutedComponent } from './component/application/unrouted
     UsuarioViewComponent,
     UpdateComponent,
     UsuarioUpdateUnroutedComponent,
-    UsuarioDeleteUnroutedComponent
+    UsuarioDeleteUnroutedComponent,
+    DashboardComponent,
+    LibroNewUnroutedComponent
   ],
   imports: [
     HttpClientModule,
@@ -64,7 +73,12 @@ import { UsuarioDeleteUnroutedComponent } from './component/application/unrouted
     AppRoutingModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    MatGridListModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    LayoutModule
   ],
   providers: [
     SessionService,

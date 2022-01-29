@@ -5,10 +5,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { LogoutComponent } from './component/shared/routed/logout/logout.component';
 import { LibroViewComponent } from './component/application/routed/libro/view/libro-view.component';
 import { LibroPlistComponent } from './component/application/routed/libro/plist/libro-plist.component';
-import { NewComponent } from './component/application/routed/libro/new/new.component';
+import { LibroNewComponent } from './component/application/routed/libro/new/libro-new.component';
 import { RegistroComponent } from './component/shared/routed/registro/registro.component';
 import { SessionResolver } from './resolver/session-resolve';
 import { UsuarioViewComponent } from './component/application/routed/usuario/view/usuario-view.component';
+import { DashboardComponent } from './component/application/routed/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path:'', component: HomeComponent, resolve: { message: SessionResolver }  },
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path:'registro', component: RegistroComponent, resolve: { message: SessionResolver } },
   { path:'libro/:id', component: LibroViewComponent, resolve: { message: SessionResolver } },
   { path:'libro', component: LibroPlistComponent, resolve: { message: SessionResolver } },
-  { path:'usuario/:id', component: UsuarioViewComponent, resolve: { message: SessionResolver } }
+  { path:'usuario/:id', component: UsuarioViewComponent, resolve: { message: SessionResolver } },
+  { path:'dashboard', component: DashboardComponent, resolve: { message: SessionResolver } },
 
 
 ];
