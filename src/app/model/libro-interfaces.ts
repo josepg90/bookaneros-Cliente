@@ -19,7 +19,7 @@ export interface ILibro2Send {
     codigo: number,
     titulo: string,
     autor: string,
-    fecha_publicacion: IFecha,
+    fecha_publicacion: string,
     resumen: string,
     imagen: number,
     paginas: number,

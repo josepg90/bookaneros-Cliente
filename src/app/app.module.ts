@@ -40,6 +40,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { LibroNewUnroutedComponent } from './component/application/unrouted/libro/libro-new-unrouted/libro-new-unrouted.component';
+import { TipolibroNewUnroutedComponent } from './component/application/unrouted/tipolibro/tipolibro-new-unrouted/tipolibro-new-unrouted.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +64,8 @@ import { LibroNewUnroutedComponent } from './component/application/unrouted/libr
     UsuarioUpdateUnroutedComponent,
     UsuarioDeleteUnroutedComponent,
     DashboardComponent,
-    LibroNewUnroutedComponent
+    LibroNewUnroutedComponent,
+    TipolibroNewUnroutedComponent
   ],
   imports: [
     HttpClientModule,

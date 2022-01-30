@@ -10,7 +10,6 @@ import { IconService } from 'src/app/service/icon.service';
 
 declare var Swal: any;
 
-
 @Component({
   selector: 'app-usuario-update-unrouted',
   templateUrl: './usuario-update-unrouted.component.html',
