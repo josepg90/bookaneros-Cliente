@@ -1,89 +1,129 @@
 <app-menu></app-menu>
 
-<div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile [colspan]="( cardLayout | async )?.largo.cols" [rowspan]="( cardLayout | async )?.largo.rows">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
-            
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="( cardLayout | async )?.new_libro.cols" [rowspan]="( cardLayout | async )?.new_libro.rows">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
-            <app-libro-new-unrouted></app-libro-new-unrouted>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="( cardLayout | async )?.alto.cols" [rowspan]="( cardLayout | async )?.alto.rows">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
-            
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="( cardLayout | async )?.new_genero.cols" [rowspan]="( cardLayout | async )?.new_genero.rows">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
-          <app-tipolibro-new-unrouted></app-tipolibro-new-unrouted>  
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+<div class="contenedor">
+  <!--Se puede hacer por nth-child i no con tanta clase-->
+  <nav>
+    <ul>
+      <li><a href="#" class="boton">
+          <div class="cuadrado-contenido-posicion">
+            <div class="cuadrado-contenido-posicion"><i class="far fa-file-alt"></i></div>
+            <div class="cuadrado-contenido-posicion"><span>Añadir</span></div>
+          </div>
+        </a></li>
+      <li><a href="#" class="boton">
+          <div class="cuadrado-contenido-posicion">
+            <div class="cuadrado-contenido-posicion"><i class="fas fa-edit"></i></div>
+            <div class="cuadrado-contenido-posicion"><span>Actualizar</span></div>
+          </div>
+        </a></li>
+      <li><a href="#" class="boton">
+          <div class="cuadrado-contenido-posicion">
+            <div class="cuadrado-contenido-posicion"><i class="far fa-chart-bar"></i></div>
+            <div class="cuadrado-contenido-posicion"><span>Gráficos</span></div>
+          </div>
+        </a></li>
+      <li><a href="#" class="boton">
+          <div class="cuadrado-contenido-posicion">
+            <div class="cuadrado-contenido-posicion"><i class="fas fa-biohazard"></i></div>
+            <div class="cuadrado-contenido-posicion"><span>Ni idea</span></div>
+          </div>
+        </a></li>
+      <li><a href="#" class="boton">
+          <div class="cuadrado-contenido-posicion">
+            <div class="cuadrado-contenido-posicion"><i class="fas fa-biohazard"></i></div>
+            <div class="cuadrado-contenido-posicion"><span>Ni idea2</span></div>
+          </div>
+        </a></li>
+    </ul>
+  </nav>
+
+  <div class="grid-container">
+    <h1 class="mat-h1">Dashboard</h1>
+    <mat-grid-list cols="2" rowHeight="350px">
+      <mat-grid-tile [colspan]="( cardLayout | async )?.largo.cols" [rowspan]="( cardLayout | async )?.largo.rows">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+
+              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu" xPosition="before">
+                <button mat-menu-item>Expand</button>
+                <button mat-menu-item>Remove</button>
+              </mat-menu>
+
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>Card Content Here</div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="( cardLayout | async )?.new_libro.cols"
+        [rowspan]="( cardLayout | async )?.new_libro.rows">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+
+              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu" xPosition="before">
+                <button mat-menu-item>Expand</button>
+                <button mat-menu-item>Remove</button>
+              </mat-menu>
+              <app-libro-new-unrouted></app-libro-new-unrouted>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>Card Content Here</div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="( cardLayout | async )?.alto.cols" [rowspan]="( cardLayout | async )?.alto.rows">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+
+              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu" xPosition="before">
+                <button mat-menu-item>Expand</button>
+                <button mat-menu-item>Remove</button>
+              </mat-menu>
+
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>Card Content Here</div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="( cardLayout | async )?.new_genero.cols"
+        [rowspan]="( cardLayout | async )?.new_genero.rows">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+
+              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu" xPosition="before">
+                <button mat-menu-item>Expand</button>
+                <button mat-menu-item>Remove</button>
+              </mat-menu>
+              <app-tipolibro-new-unrouted></app-tipolibro-new-unrouted>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>Card Content Here</div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
 </div>
 
 <app-footer></app-footer>
