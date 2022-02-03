@@ -1,3 +1,4 @@
+import { TipolibroPlistUnroutedComponent } from './../../tipolibro/tipolibro-plist-unrouted/tipolibro-plist-unrouted.component';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -7,7 +8,8 @@ import { Location } from '@angular/common';
 import { ITipoLibro } from 'src/app/model/tipolibro-interfaces';
 import { IUsuario } from 'src/app/model/usuario-interfaces';
 import { ILibro, ILibro2Send } from 'src/app/model/libro-interfaces';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+
 
 declare let $: any;
 declare var Swal: any;
@@ -28,19 +30,21 @@ export class LibroNewUnroutedComponent implements OnInit {
   strResult: string = null;
   oTipoLibro: ITipoLibro;
   oUserSession: IUsuario;
+  oLibro2Keep: ILibro2Send;
 
   get f() {
     return this.oForm.controls;
   }
 
   constructor(
-    public dialogRef: MatDialogRef<LibroNewUnroutedComponent>,
     private oFormBuilder: FormBuilder,
     private oRoute: ActivatedRoute,
     private oRouter: Router,
     private oProductoService: LibroService,
     private oLocation: Location,
-    public oIconService: IconService
+    public oIconService: IconService,
+    public matDialog: MatDialog
+
   ) {
     if (this.oRoute.snapshot.data.message) {
       this.oUserSession = this.oRoute.snapshot.data.message;
@@ -62,6 +66,7 @@ export class LibroNewUnroutedComponent implements OnInit {
       paginas: [''],
       novedad: [''],
       tipolibro: ['', Validators.required],
+      genero: ['']
     });
     $('#fecha_publicacion').datetimepicker({
       defaultDate: "+1w",
@@ -102,7 +107,6 @@ export class LibroNewUnroutedComponent implements OnInit {
     this.oProductoService
       .newOne(this.oLibro2Send)
       .subscribe((oLibro: ILibro) => {
-        console.log('dentro de new');
         if (oLibro.id) {
           this.id = oLibro.id;
           const Toast = Swal.mixin({
@@ -140,7 +144,70 @@ export class LibroNewUnroutedComponent implements OnInit {
   }
 
   cerrar(): void {
-    this.oRouter.navigate(['/dashboard']);
+    this.oRouter.navigate(['/libro/'+ this.id]);
+  }
+
+  onChangeProducto($event: any) {
+
+    console.log("--->" + this.oForm.controls['tipolibro'].value);
+    this.oForm.controls['tipolibro'].markAsDirty();
+
+    
+
+    //actualizar el usuario
+    this.oProductoService
+      .get(this.oForm.controls['tipolibro'].value)
+      .subscribe((oData: ILibro) => {
+        this.oLibro2Send.tipolibro = oData;
+        //this.oUsuario = oData;
+      });
+
+    return false;
+  }
+
+  openModal() {
+    this.oLibro2Keep = {
+      id: null,
+      codigo: this.oForm.value.codigo,
+      titulo: this.oForm.value.titulo,
+      autor: this.oForm.value.autor,
+      fecha_publicacion: this.oForm.value.fecha_publicacion,
+      resumen: this.oForm.value.resumen,
+      imagen: this.oForm.value.imagen,
+      paginas: this.oForm.value.paginas,
+      novedad: this.oForm.value.novedad,
+      tipolibro: null,
+    };
+    console.log(this.oLibro2Keep);
+
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.height = "500px";
+    dialogConfig.width = "600px";
+    // https://material.angular.io/components/dialog/overview
+    const modalDialog = this.matDialog.open(TipolibroPlistUnroutedComponent, dialogConfig);
+
+    modalDialog.afterClosed().subscribe(res => {
+      console.log(res.data);
+      console.log(res.data2);
+      
+
+      this.oForm = this.oFormBuilder.group({
+        codigo: [this.oLibro2Keep.codigo],
+        titulo: [this.oLibro2Keep.titulo],
+        autor: [this.oLibro2Keep.autor],
+        fecha_publicacion: [this.oLibro2Keep.fecha_publicacion],
+        resumen: [this.oLibro2Keep.resumen],
+        imagen: [this.oLibro2Keep.imagen],
+        paginas: [this.oLibro2Keep.paginas],
+        novedad: [this.oLibro2Keep.novedad],
+        tipolibro: [res.data, Validators.required],
+        genero: [res.data2]
+      });
+      
+    })
   }
 
 }

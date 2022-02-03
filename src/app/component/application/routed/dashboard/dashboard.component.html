@@ -4,40 +4,41 @@
   <!--Se puede hacer por nth-child i no con tanta clase-->
   <nav>
     <ul>
-      <li><a href="#" class="boton">
+      <li class="boton" (click)="this.opcion=0">
           <div class="cuadrado-contenido-posicion">
             <div class="cuadrado-contenido-posicion"><i class="far fa-file-alt"></i></div>
             <div class="cuadrado-contenido-posicion"><span>Añadir</span></div>
           </div>
-        </a></li>
-      <li class="boton">
+      </li>
+      <li class="boton" (click)="this.opcion=1">
           <div class="cuadrado-contenido-posicion">
             <div class="cuadrado-contenido-posicion"><i class="fas fa-edit"></i></div>
             <div class="cuadrado-contenido-posicion"><span>Actualizar</span></div>
           </div>
         </li>
-      <li><a href="#" class="boton">
+      <li class="boton" (click)="this.opcion=2">
           <div class="cuadrado-contenido-posicion">
             <div class="cuadrado-contenido-posicion"><i class="far fa-chart-bar"></i></div>
             <div class="cuadrado-contenido-posicion"><span>Gráficos</span></div>
           </div>
-        </a></li>
-      <li><a href="#" class="boton">
+      </li>
+      <li class="boton" (click)="this.opcion=3">
+          <div class="cuadrado-contenido-posicion">
+            <div class="cuadrado-contenido-posicion"><i class="fas fa-biohazard"></i></div>
+            <div class="cuadrado-contenido-posicion"><span>Peticiones</span></div>
+          </div>
+      </li>
+      <li class="boton" (click)="this.opcion=4">
           <div class="cuadrado-contenido-posicion">
             <div class="cuadrado-contenido-posicion"><i class="fas fa-biohazard"></i></div>
             <div class="cuadrado-contenido-posicion"><span>Ni idea</span></div>
           </div>
-        </a></li>
-      <li><a href="#" class="boton">
-          <div class="cuadrado-contenido-posicion">
-            <div class="cuadrado-contenido-posicion"><i class="fas fa-biohazard"></i></div>
-            <div class="cuadrado-contenido-posicion"><span>Ni idea2</span></div>
-          </div>
-        </a></li>
+      </li>
     </ul>
   </nav>
 
-  <div class="grid-container">
+  <!--Sección New-->
+  <div class="grid-container" *ngIf="opcion==0">
     <h1 class="mat-h1">Dashboard</h1>
     <mat-grid-list cols="2" rowHeight="350px">
       <mat-grid-tile [colspan]="( cardLayout | async )?.largo.cols" [rowspan]="( cardLayout | async )?.largo.rows">
@@ -124,6 +125,11 @@
       </mat-grid-tile>
     </mat-grid-list>
   </div>
+</div>
+
+<!--Sección Update-->
+<div *ngIf="opcion==1">
+  <app-libro-lista></app-libro-lista>
 </div>
 
 <app-footer></app-footer>

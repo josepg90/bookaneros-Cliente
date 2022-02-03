@@ -43,6 +43,24 @@
     justify-content: center;
   }
 
+  img + div{
+    background-color: #fff;
+    position:absolute;
+    width:90px;
+    height: 25px;
+    //border-radius: 10px;
+    right:42px;
+    top:80px;
+    font-size: 1rem;
+    color: #ff7171;
+    border: 1px solid #ff7171;
+    align-items: center;
+  }
+  span {
+    margin: 0 auto;
+    height: fit-content;
+  }
+
   /*--Carousel-->*/
   body {
     padding-top: 20px;

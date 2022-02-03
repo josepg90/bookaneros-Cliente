@@ -29,7 +29,7 @@ export class LibroComponent implements OnInit {
   nTotalElements: number;
   nTotalPages: number;
   nPage: number;
-  nPageSize: number = 10;
+  nPageSize: number = 20;
   strResult: string = null;
   strFilter: string = "";
   strSortField: string = "";

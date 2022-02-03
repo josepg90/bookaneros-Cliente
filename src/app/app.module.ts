@@ -41,6 +41,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { LibroNewUnroutedComponent } from './component/application/unrouted/libro/libro-new-unrouted/libro-new-unrouted.component';
 import { TipolibroNewUnroutedComponent } from './component/application/unrouted/tipolibro/tipolibro-new-unrouted/tipolibro-new-unrouted.component';
+import { PeticionesComponent } from './component/application/routed/peticiones/peticiones.component';
+import { TipolibroPlistUnroutedComponent } from './component/application/unrouted/tipolibro/tipolibro-plist-unrouted/tipolibro-plist-unrouted.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +67,9 @@ import { TipolibroNewUnroutedComponent } from './component/application/unrouted/
     UsuarioDeleteUnroutedComponent,
     DashboardComponent,
     LibroNewUnroutedComponent,
-    TipolibroNewUnroutedComponent
+    TipolibroNewUnroutedComponent,
+    PeticionesComponent,
+    TipolibroPlistUnroutedComponent
   ],
   imports: [
     HttpClientModule,

@@ -69,10 +69,17 @@ export class LoginComponent implements OnInit {
     return false;
   }
 
-  loginAdmin() {
+  loginUser() {
     this.formularioLogin.setValue({
       login: "josedaw",
       password: "josedaw"
+    })
+  }
+
+  loginAdmin() {
+    this.formularioLogin.setValue({
+      login: "admin",
+      password: "admin"
     })
   }
   
