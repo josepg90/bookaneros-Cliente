@@ -1,4 +1,4 @@
-import { IPageLibro } from './../../../../model/libro-interfaces';
+import { IPageLibro } from '../../../../../model/libro-interfaces';
 import { Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -7,18 +7,18 @@ import { ILibro } from 'src/app/model/libro-interfaces';
 import { IUsuario } from 'src/app/model/usuario-interfaces';
 import { LibroService } from 'src/app/service/libro.service';
 import { PaginationService } from 'src/app/service/pagination.service';
+import { IconService } from 'src/app/service/icon.service';
+import { TipolibroPlistUnroutedComponent } from '../../tipolibro/tipolibro-plist-unrouted/tipolibro-plist-unrouted.component';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-libro',
-  templateUrl: './libro.component.html',
-  styleUrls: ['./libro.component.scss']
+  selector: 'app-libro-card',
+  templateUrl: './libro-card.component.html',
+  styleUrls: ['./libro-card.component.scss']
 })
-export class LibroComponent implements OnInit {
+export class LibroCardComponent implements OnInit {
   
-  @Input() id_tipolibro: number = null;
-  @Input() mode: boolean = true; //true=edición; false=selección
-  @Output() selection = new EventEmitter<number>();
-  @ContentChild(TemplateRef) toolTemplate: TemplateRef<any>;
 
   strEntity: string = "libro"
   strOperation: string = "plist"
@@ -39,13 +39,22 @@ export class LibroComponent implements OnInit {
   subjectFiltro$ = new Subject();
   barraPaginacion: string[];
   randomLibros: ILibro[];
+  oForm: FormGroup = null;
+  genero: number | string;
+  id_tipolibro: number;
 
+  get f() {
+    return this.oForm.controls;
+  }
 
   constructor(
+    private oFormBuilder: FormBuilder,
     private oRoute: ActivatedRoute,
     private oRouter: Router,
     private oPaginationService: PaginationService,
-    private oLibroService: LibroService
+    private oLibroService: LibroService,
+    public oIconService: IconService,
+    public matDialog: MatDialog
   ) {
 
     if (this.oRoute.snapshot.data.message) {
@@ -55,12 +64,7 @@ export class LibroComponent implements OnInit {
       localStorage.clear();
       oRouter.navigate(['/home']);
     }
-    this.id_tipolibro = this.oRoute.snapshot.params.id_tipolibro;
-    if (this.id_tipolibro) {
-      this.strFilteredMessage = "Listado filtrado por el tipo de producto " + this.id_tipolibro;
-    } else {
-      this.strFilteredMessage = "";
-    }
+    
 
     this.nPage = 1;
     this.getPage();
@@ -74,7 +78,9 @@ export class LibroComponent implements OnInit {
 
 
   getPage = () => {
+    
     console.log("buscando...", this.strFilter);
+
     this.oLibroService.getPage(this.nPageSize, this.nPage, this.strFilter, this.strSortField, this.strSortDirection, this.id_tipolibro).subscribe((oPage: IPageLibro) => {
       if (this.strFilter) {
         this.strFilteredMessage = "Listado filtrado: " + this.strFilter;
@@ -86,6 +92,8 @@ export class LibroComponent implements OnInit {
       this.nTotalElements = oPage.totalElements;
       this.nTotalPages = oPage.totalPages;
       this.aPaginationBar = this.oPaginationService.pagination(this.nTotalPages, this.nPage);
+
+      console.log(this.id_tipolibro);
 
       function shuffle(arr: any) {
         let currentIndex = arr.length, randomIndex;
@@ -109,8 +117,6 @@ export class LibroComponent implements OnInit {
 
     })
   }
-
-
 
   jumpToPage = () => {
     this.getPage();
@@ -138,9 +144,28 @@ export class LibroComponent implements OnInit {
     this.getPage();
   }
 
-  onSelection(id: number) {
-    console.log("selection plist emite " + id);
-    this.selection.emit(id);
+
+  openModal() {
+
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.height = "500px";
+    dialogConfig.width = "600px";
+    // https://material.angular.io/components/dialog/overview
+    const modalDialog = this.matDialog.open(TipolibroPlistUnroutedComponent, dialogConfig);
+
+    modalDialog.afterClosed().subscribe(res => {
+      console.log(res.data);
+      console.log(res.data2);
+
+      this.genero= res.data2;
+      this.id_tipolibro= res.data;
+
+      this.getPage();
+      
+    })
   }
 
 }

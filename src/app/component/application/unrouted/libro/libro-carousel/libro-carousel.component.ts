@@ -9,11 +9,11 @@ import { LibroService } from 'src/app/service/libro.service';
 import { PaginationService } from 'src/app/service/pagination.service';
 
 @Component({
-  selector: 'app-libro',
-  templateUrl: './libro.component.html',
-  styleUrls: ['./libro.component.scss']
+  selector: 'app-libro-carousel',
+  templateUrl: './libro-carousel.component.html',
+  styleUrls: ['./libro-carousel.component.scss']
 })
-export class LibroComponent implements OnInit {
+export class LibroCarouselComponent implements OnInit {
   
   @Input() id_tipolibro: number = null;
   @Input() mode: boolean = true; //true=edición; false=selección

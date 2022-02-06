@@ -17,7 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SessionService } from './service/session.service';
 import { SessionResolver } from './resolver/session-resolve';
-import { LibroComponent } from './component/application/unrouted/libro/libro-carousel/libro.component';
+import { LibroCarouselComponent } from './component/application/unrouted/libro/libro-carousel/libro-carousel.component';
 import { LibroViewComponent } from './component/application/routed/libro/view/libro-view.component';
 import { LibroNewComponent } from './component/application/routed/libro/new/libro-new.component';
 import { EditComponent } from './component/application/routed/libro/edit/edit.component';
@@ -43,6 +43,8 @@ import { LibroNewUnroutedComponent } from './component/application/unrouted/libr
 import { TipolibroNewUnroutedComponent } from './component/application/unrouted/tipolibro/tipolibro-new-unrouted/tipolibro-new-unrouted.component';
 import { PeticionesComponent } from './component/application/routed/peticiones/peticiones.component';
 import { TipolibroPlistUnroutedComponent } from './component/application/unrouted/tipolibro/tipolibro-plist-unrouted/tipolibro-plist-unrouted.component';
+import { LibroCardComponent } from './component/application/unrouted/libro/libro-card/libro-card.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +54,7 @@ import { TipolibroPlistUnroutedComponent } from './component/application/unroute
     MenuComponent,
     HeaderComponent,
     FooterComponent,
-    LibroComponent,
+    LibroCarouselComponent,
     LibroViewComponent,
     LibroNewComponent,
     EditComponent,
@@ -69,7 +71,8 @@ import { TipolibroPlistUnroutedComponent } from './component/application/unroute
     LibroNewUnroutedComponent,
     TipolibroNewUnroutedComponent,
     PeticionesComponent,
-    TipolibroPlistUnroutedComponent
+    TipolibroPlistUnroutedComponent,
+    LibroCardComponent
   ],
   imports: [
     HttpClientModule,

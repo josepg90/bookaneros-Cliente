@@ -29,16 +29,16 @@ import { API_URL, httpOptions } from "src/environments/environment";
       return this.http.put<ILibro>(this.sURL + "/", oLibro, httpOptions);
     }
   
-    getPage(rpp: number, page: number, filter: string, order: string, direction: string, tipoproducto: number): Observable<IPageLibro> {
+    getPage(rpp: number, page: number, filter: string, order: string, direction: string, tipolibro: number): Observable<IPageLibro> {
       let strOrderUrl: string = "";
       if (order) {
         strOrderUrl += "&sort=" + order + "," + direction;
       }
-      if (filter) {
+      if (filter!=null) {
         strOrderUrl += "&filter=" + filter;
       }
-      if (tipoproducto) {
-        strOrderUrl += "&tipoproducto=" + tipoproducto;
+      if (tipolibro) {
+        strOrderUrl += "&tipolibro=" + tipolibro;
       }
       return this.http.get<IPageLibro>(this.sURL + "?page=" + (page - 1) + "&size=" + rpp + strOrderUrl, httpOptions);
     }
