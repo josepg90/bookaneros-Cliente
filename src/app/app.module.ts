@@ -44,6 +44,7 @@ import { TipolibroNewUnroutedComponent } from './component/application/unrouted/
 import { PeticionesComponent } from './component/application/routed/peticiones/peticiones.component';
 import { TipolibroPlistUnroutedComponent } from './component/application/unrouted/tipolibro/tipolibro-plist-unrouted/tipolibro-plist-unrouted.component';
 import { LibroCardComponent } from './component/application/unrouted/libro/libro-card/libro-card.component';
+import { StarRateComponent } from './component/shared/unrouted/star-rate/star-rate.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { LibroCardComponent } from './component/application/unrouted/libro/libro
     TipolibroNewUnroutedComponent,
     PeticionesComponent,
     TipolibroPlistUnroutedComponent,
-    LibroCardComponent
+    LibroCardComponent,
+    StarRateComponent
   ],
   imports: [
     HttpClientModule,

@@ -43,6 +43,8 @@
               <a class="btn btn-primary mx-2" [routerLink]="['/home']"> Página principal</a>
               <a class="btn btn-primary mx-2" (click)="goBack()"> Volver
               </a>
+              <button type="button" class="btn btn-dark"
+                                (click)="print(oLibro?.id)"><i class="fas fa-print"></i></button>
             </div>
       
           </div>

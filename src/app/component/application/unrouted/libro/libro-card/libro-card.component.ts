@@ -29,7 +29,7 @@ export class LibroCardComponent implements OnInit {
   nTotalElements: number;
   nTotalPages: number;
   nPage: number;
-  nPageSize: number = 10;
+  nPageSize: number = 20;
   strResult: string = null;
   strFilter: string = "";
   strSortField: string = "";
@@ -42,6 +42,7 @@ export class LibroCardComponent implements OnInit {
   oForm: FormGroup = null;
   genero: number | string;
   id_tipolibro: number;
+  applyClass: string;
 
   get f() {
     return this.oForm.controls;
