@@ -1,57 +1,65 @@
 <app-menu></app-menu>
 
 <div class="libro-view-centrar">
-<div class="libro-view-row">
-    <div class="libro-view-col-1">
-        <img mat-card-image [src]="'http://localhost:8082/file/' + oLibro?.imagen" height="400px" width="300px" />
-    </div>
-    <div class="libro-view-col-3">
-        <table class="table table-striped">
-            <tbody>
-                <tr>
-                    <th>Titulo</th>
-                    <td>{{oLibro?.titulo}}</td>
-                </tr>
-                <tr>
-                    <th>Autor</th>
-                    <td>{{oLibro?.autor}}</td>
-                </tr>
-                <tr>
-                    <th>Codigo</th>
-                    <td>{{oLibro?.codigo}}</td>
-                </tr>             
-                <tr>
-                    <th>Paginas</th>
-                    <td>{{oLibro?.paginas}}</td>
-                </tr>                
-                <tr>
-                    <th>Género</th>
-                    <td>{{oLibro?.tipolibro.genero}}</td>
-                </tr>
-                <tr>                    
-                    <th>Resumen</th>
-                    <td>{{oLibro?.resumen}}</td>
-                </tr>
-
-            </tbody>
-        </table>
-
-        <div class="row justify-content-center">
-            
-      
-            <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center mt-5">
-              <a class="btn btn-primary mx-2" [routerLink]="['/home']"> Página principal</a>
-              <a class="btn btn-primary mx-2" (click)="goBack()"> Volver
-              </a>
-              <button type="button" class="btn btn-dark"
-                                (click)="print(oLibro?.id)"><i class="fas fa-print"></i></button>
+    <div class="libro-view-row">
+        <div class="libro-view-col-1">
+            <div class="libro-view-col-1-img">
+                <img mat-card-image [src]="'http://localhost:8082/file/' + oLibro?.imagen" height="400px"
+                    width="300px" />
+                <app-star-rate></app-star-rate>
             </div>
-      
-          </div>
+        </div>
+        <div class="libro-view-col-3">
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th>Titulo</th>
+                        <td>{{oLibro?.titulo}}</td>
+                    </tr>
+                    <tr>
+                        <th>Autor</th>
+                        <td>{{oLibro?.autor}}</td>
+                    </tr>
+                    <tr>
+                        <th>Codigo</th>
+                        <td>{{oLibro?.codigo}}</td>
+                    </tr>
+                    <tr>
+                        <th>Paginas</th>
+                        <td>{{oLibro?.paginas}}</td>
+                    </tr>
+                    <tr>
+                        <th>Género</th>
+                        <td>{{oLibro?.tipolibro.genero}}</td>
+                    </tr>
+                    <tr>
+                        <th>Resumen</th>
+                        <td>{{oLibro?.resumen}}</td>
+                    </tr>
+                    <tr>
+                        <th>Valoración</th>
+                        <td><i class="fa fa-star"></i></td>
+                    </tr>
+
+                </tbody>
+            </table>
+            
+            <div class="row justify-content-center">
 
 
+                <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center mt-5">
+                    <a class="btn btn-primary mx-2" [routerLink]="['/home']"> Página principal</a>
+                    <a class="btn btn-primary mx-2" (click)="goBack()"> Volver
+                    </a>
+                    <button type="button" class="btn btn-dark" (click)="print(oLibro?.id)"><i
+                            class="fas fa-print"></i></button>
+                </div>
+
+            </div>
+
+
+        </div>
     </div>
-</div>
 </div>
 
 <app-footer></app-footer>

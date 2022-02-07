@@ -87,17 +87,19 @@
     justify-content: center;
     height: 350px;;
   }
-  i {
-    width: 2rem;
-  }
-  .far:hover {
-    fill: #2dc60c;
-    color: #2dc60c;
-  }
-  mat-icons:hover{
-    fill: #2dc60c;
 
-  }
+  .fa-star {
+    color: #ffd700;
+    
+}
+mat-card-actions div {
+  display:flex;
+  justify-content: center;
+}
+
+i span {
+  margin-left:0.5rem;
+}
   
  
   
