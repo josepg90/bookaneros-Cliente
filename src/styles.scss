@@ -2,10 +2,12 @@
 body {
     margin:0;
     background-image: url("assets/img/fondo-pirata.jpg");
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    color:#fff;
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 
 mat-dialog-container {
     border: 3px solid #262626;

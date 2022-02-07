@@ -18,7 +18,7 @@ app-menu{
     justify-content: center;
     background-color: rgba(0,0,0,0.6);
     //HAY QUE CAMBIAR EL IMPORTANT, LA TABLA ESTA CON BOOTSTRAP, CAMBIAR A CSS
-    color: #fff !important;
+    
   }
   .libro-view-col-1 {
     flex: 1;
@@ -40,3 +40,13 @@ app-menu{
 td i {
     color: #ffd700;
 }
+i span {
+    margin-left:0.5rem;
+  }
+app-star-rate{
+    margin-top: 2rem;
+} 
+th,td {
+    color: #fff ;
+    font-size: 1rem;
+} 
