@@ -34,12 +34,14 @@
   }
 
   .mat-card-header{
-    height: 90px;
+    height: 100px;
     .mat-card-title {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
+      width:170px;
     }
     .mat-card-subtitle {
-      font-size: 1 rem;
+      font-size: 1.2rem;
+      padding:0.4rem;
     }
   }
   
@@ -50,8 +52,8 @@
     height: 25px;
     //border-radius: 10px;
     right:20px;
-    top:90px;
-    font-size: 1rem;
+    top:100px;
+    font-size: 1.2rem;
     color: #ff7171;
     border: 1px solid #ff7171;
     align-items: center;
@@ -88,17 +90,28 @@
     height: 350px;;
   }
 
-  .fa-star {
-    color: #ffd700;
-    
-}
+ 
 mat-card-actions div {
   display:flex;
   justify-content: center;
+  .fa-star {
+    color: #ffd700;
+  }
+  i span {
+    margin-left:0.5rem;
+  }
 }
 
-i span {
-  margin-left:0.5rem;
+
+
+.libros-contenedor-libros-favoritos{
+  padding:0.5rem;
+}
+
+.libros-contenedor-libros-favoritos:hover {
+  color:#ff7171;
+  transform: scale(1.4) perspective(4px);
+  transition: all 0.6s ease;
 }
   
  

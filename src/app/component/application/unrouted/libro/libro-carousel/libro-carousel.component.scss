@@ -35,7 +35,15 @@
   }
 
   .mat-card-header{
-    height: 70px;
+    height: 85px;
+    .mat-card-title {
+      font-size: 1.4rem;
+      
+    }
+    .mat-card-subtitle {
+      font-size: 1.2rem;
+      padding:0.4rem;
+    }
   }
 
   .carousel-img-centrar {
@@ -50,7 +58,7 @@
     height: 25px;
     //border-radius: 10px;
     right:42px;
-    top:80px;
+    top:95px;
     font-size: 1rem;
     color: #ff7171;
     border: 1px solid #ff7171;
@@ -60,6 +68,18 @@
     margin: 0 auto;
     height: fit-content;
   }
+
+  
+mat-card-actions div {
+  display:flex;
+  justify-content: center;
+  .fa-star {
+    color: #ffd700;
+  }
+  i span {
+    margin-left:0.5rem;
+  }
+}
 
   /*--Carousel-->*/
   body {
@@ -110,4 +130,33 @@
   border-radius: .5rem;
 }
 
+.carousel-indicators{
+  bottom: -60px;
+}
+
+.carousel-flechas-centrar{
+  display:flex;
+  align-items: center;
+}
+
+.carousel-control-next, .carousel-control-prev {
+  height: 70%;
+  align-items: center;
+  top:80px;
+}
+
+.carousel-control-next {
+  right:-70px;
+}
+
+.carousel-control-prev {
+  left:-70px;
+}
+button.active{
+  background-color: #000;
+}
+
+span i{
+  color:#000;
+}
 

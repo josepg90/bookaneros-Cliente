@@ -1,9 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+h1,h2,h3,h4,h5,h6, app-header{
+    font-family: 'Amatic SC', cursive !important;
+    font-size: 2rem !important;  
+}
+mat-card-title, mat-card-subtitle, li, a, span, input{
+    font-family: 'Dancing Script', cursive !important;
+    //font-size: 1.1rem !important;  
+}
+i{
+    font-family: "Font Awesome 5 Free" !important;
+}
+
 body {
     margin:0;
     background-image: url("assets/img/fondo-pirata.jpg");
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-    color:#fff;
+    //font-family: Roboto, "Helvetica Neue", sans-serif;
+   
+    color: #fff;
+    
 }
 
 html, body { height: 100%; }
