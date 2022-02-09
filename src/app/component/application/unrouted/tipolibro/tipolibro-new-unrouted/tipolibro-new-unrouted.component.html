@@ -1,5 +1,7 @@
 <div class="container my-3">
   
+  <h1><i [ngClass]="oIconService.getIcon('new')"></i>Nuevo Género</h1>
+
     <div class="row justify-content-center">
   
       <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">

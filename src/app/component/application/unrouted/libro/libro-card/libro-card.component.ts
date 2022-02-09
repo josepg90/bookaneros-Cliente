@@ -40,7 +40,7 @@ export class LibroCardComponent implements OnInit {
   barraPaginacion: string[];
   randomLibros: ILibro[];
   oForm: FormGroup = null;
-  genero: number | string;
+  genero: string;
   id_tipolibro: number;
   applyClass: string;
 

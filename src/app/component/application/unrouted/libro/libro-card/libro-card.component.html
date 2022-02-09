@@ -14,7 +14,7 @@
       <div class="input-group input-group-sm libros-contenedor-filtros-diferentes">        
         <h3>Buscar por Género</h3>
         <div class="input-group-prepend">
-          <span class="input-group-text"> <i [ngClass]="oIconService.getIcon('filtro')" (click)="genero=''"></i></span>
+          <span class="input-group-text"> <i [ngClass]="oIconService.getIcon('filtro')" (click)="genero=''; this.id_tipolibro=null; this.getPage()"></i></span>
         </div>
         <input type="text" class="form-control" id="genero" readonly placeholder="{{'Filtro de Género'}}" placeholder="Search"
           (keyup)="onKeyUpFilter($event)" [(ngModel)]="genero" name="genero" aria-label="Small"

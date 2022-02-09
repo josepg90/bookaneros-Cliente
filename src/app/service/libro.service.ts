@@ -37,7 +37,7 @@ import { API_URL, httpOptions } from "src/environments/environment";
       if (tipolibro!=null) {
         strOrderUrl += "&filtertype=" + tipolibro;
       }
-      if (filter!=null) {
+      if (filter) {
         strOrderUrl += "&filter=" + filter;
       }
       
