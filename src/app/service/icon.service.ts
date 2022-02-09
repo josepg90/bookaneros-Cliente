@@ -31,6 +31,7 @@ export class IconService {
       case strIcon == "imagen": return "fas fa-camera";
       case strIcon == "validado": return "fas fa-user-check";
       case strIcon == "activado": return "fas fa-flag-checkered";
+      case strIcon == "registrarse": return "fas fa-user-plus";
       // 
       case strIcon == "acciones": return "fas fa-tools";
       case strIcon == "view": return "fas fa-eye";
@@ -40,6 +41,7 @@ export class IconService {
       case strIcon == "new": return "fas fa-plus";
       case strIcon == "edit": return "fas fa-pen";      
       case strIcon == "random": return "fas fa-random";
+      case strIcon == "tools": return "fas fa-tools";
       //
       case strIcon == "imprimir": return "fas fa-print";
       case strIcon == "informe": return "fas fa-file-alt";

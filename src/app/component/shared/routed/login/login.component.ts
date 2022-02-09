@@ -7,6 +7,7 @@ import { CryptoService } from 'src/app/service/crypto.service';
 import { SessionService } from 'src/app/service/session.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { RegistroModalComponent } from '../../unrouted/registro-modal/registro-modal.component';
+import { IconService } from 'src/app/service/icon.service';
 
 declare var Swal: any;
 
@@ -35,6 +36,7 @@ export class LoginComponent implements OnInit {
     private oSessionService: SessionService,
     private oUsuarioService: UsuarioService,
     private oCryptoService: CryptoService,
+    public oIconService: IconService,
     public matDialog: MatDialog
   ) {
     if (oRoute.snapshot.data.message) {

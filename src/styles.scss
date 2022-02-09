@@ -1,7 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-h1,h2,h3,h4,h5,h6, app-header{
+h2,h3,h4,h5,h6, app-header{
     font-family: 'Amatic SC', cursive !important;
     font-size: 2rem !important;  
+}
+h1 {
+    font-family: 'Amatic SC', cursive !important;
 }
 mat-card-title, mat-card-subtitle, li, a, span, input, th, td, p, button{
     font-family: 'Dancing Script', cursive !important;
@@ -17,8 +20,8 @@ i {
 
 body {
     margin:0;
-    //background-image: url("assets/img/fondo-pirata.jpg");
-    background-color: #fff;
+    background-image: url("assets/img/fondo-pirata.jpg");
+    //background-color: #fff;
     //font-family: Roboto, "Helvetica Neue", sans-serif;
    
     color: #fff;
