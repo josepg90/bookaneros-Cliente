@@ -1,6 +1,7 @@
 <div class="libros-contenedor-row">
   <div class="libros-contenedor-filtros">
     <form>
+      
       <div class="input-group input-group-sm libros-contenedor-filtros-diferentes">
         <h3>Buscar Libro/Autor</h3>
         <div class="input-group-prepend">
@@ -10,8 +11,7 @@
           (keyup)="onKeyUpFilter($event)" [(ngModel)]="strFilter" name="buscar" aria-label="Small"
           aria-describedby="inputGroup-sizing-sm" />
       </div>
-      <div class="input-group input-group-sm libros-contenedor-filtros-diferentes">
-        
+      <div class="input-group input-group-sm libros-contenedor-filtros-diferentes">        
         <h3>Buscar por Género</h3>
         <div class="input-group-prepend">
           <span class="input-group-text"> <i [ngClass]="oIconService.getIcon('filtro')" (click)="genero=''"></i></span>
@@ -22,7 +22,7 @@
           <button type="button" class="btn btn-success" id="botonProducto" (click)="openModal()">
             Buscar Género
           </button>
-        </div>
+      </div>
         
     </form>
   </div>

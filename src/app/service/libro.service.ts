@@ -34,12 +34,15 @@ import { API_URL, httpOptions } from "src/environments/environment";
       if (order) {
         strOrderUrl += "&sort=" + order + "," + direction;
       }
+      if (tipolibro!=null) {
+        strOrderUrl += "&filtertype=" + tipolibro;
+      }
       if (filter!=null) {
         strOrderUrl += "&filter=" + filter;
       }
-      if (tipolibro) {
-        strOrderUrl += "&tipolibro=" + tipolibro;
-      }
+      
+      console.log(this.sURL + "?page=" + (page - 1) + "&size=" + rpp + strOrderUrl);
+      
       return this.http.get<IPageLibro>(this.sURL + "?page=" + (page - 1) + "&size=" + rpp + strOrderUrl, httpOptions);
     }
   }
