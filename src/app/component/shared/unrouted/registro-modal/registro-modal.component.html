@@ -1,5 +1,9 @@
-<div id="modal-content-wrapper">
+<div class="registro-flex-row">
+<div>
+  <img src="../../../../../assets/img/test-libros.jpg" alt="imágen libros" width="400" height="500">
+</div>
     <div class="registro">
+      
         <h1 class="modal-title modal-margin">Registro</h1>
         <form class="modal-margin" [formGroup]="oForm" (ngSubmit)="onSubmit()" novalidate>
           <div class="modal-imput">
@@ -8,7 +12,7 @@
               Se debe introducir un nombre
             </div>
             <div class="modal-imput" *ngIf="f.login.dirty && f.login.errors?.minlength" class="text-danger">
-              El nombre introducido es demasiado corto
+              El nombre de usuario introducido es demasiado corto
             </div>
           </div>
           <div class="modal-imput" class="modal-imput">
@@ -31,12 +35,13 @@
           </div>
     
             <div class="modal-centrar">
-                <button type="submit" class="btn btn-primary btn-block btn-large" [disabled]="oForm.invalid || oForm.pristine">Registrarse</button>
+                <button type="submit" class="registro-form-boton" [disabled]="oForm.invalid || oForm.pristine">Registrarse</button>
             </div>
             
         </form>
         <div class="modal-centrar">
-              <button class="btn btn-primary btn-block btn-large" (click)="closeModal()">Cancelar</button>
+              <button class="registro-form-boton" (click)="closeModal()">Cancelar</button>
             </div>
-    </div>
-</div>
+          </div>
+    
+  </div>

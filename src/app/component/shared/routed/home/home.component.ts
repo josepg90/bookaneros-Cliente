@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { RegistroModalComponent } from '../../unrouted/registro-modal/registro-modal.component';
 declare var Swal: any;
 
 
@@ -9,9 +11,23 @@ declare var Swal: any;
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public matDialog: MatDialog
+
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  openModal() {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.height = "600px";
+    dialogConfig.width = "1000px";
+    // https://material.angular.io/components/dialog/overview
+    const modalDialog = this.matDialog.open(RegistroModalComponent, dialogConfig);
   }
 
   registro() {

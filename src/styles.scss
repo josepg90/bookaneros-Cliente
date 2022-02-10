@@ -10,7 +10,7 @@ mat-card-title, mat-card-subtitle, li, a, span, input, th, td, p, button{
     font-family: 'Dancing Script', cursive !important;
     //font-size: 1.1rem !important;  
 }
-i {
+i .icon-margin{
     font-family: "Font Awesome 5 Free" !important;
     margin-right: 1.2rem;
 }
@@ -35,7 +35,14 @@ html, body { height: 100%; }
 mat-dialog-container {
     border: 3px solid #262626;
     border-radius: 11px;
-    background-color: #1a1a1a;
+    background: rgba(0,0,0,1) !important;    
+}
+
+.mat-dialog-container {
+    width:120% !important;
+    height: 120% !important;
+    padding:0 !important;
+    overflow: hidden !important;
 }
 
 a {

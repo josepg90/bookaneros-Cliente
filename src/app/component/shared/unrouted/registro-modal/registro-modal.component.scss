@@ -1,44 +1,57 @@
-#modal-content-wrapper {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-rows: repeat(1fr, 3);
+h1{
+	font-size: 3rem;
+	margin: 2rem 0;
+    align-self: center;
+}
+
+.registro-flex-row {
+	display:flex;
+	flex-direction: row;
+	justify-content: center;	
+	margin: 4rem 0;
 }
 
 .registro {
     display: flex;
     flex-direction: column;
+    height: 500px;
+    width:600px;
+    padding:0 50px;
 }
 
-.modal-title {
-    font-size: 22px;
-    align-self: center;
-}
-
-.modal-margin {
-    margin:10px;
-}
 
 .modal-imput {
     //width:70%;
-    margin-bottom: 30px; 
-   
+    margin-bottom: 30px;  
 }
 
-.modal-footer {
-    justify-self: right;
-    align-self: center;
-}
-
-#modal-action-button {
-    margin-right: 30px;
-    background-color:#3b3b3b;
-}
-
-#modal-cancel-button {
-    background-color: #4e4e4e;
-}
 .modal-centrar {
     display: flex;
     justify-content: center
+}
+
+.registro-form-boton {
+	background-color: #5B1212;
+	margin: 10px 0;
+    width: 60%;
+	padding: 9px 14px; 
+	font-size: 1.2rem;
+	line-height: normal;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	text-shadow: 0.2rem 0.2rem 0.8rem rgba(0,0,0,0.25);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5);
+    
+}
+.registro-form-boton:hover {
+	text-shadow: 0.4rem 0.4rem 1.6rem rgba(0, 0, 0, 1);
+	color: #ffffff;
+	background-color: #5B1212;
+	box-shadow: 0px 0px 8px 12px #440d0d ;
+}
+
+input {
+    font-size: 1.4rem;
 }

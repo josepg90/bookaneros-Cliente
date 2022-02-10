@@ -9,13 +9,63 @@ app-menu{
     flex-direction: row;
     justify-content: space-around;
     //width: 80%;
-    margin: 5% 10%;
+    margin: 10% 10% 5%;
 
 }
 
-.home-cajas-info div{
+img {
+    width:  500px;
+    height: 300px;
+}
+
+.home-info-padre-izq {
+    position:relative;
+    background: url(../../../../../assets/img/test-libros.jpg);
     width: 500px;
     height: 300px;
-    background-color: #fff;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: flex-end;    
 }
+
+.home-info-padre-der {
+    position:relative;
+    background: url(../../../../../assets/img/test-libros.jpg);
+    width: 500px;
+    height: 300px;
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: flex-start;    
+}
+
+.home-info-rectangulo {
+    /*width: 500px;
+    height: 300px;
+    background-image: linear-gradient(to top left, blue 20%, transparent 21%);
+    transition: background-image 3s ease-out;*/
+        width:200px;
+        height:300px;
+        background-color: rgba(0,0,0,0.6);
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        display:flex;
+        flex-direction: column;
+        cursor: pointer;
   
+}
+
+.home-info-rectangulo:hover {
+    transition: .8s ease;
+    width:300px;
+    //background-image: linear-gradient(to top left, blue 50%, transparent 51%);
+}
+
+span {
+    font-size: 2rem;
+    padding-bottom: 20px;
+}
+
+.ventana-modal {
+    width:100%;
+}

@@ -2,8 +2,24 @@
 <app-header></app-header>
 <app-libro-carousel></app-libro-carousel>
 <div class="home-cajas-info">
-    <div></div>
-    <div></div>
+    <div class="home-info-padre-izq">
+        <div class="home-info-rectangulo" (click)="openModal()">
+            <span>
+                Registro
+            </span>
+            <span>
+                Nuevo Usuario
+            </span>
+        </div> 
+    </div>
+    <div class="home-info-padre-der">
+        <a (click)="openModal()"><div class="home-info-rectangulo">
+            <span>
+                Registro
+            </span>
+        </div>
+        </a>
+    </div>
 </div>
 <app-footer></app-footer>
 <button type="submit" class="btn btn-primary btn-block btn-large" (click)="registro()">Acceder</button>
