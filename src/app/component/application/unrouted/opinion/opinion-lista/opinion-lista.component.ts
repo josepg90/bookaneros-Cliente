@@ -54,6 +54,7 @@ export class OpinionListaComponent implements OnInit {
     }}
 
   ngOnInit(): void {
+    this.getPage()
   }
 
   getPage = () => {
