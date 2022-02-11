@@ -1,3 +1,4 @@
+import { OpinionService } from './service/opinion.service';
 import { PaginationService } from './service/pagination.service';
 import { IconService } from './service/icon.service';
 import { FileService } from './service/file.service';
@@ -45,6 +46,7 @@ import { PeticionesComponent } from './component/application/routed/peticiones/p
 import { TipolibroPlistUnroutedComponent } from './component/application/unrouted/tipolibro/tipolibro-plist-unrouted/tipolibro-plist-unrouted.component';
 import { LibroCardComponent } from './component/application/unrouted/libro/libro-card/libro-card.component';
 import { StarRateComponent } from './component/shared/unrouted/star-rate/star-rate.component';
+import { OpinionComponent } from './component/application/unrouted/opinion/opinion.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +76,8 @@ import { StarRateComponent } from './component/shared/unrouted/star-rate/star-ra
     PeticionesComponent,
     TipolibroPlistUnroutedComponent,
     LibroCardComponent,
-    StarRateComponent
+    StarRateComponent,
+    OpinionComponent
   ],
   imports: [
     HttpClientModule,
@@ -98,6 +101,7 @@ import { StarRateComponent } from './component/shared/unrouted/star-rate/star-ra
     FileService,
     IconService,
     PaginationService,
+    OpinionService,
     { provide: MatDialogRef, useValue: {} },
 	{ provide: MAT_DIALOG_DATA, useValue: [] }
    
