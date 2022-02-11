@@ -1,1 +1,13 @@
-<p>opinion-lista works!</p>
+<div class="libro-view-post-flex" *ngFor="let post of aPosts">
+    <div class="libro-view-post">
+        <div class="post-header"><span>{{post.usuario.login}}</span></div>
+        <div>
+        <div class="post-cuerpo">
+            <div><p>{{post.titulo}}</p></div>
+            <hr>
+            <div><p>{{post.cuerpo}}</p></div>
+        </div>
+        </div>
+        <div class="post-footer"><span>{{post.fecha_publicacion}}</span></div>
+    </div>
+</div>
