@@ -11,3 +11,9 @@ export interface IPost {
     usuario: IUsuario
     
 }
+
+export interface IPagePost {
+    content: IPost[];
+    totalElements: number,
+    totalPages: number
+}
