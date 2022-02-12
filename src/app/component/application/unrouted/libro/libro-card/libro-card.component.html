@@ -19,7 +19,7 @@
         <input type="text" class="form-control" id="genero" readonly placeholder="{{'Filtro de Género'}}" placeholder="Search"
           (keyup)="onKeyUpFilter($event)" [(ngModel)]="genero" name="genero" aria-label="Small"
           aria-describedby="inputGroup-sizing-sm" />
-          <button type="button" class="btn btn-success" id="botonProducto" (click)="openModal()">
+          <button type="button" class="boton-buscar" id="botonProducto" (click)="openModal()">
             Buscar
           </button>
       </div>
@@ -36,7 +36,7 @@
       </mat-card-header>
       <div class="libros-img-centrar">
         <img mat-card-image [src]="'http://localhost:8082/file/' + libro.imagen"/>
-        <div class="libros-img-centrar" *ngIf="libro.novedad==true"><span>Novedad</span></div> 
+        <div class="libros-img-centrar" *ngIf="libro.novedad==true"><span class="novedad">NEW</span></div> 
        </div>
       <mat-card-actions>
         <div>

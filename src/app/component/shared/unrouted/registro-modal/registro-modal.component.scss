@@ -31,7 +31,9 @@ h1{
 }
 
 .registro-form-boton {
-	background-color: #5B1212;
+	//background-color: #8A6552;
+	//background-color: #A8C686;
+	background-color: #5E3023;
 	margin: 10px 0;
     width: 60%;
 	padding: 9px 14px; 
@@ -48,8 +50,8 @@ h1{
 .registro-form-boton:hover {
 	text-shadow: 0.4rem 0.4rem 1.6rem rgba(0, 0, 0, 1);
 	color: #ffffff;
-	background-color: #5B1212;
-	box-shadow: 0px 0px 8px 12px #440d0d ;
+	background-color: #8A6552;
+	box-shadow: 0px 0px 8px 12px #5E3023 ;
 }
 
 input {

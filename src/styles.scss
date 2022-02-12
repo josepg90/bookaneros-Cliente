@@ -1,12 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-h2,h3,h4,h5,h6, app-header{
+h2,h3,h4,h5,h6, app-header {
     font-family: 'Amatic SC', cursive !important;
     font-size: 2rem !important;  
 }
-h1 {
+h1, .novedad {
     font-family: 'Amatic SC', cursive !important;
 }
-mat-card-title, mat-card-subtitle, li, a, span, input, th, td, p, button, label, textarea{
+mat-card-title, mat-card-subtitle, li, a, span, input, th, td, p, button, label, textarea {
     font-family: 'Dancing Script', cursive !important;
     //font-size: 1.1rem !important;  
 }
@@ -34,14 +34,14 @@ html, body { height: 100%; }
 
 mat-dialog-container {
     border: 3px solid #262626;
-    border-radius: 11px;
+    border-radius: 25px !important;
     background: #111 !important;    
 }
 
 .mat-dialog-container {
     width:120% !important;
     height: 120% !important;
-    padding:0 !important;
+    padding:0 20px !important;
     overflow: hidden !important;
 }
 
@@ -51,6 +51,8 @@ a {
 }
 
 a:hover {
-    color: #2dc60c;
+    //color: #C2714F;
+    color: #DBD3AD;
+    //color: #2dc60c;
 }
 
