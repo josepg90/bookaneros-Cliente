@@ -32,6 +32,8 @@ export class IconService {
       case strIcon == "validado": return "fas fa-user-check";
       case strIcon == "activado": return "fas fa-flag-checkered";
       case strIcon == "registrarse": return "fas fa-user-plus";
+      case strIcon == "libro": return "fas fa-book";
+
       // 
       case strIcon == "acciones": return "fas fa-tools";
       case strIcon == "view": return "fas fa-eye";

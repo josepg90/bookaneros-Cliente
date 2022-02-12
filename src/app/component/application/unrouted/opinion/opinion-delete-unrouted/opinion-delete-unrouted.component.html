@@ -1,0 +1,28 @@
+<div class="opinion-delete-centrar">
+    <div class="libro-view-post">
+        <div class="post-header">
+            <span><i [ngClass]="oIconService.getIcon('libro')"></i>{{this.oPost?.libro.titulo}}</span>
+            <span><i [ngClass]="oIconService.getIcon('usuario')"></i>{{this.oPost?.usuario.login}}</span>
+        </div>
+        <div>
+            <div class="post-cuerpo">
+                <div>
+                    <p>"{{this.oPost?.titulo}}"</p>
+                </div>
+                <hr>
+                <div>
+                    <p>{{this.oPost?.cuerpo}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="post-footer">
+            <span>{{this.oPost?.fecha_publicacion}}</span>
+        </div>
+    </div>
+    <div>
+        <div class="modal-centrar">
+            <button mat-raised-button class="delete-opinion-boton" (click)="removeAsk()"><i [ngClass]="oIconService.getIcon('remove')"></i> Eliminar</button>
+            <button mat-raised-button class="delete-opinion-boton" (click)="closeModal()">Cancelar</button>    
+        </div>
+    </div>
+</div>

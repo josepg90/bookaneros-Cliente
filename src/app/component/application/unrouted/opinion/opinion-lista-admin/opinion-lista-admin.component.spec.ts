@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OpinionComponent } from './opinion.component';
+import { OpinionListaAdminComponent } from './opinion-lista-admin.component';
 
-describe('OpinionComponent', () => {
-  let component: OpinionComponent;
-  let fixture: ComponentFixture<OpinionComponent>;
+describe('OpinionListaComponent', () => {
+  let component: OpinionListaAdminComponent;
+  let fixture: ComponentFixture<OpinionListaAdminComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OpinionComponent ]
+      declarations: [ OpinionListaAdminComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OpinionComponent);
+    fixture = TestBed.createComponent(OpinionListaAdminComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -40,7 +40,7 @@ export class LibroNewUnroutedComponent implements OnInit {
     private oFormBuilder: FormBuilder,
     private oRoute: ActivatedRoute,
     private oRouter: Router,
-    private oProductoService: LibroService,
+    private oLibroService: LibroService,
     private oLocation: Location,
     public oIconService: IconService,
     public matDialog: MatDialog
@@ -104,7 +104,7 @@ export class LibroNewUnroutedComponent implements OnInit {
   }
 
   new = (): void => {
-    this.oProductoService
+    this.oLibroService
       .newOne(this.oLibro2Send)
       .subscribe((oLibro: ILibro) => {
         if (oLibro.id) {
@@ -155,7 +155,7 @@ export class LibroNewUnroutedComponent implements OnInit {
     
 
     //actualizar el usuario
-    this.oProductoService
+    this.oLibroService
       .get(this.oForm.controls['tipolibro'].value)
       .subscribe((oData: ILibro) => {
         this.oLibro2Send.tipolibro = oData;

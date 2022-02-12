@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/internal/Observable";
 import { API_URL, httpOptions } from "src/environments/environment";
-import { IPagePost, IPost } from "../model/opinion-interfaces";
+import { IPagePost, IPost, IPost2Send } from "../model/opinion-interfaces";
 
 @Injectable({
     providedIn: 'root'
@@ -35,4 +35,14 @@ import { IPagePost, IPost } from "../model/opinion-interfaces";
         return this.http.get<IPagePost>(this.sURL + "?page=" + (page - 1) + "&size=" + rpp + strOrderUrl, httpOptions);
       }
     
+      newOne(oPost: IPost2Send): Observable<IPost> {
+        return this.http.post<IPost>(this.sURL, oPost, httpOptions);
+      }
+    
+      updateOne(oPost: IPost2Send): Observable<number> {
+        return this.http.put<number>(this.sURL + "/" + oPost.id, oPost, httpOptions);        
+      }
+      removeOne(id: number): Observable<number> {
+        return this.http.delete<number>(this.sURL + "/" + id, httpOptions);
+      }
   }

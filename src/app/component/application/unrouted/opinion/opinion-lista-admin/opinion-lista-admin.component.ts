@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { IPagePost, IPost } from 'src/app/model/opinion-interfaces';
@@ -6,19 +7,22 @@ import { IUsuario } from 'src/app/model/usuario-interfaces';
 import { IconService } from 'src/app/service/icon.service';
 import { OpinionService } from 'src/app/service/opinion.service';
 import { PaginationService } from 'src/app/service/pagination.service';
+import { OpinionDeleteUnroutedComponent } from '../opinion-delete-unrouted/opinion-delete-unrouted.component';
+import { OpinionUpdateUnroutedComponent } from '../opinion-update-unrouted/opinion-update-unrouted.component';
 
 @Component({
-  selector: 'app-opinion-lista',
-  templateUrl: './opinion-lista.component.html',
-  styleUrls: ['./opinion-lista.component.scss']
+  selector: 'app-opinion-lista-admin',
+  templateUrl: './opinion-lista-admin.component.html',
+  styleUrls: ['./opinion-lista-admin.component.scss']
 })
-export class OpinionListaComponent implements OnInit {
+export class OpinionListaAdminComponent implements OnInit {
 
   strEntity: string = "post"
   strOperation: string = "plist"
   strTitleSingular: string = "Post";
   strTitlePlural: string = "Posts";
   aPosts: IPost[];
+  id: number;
   aPaginationBar: string[];
   nTotalElements: number;
   nTotalPages: number;
@@ -43,7 +47,8 @@ export class OpinionListaComponent implements OnInit {
     private oRouter: Router,
     private oPaginationService: PaginationService,
     private oOpinionService: OpinionService,
-    public oIconService: IconService
+    public oIconService: IconService,
+    public matDialog: MatDialog
     ) { 
       if (this.oRoute.snapshot.data.message) {
       this.oUserSession = this.oRoute.snapshot.data.message;
@@ -102,6 +107,34 @@ export class OpinionListaComponent implements OnInit {
       this.strSortDirection = 'asc';
     }
     this.getPage();
+  }
+
+  openModalUpdate(id: number) {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component-update";
+    dialogConfig.height = "700px";
+    dialogConfig.width = "600px";
+    dialogConfig.data = { id: this.id}
+    console.log(this.id);
+    
+    // https://material.angular.io/components/dialog/overview
+    const modalDialog = this.matDialog.open(OpinionUpdateUnroutedComponent, dialogConfig);
+  }
+
+  openModalDelete(id: number) {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component-delete";
+    dialogConfig.height = "600px";
+    dialogConfig.width = "1000px";
+    dialogConfig.data = { id: this.id}
+    console.log(this.id);
+    
+    // https://material.angular.io/components/dialog/overview
+    const modalDialog = this.matDialog.open(OpinionDeleteUnroutedComponent, dialogConfig);
   }
 
 }

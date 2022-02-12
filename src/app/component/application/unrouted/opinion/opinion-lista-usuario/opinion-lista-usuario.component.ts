@@ -4,10 +4,10 @@ import { OpinionService } from 'src/app/service/opinion.service';
 
 @Component({
   selector: 'app-opinion',
-  templateUrl: './opinion.component.html',
-  styleUrls: ['./opinion.component.scss']
+  templateUrl: './opinion-lista-usuario.component.html',
+  styleUrls: ['./opinion-lista-usuario.component.scss']
 })
-export class OpinionComponent implements OnInit {
+export class OpinionListaUsuarioComponent implements OnInit {
 
   oPost: IPost;
 

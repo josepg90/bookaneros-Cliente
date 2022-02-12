@@ -46,8 +46,11 @@ import { PeticionesComponent } from './component/application/routed/peticiones/p
 import { TipolibroPlistUnroutedComponent } from './component/application/unrouted/tipolibro/tipolibro-plist-unrouted/tipolibro-plist-unrouted.component';
 import { LibroCardComponent } from './component/application/unrouted/libro/libro-card/libro-card.component';
 import { StarRateComponent } from './component/shared/unrouted/star-rate/star-rate.component';
-import { OpinionComponent } from './component/application/unrouted/opinion/opinion.component';
-import { OpinionListaComponent } from './component/application/unrouted/opinion/opinion-lista/opinion-lista.component';
+import { OpinionListaUsuarioComponent } from './component/application/unrouted/opinion/opinion-lista-usuario/opinion-lista-usuario.component';
+import { OpinionListaAdminComponent } from './component/application/unrouted/opinion/opinion-lista-admin/opinion-lista-admin.component';
+import { OpinionUpdateUnroutedComponent } from './component/application/unrouted/opinion/opinion-update-unrouted/opinion-update-unrouted.component';
+import { OpinionDeleteUnroutedComponent } from './component/application/unrouted/opinion/opinion-delete-unrouted/opinion-delete-unrouted.component';
+import { OpinionNewUnroutedComponent } from './component/application/unrouted/opinion/opinion-new-unrouted/opinion-new-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -78,8 +81,11 @@ import { OpinionListaComponent } from './component/application/unrouted/opinion/
     TipolibroPlistUnroutedComponent,
     LibroCardComponent,
     StarRateComponent,
-    OpinionComponent,
-    OpinionListaComponent
+    OpinionListaUsuarioComponent,
+    OpinionListaAdminComponent,
+    OpinionUpdateUnroutedComponent,
+    OpinionDeleteUnroutedComponent,
+    OpinionNewUnroutedComponent
   ],
   imports: [
     HttpClientModule,

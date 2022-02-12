@@ -1,4 +1,33 @@
-.libro-view-post-flex{
+.opinion-contenedor-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin:0 10%;
+}
+
+.opinion-contenedor-filtros{
+    width:25%;
+    height: 800px;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.opinion-contenedor-filtros-diferentes {
+    padding: 30px;
+}
+
+  h3 {
+    flex-basis:100%;
+    color: #fff;
+  }
+
+  .opinion-lista-opiniones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 75%;
+  }
+
+.opinion-lista-flex{
     display:flex;
     justify-content: center;
 }
@@ -7,7 +36,7 @@
     width: 70%;
     background: #111;
     border-radius: 25px;
-    margin-top: 30px;
+    margin: 0 0 110px;
 }
 
 .post-header {
@@ -16,7 +45,7 @@
     border-top-right-radius: 25px;
     border-top-left-radius: 25px;
     display:flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     font-size: 1.6rem;
 }
@@ -43,15 +72,24 @@
     border-bottom-right-radius: 25px;
     border-bottom-left-radius: 25px;
     display:flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     font-size: 1.2rem;
 }
 .post-footer span, .post-header span {
-    padding-right: 25px;
+    padding: 0 25px;
+}
+
+.post-footer div button{
+    margin-left: 30px;
 }
 
 hr{
    width: 97%;
    margin: auto;
+}
+
+span i {
+    margin-right: 15px;
+    font-size:1.2rem;
 }

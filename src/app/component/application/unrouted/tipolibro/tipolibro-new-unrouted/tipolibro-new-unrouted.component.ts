@@ -88,7 +88,7 @@ export class TipolibroNewUnroutedComponent implements OnInit {
       
           Toast.fire({
             icon: 'success',
-            title: 'Editado correctamente'
+            title: 'Creado correctamente'
           })
           
           this.cerrar();
