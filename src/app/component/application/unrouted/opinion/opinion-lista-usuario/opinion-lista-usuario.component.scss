@@ -1,13 +1,28 @@
-.libro-view-post-flex{
+.opinion-contenedor-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin:5%;
+}
+
+.opinion-lista-opiniones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 75%;
+  }
+
+.opinion-lista-flex{
     display:flex;
     justify-content: center;
 }
 
 .libro-view-post {
-    width: 70%;
+    width: 100%;
     background: #111;
     border-radius: 25px;
-    margin-top: 30px;
+    margin: 0 0 50px;
 }
 
 .post-header {
@@ -16,7 +31,7 @@
     border-top-right-radius: 25px;
     border-top-left-radius: 25px;
     display:flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     font-size: 1.6rem;
 }
@@ -51,7 +66,16 @@
     padding-right: 25px;
 }
 
+.post-header span:nth-child(1) {
+    padding-left: 30px;
+}
+
 hr{
    width: 97%;
    margin: auto;
+}
+
+span i {
+    margin-right: 15px;
+    font-size:1.2rem;
 }

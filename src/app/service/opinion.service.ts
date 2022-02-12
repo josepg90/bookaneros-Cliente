@@ -24,7 +24,10 @@ import { IPagePost, IPost, IPost2Send } from "../model/opinion-interfaces";
           strOrderUrl += "&sort=" + order + "," + direction;
         }
         if (libro!=null) {
-          strOrderUrl += "&filtertype=" + libro;
+          strOrderUrl += "&filtertype1=" + libro;
+        }
+        if (usuario!=null) {
+          strOrderUrl += "&filtertype2=" + usuario;
         }
         if (filter) {
           strOrderUrl += "&filter=" + filter;

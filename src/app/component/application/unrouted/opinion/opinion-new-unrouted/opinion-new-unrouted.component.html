@@ -2,58 +2,63 @@
     <div class="opinion-new-contenido">
         <h1>Postear Opinión</h1>
         <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">
-
-            <label for="nombre" class="col-sm-2 col-form-label">Título</label>
-            <div class="col-sm-10">
-                <div class="row mb-3">
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="titulo" formControlName="titulo"
-                            [ngClass]="{'is-valid' : f.titulo.dirty && !(f.titulo.errors?.required || f.titulo.errors?.minlength) }">
-                        <div *ngIf="f.titulo.dirty && f.titulo.errors?.required" class="text-danger">
-                            Se debe introducir un título
-                        </div>
-                        <div *ngIf="f.titulo.dirty && f.titulo.errors?.minlength" class="text-danger">
-                            El titulo introducido es demasiado corto
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <label for="nombre" class="col-sm-2 col-form-label">Opinion</label>
-            <div class="col-sm-10">
-                <div class="row mb-3">
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="titulo" formControlName="cuerpo"
-                            [ngClass]="{'is-valid' : f.cuerpo.dirty && !(f.cuerpo.errors?.required || f.cuerpo.errors?.minlength) }">
-                        <div *ngIf="f.cuerpo.dirty && f.cuerpo.errors?.required" class="text-danger">
-                            Se debe introducir una opinión
-                        </div>
-                        <div *ngIf="f.cuerpo.dirty && f.cuerpo.errors?.minlength" class="text-danger">
-                            La opinión introducida es demasiado corta
+            <div>
+                <div class="opinion-new-form-row">
+                    <label for="nombre" class="col-sm-2 col-form-label">Título</label>
+                    <div>
+                        <div class="row mb-3">
+                            <div>
+                                <input type="text" class="form-control" id="titulo" formControlName="titulo"
+                                    [ngClass]="{'is-valid' : f.titulo.dirty && !(f.titulo.errors?.required || f.titulo.errors?.minlength) }">
+                                <div *ngIf="f.titulo.dirty && f.titulo.errors?.required" class="text-danger">
+                                    Se debe introducir un título
+                                </div>
+                                <div *ngIf="f.titulo.dirty && f.titulo.errors?.minlength" class="text-danger">
+                                    El titulo introducido es demasiado corto
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="row mb-3">
-                <label for="fecha_publicacion" class="col-sm-2 col-form-label">Fecha de publicación</label>
-                <div class="col-sm-10">
-                    <input type="text" name="fecha_publicacion" id="fecha_publicacion" formControlName="fecha_publicacion"
-                        class="text ui-widget-content ui-corner-all" />
-                    <div *ngIf="f.fecha_publicacion.dirty && f.fecha_publicacion.errors?.required" class="text-danger">
-                        Se debe introducir una fecha de publicación correcta
+                <div class="opinion-new-form-row">
+                    <label for="nombre" class="col-sm-2 col-form-label">Opinión</label>
+                    <div>
+                        <div class="row mb-3">
+                            <div>
+                                <textarea type="text" class="form-control" id="titulo" formControlName="cuerpo" rows="6"
+                                    [ngClass]="{'is-valid' : f.cuerpo.dirty && !(f.cuerpo.errors?.required || f.cuerpo.errors?.minlength) }"></textarea>
+                                <div *ngIf="f.cuerpo.dirty && f.cuerpo.errors?.required" class="text-danger">
+                                    Se debe introducir una opinión
+                                </div>
+                                <div *ngIf="f.cuerpo.dirty && f.cuerpo.errors?.minlength" class="text-danger">
+                                    La opinión introducida es demasiado corta
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-
-
-            <div class="row mb-3 justify-content-center">
-                <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center">
-                    <button type="submit" class="btn btn-warning" [disabled]="oForm.invalid || oForm.pristine"><i
-                            [ngClass]="oIconService.getIcon('ok')"></i> Modificar</button>
+                <div class="opinion-new-form-row">
+                    
+                        <label for="fecha_publicacion">Fecha</label>
+                        <div>
+                            <input type="text" name="fecha_publicacion" id="fecha_publicacion"
+                                formControlName="fecha_publicacion" class="text ui-widget-content ui-corner-all" />
+                            <div *ngIf="f.fecha_publicacion.dirty && f.fecha_publicacion.errors?.required"
+                                class="text-danger">
+                                Se debe introducir una fecha de publicación correcta
+                            </div>
+                        </div>
+                    
                 </div>
-            </div>
+
+                <div class="opinion-new-form-row">
+                    
+                            <button mat-raised-button type="submit" class="new-opinion-boton"
+                                [disabled]="oForm.invalid || oForm.pristine"><i
+                                    [ngClass]="oIconService.getIcon('ok')"></i>
+                                Crear Opinión</button>
+                </div>
+            </div>    
         </form>
     </div>
 </div>

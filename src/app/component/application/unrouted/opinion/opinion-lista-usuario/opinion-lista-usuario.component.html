@@ -1,13 +1,26 @@
-<div class="libro-view-post-flex">
-    <div class="libro-view-post">
-        <div class="post-header"><span>{{oPost?.usuario.login}}</span></div>
-        <div>
-        <div class="post-cuerpo">
-            <div><p>{{oPost?.titulo}}</p></div>
-            <hr>
-            <div><p>{{oPost?.cuerpo}}</p></div>
+<div class="opinion-contenedor-row">
+
+    <div class="opinion-lista-opiniones">
+        <div class="libro-view-post" *ngFor="let post of aPosts">
+            <div class="post-header">
+                <span><i [ngClass]="oIconService.getIcon('libro')"></i>{{post.libro.titulo}}</span>
+                <span><i [ngClass]="oIconService.getIcon('usuario')"></i>{{post.usuario.login}}</span>
+            </div>
+            <div>
+                <div class="post-cuerpo">
+                    <div>
+                        <p>"{{post.titulo}}"</p>
+                    </div>
+                    <hr>
+                    <div>
+                        <p>{{post.cuerpo}}</p>
+                    </div>
+                </div>
+            </div>            
+            <div class="post-footer">
+                
+                <span>{{post.fecha_publicacion}}</span>
+            </div>
         </div>
-        </div>
-        <div class="post-footer"><span>{{oPost?.fecha_publicacion}}</span></div>
     </div>
 </div>

@@ -89,6 +89,7 @@ export class OpinionNewUnroutedComponent implements OnInit {
       console.log(this.oPost2Send);
       
       this.new();
+      this.recargar();      
     }
   }
 
@@ -126,6 +127,13 @@ export class OpinionNewUnroutedComponent implements OnInit {
        
       });
   };
+
+  recargar() {
+    
+    setTimeout(() => {
+       window.location.reload();
+   }, 1000);
+  }
 
   }
 
