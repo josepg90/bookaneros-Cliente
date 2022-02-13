@@ -48,7 +48,7 @@ export class UsuarioService {
   }
 
   newOne(oUsuario: IUsuario): Observable<number> {
-    return this.http.post<number>(this.sURL + "/new", oUsuario, httpOptions);
+    return this.http.post<number>(this.sURL, oUsuario, httpOptions);
   }
 
   updateOne(oUsuario: IUsuario): Observable<number> {

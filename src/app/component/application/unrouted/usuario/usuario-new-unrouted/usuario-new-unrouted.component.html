@@ -1,0 +1,68 @@
+<div class="usuario-new">
+    <div class="usuario-new-contenido">
+        <h1><i [ngClass]="oIconService.getIcon('new')"></i>Nuevo Usuario</h1>
+        <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">
+            <div>
+                <div class="usuario-new-form-row">
+                    <label for="login">Usuario</label>
+                    <div>
+                        <div>
+                            <div>
+                                <input type="text" class="form-control" id="login" formControlName="login" class="form-control" required="required"
+                                    [ngClass]="{'is-valid' : f.login.dirty && !(f.login.errors?.required || f.login.errors?.minlength) }">
+                                <div *ngIf="f.login.dirty && f.login.errors?.required" class="text-danger">
+                                    Se debe introducir un nombre de Usuario válido
+                                </div>
+                                <div *ngIf="f.login.dirty && f.login.errors?.minlength" class="text-danger">
+                                    El nombre de Usuario introducido es demasiado corto
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="usuario-new-form-row">
+                    <label for="nombre">Password</label>
+                    <div>
+                        <div>
+                            <div>
+                                <input type="password" class="form-control" id="password" formControlName="password" class="form-control" required="required" 
+                                    [ngClass]="{'is-valid' : f.password.dirty && !(f.password.errors?.required || f.password.errors?.minlength) }">
+                                <div *ngIf="f.password.dirty && f.password.errors?.required" class="text-danger">
+                                    Se debe introducir una contraseña válida
+                                </div>
+                                <div *ngIf="f.password.dirty && f.password.errors?.minlength" class="text-danger">
+                                    La contraseña introducido es demasiado corta
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="usuario-new-form-row">
+                    <label for="email">Correo electrónico</label>
+                    <div>
+                        <div>
+                            <div>
+                                <input type="email" class="form-control" id="email" formControlName="email" class="form-control" required="required"
+                                    [ngClass]="{'is-valid' : f.email.dirty && !(f.email.errors?.required || f.email.errors?.minlength) }">
+                                <div *ngIf="f.email.dirty && f.email.errors?.required" class="text-danger">
+                                    Se debe introducir un Correo Electrónico valido
+                                </div>
+                                <div *ngIf="f.email.dirty && f.email.errors?.minlength" class="text-danger">
+                                    El Correo Electrónico introducido es demasiado corto
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="usuario-new-form-row">
+                    
+                            <button mat-raised-button type="submit" class="new-usuario-boton"
+                                [disabled]="oForm.invalid || oForm.pristine"><i
+                                    [ngClass]="oIconService.getIcon('new')"></i>
+                                Crear Usuario</button>
+                </div>
+            </div>    
+        </form>
+    </div>
+</div>

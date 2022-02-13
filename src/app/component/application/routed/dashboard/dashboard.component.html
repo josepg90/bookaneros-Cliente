@@ -41,10 +41,10 @@
   <div class="grid-container" *ngIf="opcion==0">
     <h1 class="mat-h1">Dashboard</h1>
     <mat-grid-list cols="2" rowHeight="350px">
-      <mat-grid-tile [colspan]="( cardLayout | async )?.largo.cols" [rowspan]="( cardLayout | async )?.largo.rows">
+      <mat-grid-tile [colspan]="( cardLayout | async )?.new_libro.cols" [rowspan]="( cardLayout | async )?.new_libro.rows">
         <mat-card class="dashboard-card">
-          <mat-card-header>
-            <mat-card-title>
+          
+            
 
               <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
                 <mat-icon>more_vert</mat-icon>
@@ -52,37 +52,18 @@
               <mat-menu #menu="matMenu" xPosition="before">
                 <button mat-menu-item>Expand</button>
                 <button mat-menu-item>Remove</button>
-              </mat-menu>
-
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content class="dashboard-card-content">
-            <div>Card Content Here</div>
-          </mat-card-content>
-        </mat-card>
-      </mat-grid-tile>
-      <mat-grid-tile [colspan]="( cardLayout | async )?.new_libro.cols"
-        [rowspan]="( cardLayout | async )?.new_libro.rows">
-        <mat-card class="dashboard-card">
-          <mat-card-header>
-            <mat-card-title>
-
-              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                <mat-icon>more_vert</mat-icon>
-              </button>
-              <mat-menu #menu="matMenu" xPosition="before">
-                <button mat-menu-item>Expand</button>
-                <button mat-menu-item>Remove</button>
-              </mat-menu>
+              </mat-menu>                            
               <app-libro-new-unrouted></app-libro-new-unrouted>
-            </mat-card-title>
-          </mat-card-header>
+            
+          
         </mat-card>
       </mat-grid-tile>
-      <mat-grid-tile [colspan]="( cardLayout | async )?.alto.cols" [rowspan]="( cardLayout | async )?.alto.rows">
+      
+      <mat-grid-tile [colspan]="( cardLayout | async )?.new_usuario.cols"
+        [rowspan]="( cardLayout | async )?.new_usuario.rows">
         <mat-card class="dashboard-card">
-          <mat-card-header>
-            <mat-card-title>
+         
+            
 
               <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
                 <mat-icon>more_vert</mat-icon>
@@ -91,19 +72,17 @@
                 <button mat-menu-item>Expand</button>
                 <button mat-menu-item>Remove</button>
               </mat-menu>
-
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content class="dashboard-card-content">
-            <div>Card Content Here</div>
-          </mat-card-content>
+              <app-usuario-new-unrouted></app-usuario-new-unrouted>
+            
+          
         </mat-card>
       </mat-grid-tile>
+      
       <mat-grid-tile [colspan]="( cardLayout | async )?.new_genero.cols"
         [rowspan]="( cardLayout | async )?.new_genero.rows">
         <mat-card class="dashboard-card">
-          <mat-card-header>
-            <mat-card-title>
+          
+            
 
               <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
                 <mat-icon>more_vert</mat-icon>
@@ -113,8 +92,8 @@
                 <button mat-menu-item>Remove</button>
               </mat-menu>
               <app-tipolibro-new-unrouted></app-tipolibro-new-unrouted>
-            </mat-card-title>
-          </mat-card-header>
+            
+          
         </mat-card>
       </mat-grid-tile>
     </mat-grid-list>

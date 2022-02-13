@@ -1,26 +1,18 @@
-.opinion-new {
-    display: flex;
-    justify-content: center;
-    margin-top:30px;    
+* {
+  box-sizing: initial;
 }
 
-.opinion-new-contenido {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width:70%;
-    padding: 30px 25px 10px;
-    align-items: center;
-    background-color: rgba(0,0,0,0.6);
-   
+.usuario-new-contenido {
+  margin: 40px 30px;
 }
+
 h1{
-	font-size: 3rem;
+	font-size: 2rem;
 	margin: 20px 0 40px;
 }
 
   form {
-    width:70%;
+    width:100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,15 +21,15 @@ h1{
   form div label {
     flex: 0 0 auto;
     width: 15%;
-    font-size: 1.4rem;  
+    font-size: 1.2rem;  
   }
 
-  .opinion-new-form-row {
+  .usuario-new-form-row {
     display:flex;
     flex-direction: row;
   }
 
-  .opinion-new-form-row:nth-child(4) {
+  .usuario-new-form-row:nth-child(4) {
     display:flex;
     flex-direction: row;
     justify-content: center;
@@ -48,19 +40,29 @@ h1{
     width:100%;
   }
 
-  .libros-contenedor-filtros-diferentes {
+  .usuario-contenedor {
     padding: 30px;
   }
 
-  h3 {
-    flex-basis:100%;
-    color: #fff;
+  input {
+    width:80%;
+    margin: 0 0 0 20px;
   }
 
-  .new-opinion-boton {
+  input + div {
+    padding-top: 5px;
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+  }
+
+  label + div div div {
+    margin-bottom: 20px;
+  }
+
+  .new-usuario-boton {
     background-color: #5E3023;
     margin: 10px 0;
-      width: 60%;
+    width: 60%;
     padding: 9px 14px; 
     font-size: 1.2rem;
     line-height: normal;
@@ -71,7 +73,8 @@ h1{
     text-shadow: 0.2rem 0.2rem 0.8rem rgba(0,0,0,0.7);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5);
   }
-  .new-opinion-boton:hover {
+
+  .new-usuario-boton:hover {
     text-shadow: 0.4rem 0.4rem 1.6rem rgba(0, 0, 0, 1);
     color: #ffffff;
     background-color: #8A6552;
@@ -80,4 +83,8 @@ h1{
 
   button {
     margin-top: 100px;
+  }
+
+  i {
+    padding-right: 10px;
   }

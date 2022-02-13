@@ -13,7 +13,7 @@
             <table class="table table-striped">
                 <tbody>
                     <tr>
-                        <th>Titulo</th>
+                        <th>Título</th>
                         <td>{{oLibro?.titulo}}</td>
                     </tr>
                     <tr>
@@ -21,11 +21,11 @@
                         <td>{{oLibro?.autor}}</td>
                     </tr>
                     <tr>
-                        <th>Codigo</th>
+                        <th>Código</th>
                         <td>{{oLibro?.codigo}}</td>
                     </tr>
                     <tr>
-                        <th>Paginas</th>
+                        <th>Páginas</th>
                         <td>{{oLibro?.paginas}}</td>
                     </tr>
                     <tr>
@@ -48,10 +48,10 @@
 
                 <!--QUITAR BOOTSTRAP-->
                 <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center mt-5">
-                    <a class="btn btn-primary mx-2" [routerLink]="['/home']"> Página principal</a>
-                    <a class="btn btn-primary mx-2" (click)="goBack()"> Volver
+                    <a class="view-libro-boton" [routerLink]="['/home']"> Página principal</a>
+                    <a class="view-libro-boton" (click)="goBack()"> Volver
                     </a>
-                    <button type="button" class="btn btn-dark" (click)="print(oLibro?.id)"><i
+                    <button type="button" class="view-libro-boton" (click)="print(oLibro?.id)"><i
                             class="fas fa-print"><span>Ficha Técnica</span></i></button>
                 </div>
 

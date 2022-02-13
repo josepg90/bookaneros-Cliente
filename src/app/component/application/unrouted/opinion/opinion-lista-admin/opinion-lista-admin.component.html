@@ -20,7 +20,7 @@
                 <input type="text" class="form-control" id="genero" readonly placeholder="Filtro de Usuario"
                 (keyup)="onKeyUpFilter($event)" [(ngModel)]="genero" name="genero"
                     aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
-                <button type="button" class="btn btn-success" id="botonProducto">
+                <button type="button" class="boton-buscar" id="botonProducto">
                     Buscar
                 </button>
             </div>
@@ -46,10 +46,10 @@
             </div>            
             <div class="post-footer">
                 <div>
-                    <button type="button" class="btn btn-primary" (click)="this.id=this.post.id; openModalUpdate(this.id)">
+                    <button type="button" class="opinion-boton" (click)="this.id=this.post.id; openModalUpdate(this.id)">
                         <i [ngClass]="oIconService.getIcon('edit')"></i>
                     </button>
-                    <button type="button" class="btn btn-danger" (click)="this.id=this.post.id; openModalDelete(this.id)">
+                    <button type="button" class="opinion-boton" (click)="this.id=this.post.id; openModalDelete(this.id)">
                         <i [ngClass]="oIconService.getIcon('remove')"></i>
                     </button>
                 </div>
