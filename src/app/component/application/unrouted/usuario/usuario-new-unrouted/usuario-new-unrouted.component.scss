@@ -51,7 +51,7 @@ h1{
 
   input + div {
     padding-top: 5px;
-    font-family: 'Dancing Script', cursive;
+    
     text-align: center;
   }
 
@@ -87,4 +87,9 @@ h1{
 
   i {
     padding-right: 10px;
+  }
+
+  .texto-muted {
+    height:10px; 
+    width:90%;
   }

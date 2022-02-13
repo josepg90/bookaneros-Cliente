@@ -19,16 +19,16 @@ export class TipolibroPlistUnroutedComponent implements OnInit {
   @Input() mode: boolean = true; //true=edición; false=selección
   @Output() selection = new EventEmitter<number>();
 
-  strEntity: string = 'Tipoproducto';
+  strEntity: string = 'Género';
   strOperation: string = 'plist';
-  strTitleSingular: string = 'Tipo Producto';
-  strTitlePlural: string = 'Tipos Productos';
+  strTitleSingular: string = 'Género';
+  strTitlePlural: string = 'Géneros';
   aPosts: ITipoLibro[];
   nTotalElements: number;
   totalPages: number;
   page: number;
   barraPaginacion: string[];
-  pageSize: number = 10;
+  pageSize: number = 5;
   id2ShowViewModal: number = 0;
   strUsuarioSession: string;
   strResult: string = null;
@@ -53,6 +53,8 @@ export class TipolibroPlistUnroutedComponent implements OnInit {
   ) { 
     this.usuario = JSON.parse(localStorage.getItem('user'));
     console.log(this.usuario);
+
+    this.page = 1;
   }
 
   ngOnInit(): void {
@@ -92,6 +94,7 @@ export class TipolibroPlistUnroutedComponent implements OnInit {
 
   onKeyUpFilter(event: KeyboardEvent): void {
     this.subjectFiltro$.next();
+    this.getPage();
   }
 
   doFilter() {

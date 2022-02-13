@@ -58,14 +58,14 @@ export class LibroNewUnroutedComponent implements OnInit {
   ngOnInit(): void {
     this.oForm = this.oFormBuilder.group({
       codigo: ['', [Validators.required]],
-      titulo: ['', Validators.required],
+      titulo: ['', [Validators.required]],
       autor: [''],
       fecha_publicacion: [''],
       resumen: [''],
       imagen: [''],
       paginas: [''],
       novedad: [''],
-      tipolibro: ['', Validators.required],
+      tipolibro: ['', [Validators.required]],
       genero: ['']
     });
     $('#fecha_publicacion').datetimepicker({

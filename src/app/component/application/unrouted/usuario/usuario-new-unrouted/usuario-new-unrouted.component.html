@@ -10,18 +10,18 @@
                             <div>
                                 <input type="text" class="form-control" id="login" formControlName="login" class="form-control" required="required"
                                     [ngClass]="{'is-valid' : f.login.dirty && !(f.login.errors?.required || f.login.errors?.minlength) }">
-                                <div *ngIf="f.login.dirty && f.login.errors?.required" class="text-danger">
+                                <div class="texto-muted" *ngIf="f.login.dirty && f.login.errors?.required" class="text-danger">
                                     Se debe introducir un nombre de Usuario válido
                                 </div>
-                                <div *ngIf="f.login.dirty && f.login.errors?.minlength" class="text-danger">
-                                    El nombre de Usuario introducido es demasiado corto
+                                <div class="texto-muted" *ngIf="f.login.dirty && f.login.errors?.minlength" class="text-danger">
+                                    El Usuario introducido es demasiado corto
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="usuario-new-form-row">
-                    <label for="nombre">Password</label>
+                    <label for="password">Password</label>
                     <div>
                         <div>
                             <div>
@@ -48,7 +48,7 @@
                                     Se debe introducir un Correo Electrónico valido
                                 </div>
                                 <div *ngIf="f.email.dirty && f.email.errors?.minlength" class="text-danger">
-                                    El Correo Electrónico introducido es demasiado corto
+                                    Correo Electrónico introducido es demasiado corto
                                 </div>
                             </div>
                         </div>

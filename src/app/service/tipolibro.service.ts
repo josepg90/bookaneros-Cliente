@@ -20,12 +20,15 @@ export class TipolibroService {
     direction: string
   ): Observable<IPageTipoLibro> {
     let strUrl: string = '';
-    if (filter) {
-      strUrl += '&filter=' + filter;
-    }
     if (order) {
       strUrl += '&sort=' + order + ',' + direction;
     }
+    if (filter) {
+      strUrl += '&filter=' + filter;
+    }
+    
+    console.log(this.sURL + '/?page=' + (page - 1) + '&size=' + rpp + strUrl, httpOptions);
+    
     return this.http.get<IPageTipoLibro>(
       this.sURL + '/?page=' + (page - 1) + '&size=' + rpp + strUrl, httpOptions);
   }

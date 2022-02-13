@@ -2,6 +2,7 @@
 
 <div class="contenedor">
   <!--Se puede hacer por nth-child i no con tanta clase-->
+  <h1 class="mat-h1">Dashboard Administrador</h1>
   <nav>
     <ul>
       <li class="boton" (click)="this.opcion=0">
@@ -39,8 +40,26 @@
 
   <!--Sección New-->
   <div class="grid-container" *ngIf="opcion==0">
-    <h1 class="mat-h1">Dashboard</h1>
+    <h1 class="mat-h2">Añadir Elementos</h1>
     <mat-grid-list cols="2" rowHeight="350px">
+      <mat-grid-tile [colspan]="( cardLayout | async )?.new_genero.cols"
+        [rowspan]="( cardLayout | async )?.new_genero.rows">
+        <mat-card class="dashboard-card">
+          
+            
+
+              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu" xPosition="before">
+                <button mat-menu-item>Expand</button>
+                <button mat-menu-item>Remove</button>
+              </mat-menu>
+              <app-tipolibro-new-unrouted></app-tipolibro-new-unrouted>
+            
+          
+        </mat-card>
+      </mat-grid-tile>
       <mat-grid-tile [colspan]="( cardLayout | async )?.new_libro.cols" [rowspan]="( cardLayout | async )?.new_libro.rows">
         <mat-card class="dashboard-card">
           
@@ -73,25 +92,6 @@
                 <button mat-menu-item>Remove</button>
               </mat-menu>
               <app-usuario-new-unrouted></app-usuario-new-unrouted>
-            
-          
-        </mat-card>
-      </mat-grid-tile>
-      
-      <mat-grid-tile [colspan]="( cardLayout | async )?.new_genero.cols"
-        [rowspan]="( cardLayout | async )?.new_genero.rows">
-        <mat-card class="dashboard-card">
-          
-            
-
-              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                <mat-icon>more_vert</mat-icon>
-              </button>
-              <mat-menu #menu="matMenu" xPosition="before">
-                <button mat-menu-item>Expand</button>
-                <button mat-menu-item>Remove</button>
-              </mat-menu>
-              <app-tipolibro-new-unrouted></app-tipolibro-new-unrouted>
             
           
         </mat-card>

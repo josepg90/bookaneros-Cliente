@@ -1,121 +1,170 @@
-<div class="container my-3">
-
-    <h1><i [ngClass]="oIconService.getIcon('new')"></i>Nuevo Libro</h1>
-  
-    <div class="row justify-content-center">
-  
+<div class="libro-new">
+  <div class="libro-new-contenido">
+      <h1><i [ngClass]="oIconService.getIcon('new')"></i>Nuevo Libro</h1>
       <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">
-  
-        <div class="row mb-3">
-          <label for="codigo" class="col-sm-2 col-form-label">Código</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="codigo" formControlName="codigo"
-              [ngClass]="{'is-valid' : f.codigo.dirty && !(f.codigo.errors?.required || f.codigo.errors?.minlength) }">
-            <div *ngIf="f.codigo.dirty && f.codigo.errors?.required" class="text-danger">
-              Se debe introducir un código
-            </div>
-          </div>
-        </div>
-  
-        <div class="row mb-3">
-          <label for="titulo" class="col-sm-2 col-form-label">Título</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="titulo" formControlName="titulo"
-              [ngClass]="{'is-valid' : f.titulo.dirty && !(f.titulo.errors?.required || f.titulo.errors?.minlength) }">
-            <div *ngIf="f.titulo.dirty && f.titulo.errors?.required" class="text-danger">
-              Se debe introducir un titulo
-            </div>
-            <div *ngIf="f.titulo.dirty && f.titulo.errors?.minlength" class="text-danger">
-              El titulo introducido es demasiado corto
-            </div>
-          </div>
-        </div>
-  
-        <div class="row mb-3">
-          <label for="autor" class="col-sm-2 col-form-label">Autor</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="autor" formControlName="autor">
-          </div>
-        </div>
-  
-        
-        <div class="row mb-3">
-            <label for="fecha_publicacion" class="col-sm-2 col-form-label">Fecha de publicación</label>
-            <div class="col-sm-10">
-                <input type="text" name="fecha_publicacion" id="fecha_publicacion" formControlName="fecha_publicacion"
-                    class="text ui-widget-content ui-corner-all" />
-                <div *ngIf="f.fecha_publicacion.dirty && f.fecha_publicacion.errors?.required" class="text-danger">
-                    Se debe introducir una fecha de publicación correcta
+          <div>
+              <div class="libro-new-form-row">
+                  <label for="codigo">Código</label>
+                  <div>
+                      <div>
+                          <div>
+                              <input type="text" class="form-control" id="codigo" formControlName="codigo" required="required"
+                                  [ngClass]="{'is-valid' : f.codigo.dirty && !(f.codigo.errors?.required || f.codigo.errors?.minlength) }">
+                              <div class="texto-muted" *ngIf="f.codigo.dirty && f.codigo.errors?.required" class="text-danger">
+                                  Se debe introducir un Código válido
+                              </div>
+                              <div class="texto-muted" *ngIf="f.codigo.dirty && f.codigo.errors?.minlength" class="text-danger">
+                                  El Código introducido es demasiado corto
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="libro-new-form-row">
+                  <label for="titulo">Título</label>
+                  <div>
+                      <div>
+                          <div>
+                              <input type="text" class="form-control" id="titulo" formControlName="titulo" required="required" 
+                                  [ngClass]="{'is-valid' : f.titulo.dirty && !(f.titulo.errors?.required || f.titulo.errors?.minlength) }">
+                              <div *ngIf="f.titulo.dirty && f.titulo.errors?.required" class="text-danger">
+                                  Se debe introducir un Título válido
+                              </div>
+                              <div *ngIf="f.titulo.dirty && f.titulo.errors?.minlength" class="text-danger">
+                                  El Título introducido es demasiado corto
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="libro-new-form-row">
+                  <label for="autor">Autor</label>
+                  <div>
+                      <div>
+                          <div>
+                              <input type="text" class="form-control" id="autor" formControlName="autor" required="required"
+                                  [ngClass]="{'is-valid' : f.autor.dirty && !(f.autor.errors?.required || f.autor.errors?.minlength) }">
+                              <div *ngIf="f.autor.dirty && f.autor.errors?.required" class="text-danger">
+                                  Se debe introducir un Autor valido
+                              </div>
+                              <div *ngIf="f.autor.dirty && f.autor.errors?.minlength" class="text-danger">
+                                  El Autor introducido es demasiado corto
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="libro-new-form-row">
+                  <label for="fecha_publicacion">Fecha de publicación</label>
+                  <div>
+                    <div>
+                        <div>
+                            <input type="text" name="fecha_publicacion" id="fecha_publicacion" formControlName="fecha_publicacion"
+                                class="text ui-widget-content ui-corner-all" />
+                            <div *ngIf="f.fecha_publicacion.dirty && f.fecha_publicacion.errors?.required" class="text-danger">
+                                Se debe introducir una fecha de publicación correcta
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="libro-new-form-row">
+                <label for="resumen">Resumen</label>
+                <div>
+                    <div>
+                        <div>
+                            <textarea type="text" class="form-control" id="resumen" formControlName="resumen" rows="10" required="required"
+                                [ngClass]="{'is-valid' : f.resumen.dirty && !(f.resumen.errors?.required || f.resumen.errors?.minlength) }"></textarea>
+                            <div *ngIf="f.resumen.dirty && f.resumen.errors?.required" class="text-danger">
+                                Se debe introducir un Resumen valido
+                            </div>
+                            <div *ngIf="f.resumen.dirty && f.resumen.errors?.minlength" class="text-danger">
+                                El Resumen introducido es demasiado corto
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-  
-        <div class="row mb-3">
-            <label for="resumen" class="col-sm-2 col-form-label">Resumen</label>
-            <div class="col-sm-10">
-                <textarea name="resumen" class="form-control" id="resumen" cols="30" rows="10" formControlName="resumen"></textarea>
-            </div>
-          </div>
-  
-        <div class="row mb-3">
-          <label for="imagen" class="col-sm-2 col-form-label">Imagen</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="imagen" formControlName="imagen">
-          </div>
-        </div>  
-       
-        <div class="row mb-3">
-          <label for="paginas" class="col-sm-2 col-form-label">Páginas</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="paginas" formControlName="paginas">
-          </div>
-        </div>
+              </div>
 
-        <div class="row mb-3">
-            <label for="novedad" class="col-sm-2 col-form-label">Novedad</label>
-            <div class="col-sm-10">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="novedad" formControlName="novedad">
-                    <label class="form-check-label" for="novedad">
-                        Novedad
-                    </label>
+              <div class="libro-new-form-row">
+                <label for="imagen">Imágen</label>
+                <div>
+                    <div>
+                        <div>
+                            <input type="text" class="form-control" id="imagen" formControlName="imagen" required="required"
+                                [ngClass]="{'is-valid' : f.imagen.dirty && !(f.imagen.errors?.required || f.imagen.errors?.minlength) }">
+                            <div *ngIf="f.imagen.dirty && f.imagen.errors?.required" class="text-danger">
+                                Se debe introducir una Imágen valida
+                            </div>
+                            <div *ngIf="f.imagen.dirty && f.imagen.errors?.minlength" class="text-danger">
+                                La Imágen introducido es demasiado corto
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-          </div>
-  
-  
-        <div class="row mb-3">
-          <label for="tipolibro" class="col-sm-2 col-form-label">Género</label>
-          <div class="col-sm-10 genero">
-            <input type="text" class="form-control" id="tipolibro" formControlName="tipolibro"
-              [ngClass]="{'is-valid' : f.tipolibro.dirty && !(f.tipolibro.errors?.required || f.tipolibro.errors?.minlength) }">
-              <input type="text" class="form-control" id="genero" formControlName="genero" readonly>
-            <div *ngIf="f.tipolibro.dirty && f.tipolibro.errors?.required" class="text-danger">
-              Se debe introducir un género
-            </div>
-          </div>
-        </div>
-        <button type="button" class="btn btn-success" id="botonProducto" (click)="openModal()">
-          Buscar Género
-        </button>
-  
-        <div class="row mb-3 justify-content-center">
-          <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center">
-            <button type="submit" class="btn btn-warning" [disabled]="oForm.invalid || oForm.pristine"><i [ngClass]="oIconService.getIcon('ok')"></i> Crear
-              el nuevo {{strTitleSingular}}</button>
-          </div>
-        </div>
-  
+              </div>
+
+              <div class="libro-new-form-row">
+                <label for="paginas">Páginas</label>
+                <div>
+                    <div>
+                        <div>
+                            <input type="text" class="form-control" id="paginas" formControlName="paginas" required="required"
+                                [ngClass]="{'is-valid' : f.paginas.dirty && !(f.paginas.errors?.required || f.paginas.errors?.minlength) }">
+                            <div *ngIf="f.paginas.dirty && f.paginas.errors?.required" class="text-danger">
+                                Se debe introducir un Número valida
+                            </div>
+                            <div *ngIf="f.paginas.dirty && f.paginas.errors?.minlength" class="text-danger">
+                                El Número introducido es demasiado corto
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+
+              <div class="libro-new-form-row">
+                <label for="novedad">Novedad</label>
+                <div>
+                    <div>
+                        <div>
+                            <input class="form-check-input" type="checkbox" id="novedad" formControlName="novedad">
+                              <label class="form-check-label" for="novedad">
+                                Novedad
+                              </label>
+                        </div>
+                    </div>
+                </div>
+              </div>
+
+              <div class="libro-new-form-row">
+                <label for="tipolibro">Género</label>
+                <div class="genero">
+                    <div>
+                        <div> 
+                          <div class="input-group">
+                            <input type="text" class="form-control" id="tipolibro" formControlName="tipolibro"
+                            [ngClass]="{'is-valid' : f.tipolibro.dirty && !(f.tipolibro.errors?.required || f.tipolibro.errors?.minlength) }">
+                            <input type="text" class="form-control" id="genero" formControlName="genero" readonly>
+                            <button type="button" class="libro-boton-genero" id="botonProducto" (click)="openModal()">
+                              Buscar Género
+                            </button>
+                            <div *ngIf="f.tipolibro.dirty && f.tipolibro.errors?.required" class="text-danger">
+                              Se debe introducir un género
+                            </div>
+                          </div>                            
+                        </div>
+                    </div>
+                </div>
+              </div>
+
+              <div class="libro-new-form-row">
+                  
+                          <button mat-raised-button type="submit" class="libro-new-boton"
+                              [disabled]="oForm.invalid || oForm.pristine"><i
+                                  [ngClass]="oIconService.getIcon('new')"></i>
+                              Crear Usuario</button>
+              </div>
+          </div>    
       </form>
-  
-  
-      <div class="d-grid gap-2 d-md-block d-md-flex justify-content-md-center">
-         
-          <a class="btn btn-primary mx-2" [routerLink]="['/' + strEntity + '/plist']"><i
-              [ngClass]="oIconService.getIcon('plist')"></i> Listado de {{strTitlePlural}}</a>
-          
-        </div>
-     
-  
-    </div>
   </div>
+</div>
