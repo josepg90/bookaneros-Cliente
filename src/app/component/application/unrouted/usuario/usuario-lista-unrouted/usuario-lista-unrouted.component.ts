@@ -63,9 +63,9 @@ export class UsuarioListaUnroutedComponent implements OnInit {
       .getPage(
         this.pageSize,
         this.page,
-        this.strFilter,
         this.currentSortField,
-        this.currentSortDirection
+        this.currentSortDirection,
+        this.strFilter
       )
       .subscribe((oPage: IPageUsuario) => {
         if (this.strFilter) {

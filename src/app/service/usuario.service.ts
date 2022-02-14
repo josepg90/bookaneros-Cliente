@@ -19,13 +19,16 @@ export class UsuarioService {
   getPage(rpp: number, page: number, order: string, direction: string, filter: string): Observable<IPageUsuario> {
     let strOrderUrl: string = "";
     let filterStr: string = "";
-    if (order) {
-      strOrderUrl += "&sort=" + order + "," + direction;
-    }
+    
     if (filter) {
       filterStr += "&filter=" + filter;
     }
+    if (order) {
+      strOrderUrl += "&sort=" + order + "," + direction;
+    }
     page--;
+    console.log(this.sURL + "/page" + "?size=" + rpp + "&page=" + page + strOrderUrl + filterStr);
+    
     return this.http.get<IPageUsuario>(this.sURL + "/page" + "?size=" + rpp + "&page=" + page + strOrderUrl + filterStr, httpOptions);
   }
 
