@@ -2,28 +2,26 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { IPageTipoLibro, ITipoLibro } from 'src/app/model/tipolibro-interfaces';
-import { IUsuario } from 'src/app/model/usuario-interfaces';
+import { IPageUsuario, IUsuario } from 'src/app/model/usuario-interfaces';
 import { IconService } from 'src/app/service/icon.service';
 import { PaginationService } from 'src/app/service/pagination.service';
-import { TipolibroService } from 'src/app/service/tipolibro.service';
-
+import { UsuarioService } from 'src/app/service/usuario.service';
 
 @Component({
-  selector: 'app-tipolibro-plist-unrouted',
-  templateUrl: './tipolibro-plist-unrouted.component.html',
-  styleUrls: ['./tipolibro-plist-unrouted.component.scss']
+  selector: 'app-usuario-lista-unrouted',
+  templateUrl: './usuario-lista-unrouted.component.html',
+  styleUrls: ['./usuario-lista-unrouted.component.scss']
 })
-export class TipolibroPlistUnroutedComponent implements OnInit {
+export class UsuarioListaUnroutedComponent implements OnInit {
 
   @Input() mode: boolean = true; //true=edición; false=selección
   @Output() selection = new EventEmitter<number>();
 
-  strEntity: string = 'Género';
+  strEntity: string = 'Usuario';
   strOperation: string = 'lista';
-  strTitleSingular: string = 'Género';
-  strTitlePlural: string = 'Géneros';
-  aPosts: ITipoLibro[];
+  strTitleSingular: string = 'Usuario';
+  strTitlePlural: string = 'Usuarios';
+  aUsuario: IUsuario[];
   nTotalElements: number;
   totalPages: number;
   page: number;
@@ -42,27 +40,26 @@ export class TipolibroPlistUnroutedComponent implements OnInit {
   nombre: string;
 
   constructor(
-    public dialogRef: MatDialogRef<TipolibroPlistUnroutedComponent>,
+    public dialogRef: MatDialogRef<UsuarioListaUnroutedComponent>,
     private oRoute: ActivatedRoute,
     private oRouter: Router,
     private oPaginationService: PaginationService,
-    private oPostService: TipolibroService,
+    private oUsuarioService: UsuarioService,
     public oIconService: IconService,
     private oActivatedRoute: ActivatedRoute
-
-  ) { 
+  ) {
     this.usuario = JSON.parse(localStorage.getItem('user'));
     console.log(this.usuario);
 
     this.page = 1;
-  }
+   }
 
   ngOnInit(): void {
     this.getPage();
   }
 
   getPage = () => {
-    this.oPostService
+    this.oUsuarioService
       .getPage(
         this.pageSize,
         this.page,
@@ -70,13 +67,13 @@ export class TipolibroPlistUnroutedComponent implements OnInit {
         this.currentSortField,
         this.currentSortDirection
       )
-      .subscribe((oPage: IPageTipoLibro) => {
+      .subscribe((oPage: IPageUsuario) => {
         if (this.strFilter) {
           this.strFilteredMessage = 'Listado filtrado por ' + this.strFilter;
         } else {
           this.strFilteredMessage = 'Listado NO filtrado';
         }
-        this.aPosts = oPage.content;
+        this.aUsuario = oPage.content;
         this.nTotalElements = oPage.totalElements;
         this.totalPages = oPage.totalPages;
         this.barraPaginacion = this.oPaginationService.pagination(

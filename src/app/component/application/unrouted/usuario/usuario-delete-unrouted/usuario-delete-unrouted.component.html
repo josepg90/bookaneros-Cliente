@@ -1,3 +1,52 @@
+<div class="usuario-edit">
+    <div class="usuario-edit-contenido">
+        <h1><i [ngClass]="oIconService.getIcon('edit')"></i>Eliminar Usuario</h1>
+        <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">
+            <div>
+                <div class="usuario-edit-form-row">
+                    <label for="login">Nombre de usuario</label>
+                    <div>
+                        <div>
+                            <div>
+                                <input type="text" class="form-control" id="login" formControlName="login" class="form-control" required="required" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="usuario-edit-form-row">
+                    <label for="password">Password</label>
+                    <div>
+                        <div>
+                            <div>
+                                <input type="password" class="form-control" id="password" formControlName="password" class="form-control" required="required" readonly>
+                               </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="usuario-edit-form-row">
+                    <label for="email">Correo electrónico</label>
+                    <div>
+                        <div>
+                            <div>
+                                <input type="email" class="form-control" id="email" formControlName="email" class="form-control" required="required" readonly>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="usuario-edit-form-row">
+                    
+                            <button mat-raised-button type="submit" class="usuario-edit-boton">
+                                <i [ngClass]="oIconService.getIcon('edit')"></i>Eliminar Usuario</button>
+                </div>
+            </div>    
+        </form>
+        <div class="usuario-edit-form-row usuario-edit-cancelar-centrar">
+            <button mat-raised-button class="usuario-edit-boton" (click)="closeModal()">Cancelar</button>
+        </div>
+    </div>
+</div>
+
 <div id="modal-content-wrapper">
     <div class="registro">
         <h1 class="modal-title modal-margin">Eliminar Usuario</h1>

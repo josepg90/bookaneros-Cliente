@@ -106,7 +106,6 @@ export class OpinionUpdateUnroutedComponent implements OnInit {
           id: this.oForm.value.usuario
         }
       };
-      console.log("Hola");
       
       console.log(this.oPost2Send.id);
       console.log(this.oPost2Send.libro);
@@ -136,6 +135,9 @@ export class OpinionUpdateUnroutedComponent implements OnInit {
           })
           
       this.closeModal();
+      setTimeout(() => {
+        this.reloadCurrentPage(); 
+     }, 1000);
           Toast.fire({
             icon: 'success',
             title: 'Editado correctamente'
@@ -158,6 +160,9 @@ export class OpinionUpdateUnroutedComponent implements OnInit {
   cerrar(): void {
     this.oRouter.navigate(['/dashboard']);
   }
+  reloadCurrentPage() {
+    window.location.reload();
+   }
 
 // When the user clicks the action button a.k.a. the logout button in the\
 // modal, show an alert and followed by the closing of the modal

@@ -7,7 +7,7 @@ export interface IUsuario {
 }
 
 export interface IPageUsuario {
-    IUsuario: [],
+    content: IUsuario[],
     totalElements: number,
     totalPages: number
 }

@@ -2,7 +2,7 @@
     <div class="opinion-contenedor-filtros">
         <form>
             <div class="input-group input-group-sm opinion-contenedor-filtros-diferentes">
-                <h3>Buscar Libro/Autor</h3>
+                <h3>Buscar Libro</h3>
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i [ngClass]="oIconService.getIcon('filtro')"
                             (click)="strFilter=''; this.getPage()"></i></span>
@@ -15,12 +15,12 @@
                 <h3>Buscar por Usuario</h3>
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i [ngClass]="oIconService.getIcon('filtro')"
-                            (click)="genero=''; this.id_libro=null; this.getPage()"></i></span>
+                            (click)="login=''; this.id_usuario=null; this.getPage()"></i></span>
                 </div>
-                <input type="text" class="form-control" id="genero" readonly placeholder="Filtro de Usuario"
-                (keyup)="onKeyUpFilter($event)" [(ngModel)]="genero" name="genero"
+                <input type="text" class="form-control" id="login" readonly placeholder="Filtro de Usuario"
+                (keyup)="onKeyUpFilter($event)" [(ngModel)]="login" name="genero"
                     aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
-                <button type="button" class="boton-buscar" id="botonProducto">
+                <button type="button" class="boton-buscar" id="botonProducto" (click)="openModalUsuario()">
                     Buscar
                 </button>
             </div>

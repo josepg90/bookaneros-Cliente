@@ -1,44 +1,99 @@
-#modal-content-wrapper {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-rows: repeat(1fr, 3);
-}
+* {
+    box-sizing: initial;
+  }
+  
+  .usuario-edit-contenido {
+    margin: 40px 30px;
+  }
+  
+  h1{
+      font-size: 2rem;
+      margin: 20px 0 40px;
+  }
+  
+    form {
+      width:100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    form div label {
+      flex: 0 0 auto;
+      width: 15%;
+      font-size: 1.2rem;  
+    }
+  
+    .usuario-edit-form-row {
+      display:flex;
+      flex-direction: row;
+    }
+  
+    .usuario-edit-form-row:nth-child(4) {
+      display:flex;
+      flex-direction: row;
+      justify-content: center;
+      margin:20px 0;
+    }
 
-.registro {
-    display: flex;
-    flex-direction: column;
-}
-
-.modal-title {
-    font-size: 22px;
-    align-self: center;
-}
-
-.modal-margin {
-    margin:10px;
-}
-
-.modal-imput {
-    //width:70%;
-    margin-bottom: 30px; 
-   
-}
-
-.modal-footer {
-    justify-self: right;
-    align-self: center;
-}
-
-#modal-action-button {
-    margin-right: 30px;
-    background-color:#3b3b3b;
-}
-
-#modal-cancel-button {
-    background-color: #4e4e4e;
-}
-.modal-centrar {
-    display: flex;
-    justify-content: center
-}
+    .usuario-edit-cancelar-centrar {
+        justify-content: center;
+    }
+  
+    form div {
+      width:100%;
+    }
+  
+    .usuario-contenedor {
+      padding: 30px;
+    }
+  
+    input {
+      width:80%;
+      margin: 0 0 0 20px;
+    }
+  
+    input + div {
+      padding-top: 5px;
+      
+      text-align: center;
+    }
+  
+    label + div div div {
+      margin-bottom: 20px;
+    }
+  
+    .usuario-edit-boton {
+      background-color: #5E3023;
+      margin: 10px 0;
+      width: 60%;
+      padding: 9px 14px; 
+      font-size: 1.2rem;
+      line-height: normal;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      text-shadow: 0.2rem 0.2rem 0.8rem rgba(0,0,0,0.7);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5);
+    }
+  
+    .usuario-edit-boton:hover {
+      text-shadow: 0.4rem 0.4rem 1.6rem rgba(0, 0, 0, 1);
+      color: #ffffff;
+      background-color: #8A6552;
+      box-shadow: 0px 0px 8px 12px #5E3023 ;
+    }
+  
+    button {
+      margin-top: 100px;
+    }
+  
+    i {
+      padding-right: 10px;
+    }
+  
+    .texto-muted {
+      height:10px; 
+      width:90%;
+    }

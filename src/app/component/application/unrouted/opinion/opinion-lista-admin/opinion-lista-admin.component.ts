@@ -7,6 +7,7 @@ import { IUsuario } from 'src/app/model/usuario-interfaces';
 import { IconService } from 'src/app/service/icon.service';
 import { OpinionService } from 'src/app/service/opinion.service';
 import { PaginationService } from 'src/app/service/pagination.service';
+import { UsuarioListaUnroutedComponent } from '../../usuario/usuario-lista-unrouted/usuario-lista-unrouted.component';
 import { OpinionDeleteUnroutedComponent } from '../opinion-delete-unrouted/opinion-delete-unrouted.component';
 import { OpinionUpdateUnroutedComponent } from '../opinion-update-unrouted/opinion-update-unrouted.component';
 
@@ -37,7 +38,7 @@ export class OpinionListaAdminComponent implements OnInit {
   subjectFiltro$ = new Subject();
   barraPaginacion: string[];
 
-  genero: string;
+  login: string;
   id_libro: number;
   id_usuario: number;
   applyClass: string;
@@ -79,6 +80,8 @@ export class OpinionListaAdminComponent implements OnInit {
       this.aPaginationBar = this.oPaginationService.pagination(this.nTotalPages, this.nPage);
 
       console.log(this.id_libro);
+      console.log(this.id_usuario);
+
 
     })
   }
@@ -89,6 +92,7 @@ export class OpinionListaAdminComponent implements OnInit {
   }
   onKeyUpFilter(event: KeyboardEvent): void {
     this.subjectFiltro$.next();
+    this.getPage();
   }
 
   doResetOrder() {
@@ -135,6 +139,29 @@ export class OpinionListaAdminComponent implements OnInit {
     
     // https://material.angular.io/components/dialog/overview
     const modalDialog = this.matDialog.open(OpinionDeleteUnroutedComponent, dialogConfig);
+  }
+
+  openModalUsuario() {
+
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.height = "500px";
+    dialogConfig.width = "600px";
+    // https://material.angular.io/components/dialog/overview
+    const modalDialog = this.matDialog.open(UsuarioListaUnroutedComponent, dialogConfig);
+
+    modalDialog.afterClosed().subscribe(res => {
+      console.log(res.data);
+      console.log(res.data2);
+
+      this.login= res.data2;
+      this.id_usuario= res.data;
+
+      this.getPage();
+      
+    })
   }
 
 }

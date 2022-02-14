@@ -52,6 +52,7 @@ import { OpinionUpdateUnroutedComponent } from './component/application/unrouted
 import { OpinionDeleteUnroutedComponent } from './component/application/unrouted/opinion/opinion-delete-unrouted/opinion-delete-unrouted.component';
 import { OpinionNewUnroutedComponent } from './component/application/unrouted/opinion/opinion-new-unrouted/opinion-new-unrouted.component';
 import { UsuarioNewUnroutedComponent } from './component/application/unrouted/usuario/usuario-new-unrouted/usuario-new-unrouted.component';
+import { UsuarioListaUnroutedComponent } from './component/application/unrouted/usuario/usuario-lista-unrouted/usuario-lista-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,8 @@ import { UsuarioNewUnroutedComponent } from './component/application/unrouted/us
     OpinionUpdateUnroutedComponent,
     OpinionDeleteUnroutedComponent,
     OpinionNewUnroutedComponent,
-    UsuarioNewUnroutedComponent
+    UsuarioNewUnroutedComponent,
+    UsuarioListaUnroutedComponent
   ],
   imports: [
     HttpClientModule,
