@@ -1,6 +1,18 @@
 //@import url('https://fonts.googleapis.com/css?family=Pirata+One|Rubik:900');
 
-header {
+.deconstructed {
+  font-family: 'Amatic SC', cursive !important;
+  font-size: 12rem;
+  margin: 20px auto 150px;
+  display:flex;
+  justify-content:center;
+  height: 1em;
+  text-shadow: 0.2rem 0.2rem 0.8rem rgba(0,0,0,0.25);
+  color: #412722;
+  pointer-events: none;
+
+}
+/*header {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -116,4 +128,4 @@ header {
     100% {
       transform: translateX(-135%);
     }
-  }
+  }*/

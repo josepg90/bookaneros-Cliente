@@ -38,11 +38,11 @@
         <img mat-card-image [src]="'http://localhost:8082/file/' + libro.imagen"/>
         <div class="libros-img-centrar" *ngIf="libro.novedad==true"><span class="novedad">NEW</span></div> 
        </div>
-      <mat-card-actions>
+      <div class="star-rate-position">
         <div>
           <i class="fa fa-star fa-lg"><span>4.6</span></i>
         </div>   
-      </mat-card-actions>
+      </div>
     </mat-card>
   </div>
 

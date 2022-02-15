@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-h2,h3,h4,h5,h6, app-header {
+h2,h3,h4,h5,h6/*, app-header*/ {
     font-family: 'Amatic SC', cursive !important;
     font-size: 2rem !important;  
 }
@@ -38,9 +38,12 @@ mat-dialog-container {
     background: #111 !important;    
 }
 
+.mat-typography {
+    font:none !important;
+}
+
 .mat-dialog-container {
-    width:120% !important;
-    height: 120% !important;
+
     padding:0 20px !important;
     overflow: hidden !important;
 }

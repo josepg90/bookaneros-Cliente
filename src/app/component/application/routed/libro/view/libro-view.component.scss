@@ -3,6 +3,11 @@ app-menu{
     display: flex;
     justify-content: center;     
 }
+
+.libro-view-titulo {
+  margin: 40px auto 0;
+  font-size: 3rem;
+}
 .libro-view-centrar {
     display: flex;
     justify-content: center;
@@ -10,14 +15,23 @@ app-menu{
     
 }
 
+.libro-view-columna {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    width:70%;
+    
+}
+
 .libro-view-row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width:70%;
+    //width:70%;
     padding: 10px 25px;
     justify-content: center;
-    background-color: rgba(0,0,0,0.6);
+    //background-color: rgba(0,0,0,0.6);
     //HAY QUE CAMBIAR EL IMPORTANT, LA TABLA ESTA CON BOOTSTRAP, CAMBIAR A CSS
     
   }
@@ -25,11 +39,11 @@ app-menu{
     flex: 1;
     display: flex;
     justify-content: center;
-    padding:60px 40px;
+    padding:40px 40px;
 }
 .libro-view-col-3 {
     flex: 3;
-    padding:60px 40px;
+    padding:40px 40px;
     
 
 }

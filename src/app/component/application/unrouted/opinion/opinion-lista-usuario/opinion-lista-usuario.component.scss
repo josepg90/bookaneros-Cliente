@@ -27,7 +27,7 @@
 
 .post-header {
     height: 50px;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0,0,0,0.4);
     border-top-right-radius: 25px;
     border-top-left-radius: 25px;
     display:flex;
@@ -38,15 +38,15 @@
 
 .post-cuerpo {
     width:95%;
-    background-color: rgba(0,0,0,0.5);
+    //background-color: rgba(0,0,0,0.5);
     margin: 20px auto;
     padding-bottom:20px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     border-radius: 25px;
 }
 
 .post-cuerpo div:nth-child(1) {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
 }
 
 .post-cuerpo div{
@@ -55,7 +55,7 @@
 
 .post-footer {
     height: 50px;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0,0,0,0.4);
     border-bottom-right-radius: 25px;
     border-bottom-left-radius: 25px;
     display:flex;
@@ -75,6 +75,8 @@
 hr{
    width: 97%;
    margin: auto;
+   color: #fff;
+   height: 5px;
 }
 
 span i {

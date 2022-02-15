@@ -53,7 +53,7 @@ export class UsuarioDeleteUnroutedComponent implements OnInit {
       localStorage.setItem('user', JSON.stringify(this.strUsuarioSession));
     } else {
       localStorage.clear();
-      oRouter.navigate(['/home']);
+      //oRouter.navigate(['/home']);
     }
     // recogida de parámetros
     //this.id = this.oActivatedRoute.snapshot.params.id;

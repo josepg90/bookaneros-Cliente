@@ -7,6 +7,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { IconService } from 'src/app/service/icon.service';
+import { timeout } from 'rxjs/operators';
 
 declare var Swal: any;
 
@@ -56,7 +57,7 @@ export class UsuarioUpdateUnroutedComponent implements OnInit {
       localStorage.setItem('user', JSON.stringify(this.oRoute.snapshot.data.message));
     } else {
       localStorage.clear();
-      oRouter.navigate(['/home']);
+      //oRouter.navigate(['/home']);
     }
     this.id = data.id;
     //this.oUsuarioSession = JSON.parse(localStorage.getItem("user"));
@@ -133,7 +134,7 @@ export class UsuarioUpdateUnroutedComponent implements OnInit {
             title: 'Editado correctamente'
           })
           this.loguearUpdate();
-          this.cerrar();
+          
         } else {
           Swal.fire({
             icon: 'error',
@@ -154,7 +155,14 @@ export class UsuarioUpdateUnroutedComponent implements OnInit {
       
       localStorage.setItem("user", JSON.stringify(data2.toString()));
       if (data2 != null) {
-        this.oRouter.navigate(['/home']);
+
+        setTimeout(() => {
+          window.location.reload();
+      }, 2000);
+
+        this.oRouter.navigate(['/usuario/' + this.id]);
+        console.log(data2);
+        
       } else {
         localStorage.clear();
       }

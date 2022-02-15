@@ -103,14 +103,15 @@ h3 {
   height: 350px;
 }
 
-mat-card-actions div {
+.star-rate-position div {
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
   .fa-star {
     color: #ffd700;
   }
   i span {
-    margin-left: 0.5rem;
+    margin: 0.5rem;
   }
 }
 .libros-contenedor-libros-favoritos {

@@ -1,19 +1,8 @@
-<div class="row justify-content-between my-3">
+<div class="justify-content-between">
     <div class="col-md text-start">
       <h6>{{strFilteredMessage}}</h6>
     </div>
-    <div class="col-md text-center">
-      <form>
-        <div class="input-group input-group-sm">
-          <div class="input-group-prepend">
-            <span class="input-group-text"> <i [ngClass]="oIconService.getIcon('filtro')"></i></span>
-          </div>
-          <input type="text" class="form-control" placeholder="{{'Filtro de ' + strTitlePlural}}" placeholder="Search"
-            (keyup)="onKeyUpFilter($event)" [(ngModel)]="strFilter" name="buscar" aria-label="Small"
-            aria-describedby="inputGroup-sizing-sm" />
-        </div>
-      </form>
-    </div>
+    
     <div class="col-md text-end">
       <h4 class="text-muted">{{nTotalElements}} {{strTitlePlural}}</h4>
     </div>
@@ -32,14 +21,21 @@
     </div>
   
     <div class="col-md text-center">
-  
-      <ng-content select="header"></ng-content>
-  
+      <form>
+        <div class="input-group input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i [ngClass]="oIconService.getIcon('filtro')"></i></span>
+          </div>
+          <input type="text" class="form-control" placeholder="{{'Filtro de ' + strTitlePlural}}" placeholder="Search"
+            (keyup)="onKeyUpFilter($event)" [(ngModel)]="strFilter" name="buscar" aria-label="Small"
+            aria-describedby="inputGroup-sizing-sm" />
+        </div>
+      </form>
     </div>
   
     <div class="col-md text-end">
       <div class="dropdown mb-3">
-        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+        <button class="libro-boton dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
           aria-expanded="false">
           Registros por página: {{nPageSize}}
         </button>
@@ -55,7 +51,7 @@
   
   <div class="row justify-content-center">
     <div class="col-md table-responsive-md">
-      <table class="table table-bordered table-striped table-hover">
+      <table class="table table-striped">
         <thead>
           <tr class="text-center align-middle">
             <th (click)="doSetOrder('id')"><i [ngClass]="oIconService.getIcon('id')"></i> ID
@@ -64,36 +60,29 @@
                 *ngIf="strSortField=='id'&&strSortDirection=='desc'"></i>
   
             </th>
-            <th (click)="doSetOrder('codigo')">
-              <i [ngClass]="oIconService.getIcon('codigo')"></i> Código
+          
+            <th (click)="doSetOrder('titulo')">
+              <i [ngClass]="oIconService.getIcon('libro')"></i> Titulo
               <i [ngClass]="oIconService.getIcon('flechaUp')"
-                *ngIf="strSortField=='codigo'&&strSortDirection=='asc'"></i>
+                *ngIf="strSortField=='titulo'&&strSortDirection=='asc'"></i>
               <i [ngClass]="oIconService.getIcon('flechaDown')"
-                *ngIf="strSortField=='codigo'&&strSortDirection=='desc'"></i>
+                *ngIf="strSortField=='titulo'&&strSortDirection=='desc'"></i>
   
             </th>
-            <th (click)="doSetOrder('nombre')">
-              <i [ngClass]="oIconService.getIcon('nombre')"></i> Nombre
+            <th (click)="doSetOrder('tipolibro')">
+              <i [ngClass]="oIconService.getIcon('fav')"></i> Género
               <i [ngClass]="oIconService.getIcon('flechaUp')"
-                *ngIf="strSortField=='nombre'&&strSortDirection=='asc'"></i>
+                *ngIf="strSortField=='tipolibro'&&strSortDirection=='asc'"></i>
               <i [ngClass]="oIconService.getIcon('flechaDown')"
-                *ngIf="strSortField=='nombre'&&strSortDirection=='desc'"></i>
+                *ngIf="strSortField=='tipolibro'&&strSortDirection=='desc'"></i>
   
             </th>
-            <th (click)="doSetOrder('existencias')">
-              <i [ngClass]="oIconService.getIcon('cantidad')"></i> Existencias
+            <th (click)="doSetOrder('autor')">
+              <i [ngClass]="oIconService.getIcon('nombre')"></i> Autor
               <i [ngClass]="oIconService.getIcon('flechaUp')"
-                *ngIf="strSortField=='existencias'&&strSortDirection=='asc'"></i>
+                *ngIf="strSortField=='autor'&&strSortDirection=='asc'"></i>
               <i [ngClass]="oIconService.getIcon('flechaDown')"
-                *ngIf="strSortField=='existencias'&&strSortDirection=='desc'"></i>
-  
-            </th>
-            <th (click)="doSetOrder('precio')">
-              <i [ngClass]="oIconService.getIcon('euro')"></i> Precio
-              <i [ngClass]="oIconService.getIcon('flechaUp')"
-                *ngIf="strSortField=='precio'&&strSortDirection=='asc'"></i>
-              <i [ngClass]="oIconService.getIcon('flechaDown')"
-                *ngIf="strSortField=='precio'&&strSortDirection=='desc'"></i>
+                *ngIf="strSortField=='autor'&&strSortDirection=='desc'"></i>
   
             </th>
             <th (click)="doSetOrder('imagen')">
@@ -104,68 +93,42 @@
                 *ngIf="strSortField=='imagen'&&strSortDirection=='desc'"></i>
   
             </th>
-            <th (click)="doSetOrder('descuento')">
-              <i [ngClass]="oIconService.getIcon('porcentaje')"></i> Descuento
+            <th (click)="doSetOrder('paginas')">
+              <i [ngClass]="oIconService.getIcon('libro')"></i> Páginas
               <i [ngClass]="oIconService.getIcon('flechaUp')"
-                *ngIf="strSortField=='descuento'&&strSortDirection=='asc'"></i>
+                *ngIf="strSortField=='paginas'&&strSortDirection=='asc'"></i>
               <i [ngClass]="oIconService.getIcon('flechaDown')"
-                *ngIf="strSortField=='descuento'&&strSortDirection=='desc'"></i>
+                *ngIf="strSortField=='paginas'&&strSortDirection=='desc'"></i>
   
             </th>
   
-            <th (click)="doSetOrder('compra')"><i [ngClass]="oIconService.getIcon('compra')"></i> Compras 
-              <i [ngClass]="oIconService.getIcon('flechaUp')"
-                *ngIf="strSortField=='compra'&&strSortDirection=='asc'"></i>
-              <i [ngClass]="oIconService.getIcon('flechaDown')"
-                *ngIf="strSortField=='compra'&&strSortDirection=='desc'"></i>
-            </th>
-  
-            <th (click)="doSetOrder('carrito')"><i [ngClass]="oIconService.getIcon('carrito')"></i> Carrito 
-              <i [ngClass]="oIconService.getIcon('flechaUp')"
-                *ngIf="strSortField=='carrito'&&strSortDirection=='asc'"></i>
-              <i [ngClass]="oIconService.getIcon('flechaDown')"
-                *ngIf="strSortField=='carrito'&&strSortDirection=='desc'"></i>
-            </th>
-  
-            <th (click)="doSetOrder('tipoproducto')"> <i
-              [ngClass]="oIconService.getIcon('tipoproducto')"></i> Tipo Producto 
-              <i [ngClass]="oIconService.getIcon('flechaUp')"
-                *ngIf="strSortField=='tipoproducto'&&strSortDirection=='asc'"></i>
-              <i [ngClass]="oIconService.getIcon('flechaDown')"
-                *ngIf="strSortField=='tipoproducto'&&strSortDirection=='desc'"></i>
-  
-            </th>
             <th><i [ngClass]="oIconService.getIcon('acciones')"></i> Acciones</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let fila of aLibros"  class="align-middle">
-            <td class="text-end">{{fila.id}}</td>
-            <td>{{fila.codigo}}</td>
-            <td>{{fila.titulo}}</td>
+            <td class="text-center">{{fila.id}}</td>
+            <td class="text-center">{{fila.titulo}}</td>
             <td style="text-align: center;">{{fila.tipolibro.genero}}</td>
-            <td style="text-align: right;">{{fila.autor}}€</td>
-            <td style="text-align: center;">({{fila.imagen}}) <img [src]="'http://localhost:8082/file/' + fila.imagen" style="height:40px" class="my-3" /></td>
-            <td style="text-align: center;">{{fila.paginas}}%</td>
+            <td style="text-align: center;">{{fila.autor}}</td>
+            <td style="text-align: center;"> <img [src]="'http://localhost:8082/file/' + fila.imagen" style="height:60px" class="my-1" [routerLink]="['/libro/' + fila.id ]"/></td>
+            <td style="text-align: center;">{{fila.paginas}}</td>
             
             
-            <td>
+            <!-- REdireccionamiento a TipoProducto Wildcart
+              <td>
               <button class="btn btn-light btn-sm"
                   [routerLink]="['/' + strEntity + '/' + strOperation + '/tipoproducto/' + fila.tipolibro.id]">
                   <i [ngClass]="oIconService.getIcon('tipoproducto')"></i> ({{fila.tipolibro.id}})
                   {{fila.tipolibro.genero}}</button>
-            </td>
+            </td>-->
             <td class="text-center">
-              <div class="btn-group btn-group-sm" role="group" *ngIf="!mode">
-                <button type="button" class="btn btn-success" (click)="onSelection(fila.id)"><i
-                    class="fas fa-eye"></i></button>
-              </div>
+              
               <div class="btn-group btn-group-sm" role="group" *ngIf="mode">
-                <button type="button" class="btn btn-success" [routerLink]="['/producto/view/' + fila.id]"><i
-                    class="fas fa-eye"></i></button>
-                <button type="button" class="btn btn-warning" [routerLink]="['/producto/edit/' + fila.id]"><i
+                
+                <button type="button" class="libro-boton" [routerLink]="['/producto/edit/' + fila.id]"><i
                     class="fas fa-pen"></i></button>
-                <button type="button" class="btn btn-danger" [routerLink]="['/producto/remove/' + fila.id]"><i
+                <button type="button" class="libro-boton" [routerLink]="['/producto/remove/' + fila.id]"><i
                     class="fas fa-trash"></i></button>
   
                 <!-- 

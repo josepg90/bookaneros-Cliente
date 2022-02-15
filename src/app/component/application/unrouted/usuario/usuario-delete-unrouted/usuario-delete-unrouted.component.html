@@ -1,6 +1,6 @@
 <div class="usuario-edit">
     <div class="usuario-edit-contenido">
-        <h1><i [ngClass]="oIconService.getIcon('edit')"></i>Eliminar Usuario</h1>
+        <h1><i [ngClass]="oIconService.getIcon('remove')"></i>Eliminar Usuario</h1>
         <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">
             <div>
                 <div class="usuario-edit-form-row">
@@ -37,7 +37,7 @@
                 <div class="usuario-edit-form-row">
                     
                             <button mat-raised-button type="submit" class="usuario-edit-boton">
-                                <i [ngClass]="oIconService.getIcon('edit')"></i>Eliminar Usuario</button>
+                                <i [ngClass]="oIconService.getIcon('remove')"></i>Eliminar Usuario</button>
                 </div>
             </div>    
         </form>

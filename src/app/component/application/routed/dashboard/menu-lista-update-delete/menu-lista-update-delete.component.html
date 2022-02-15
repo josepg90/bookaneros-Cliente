@@ -1,0 +1,10 @@
+<ul class="menu-lista-update-delete">
+    <li class="active" (click)="this.seccion=0"><span class="menu-active"><i [ngClass]="oIconService.getIcon('libro')"></i>Libros</span></li>
+    <li><span class="menu-active" (click)="this.seccion=1"><i [ngClass]="oIconService.getIcon('usuario')"></i>Usuarios</span></li>
+    <li><span class="menu-active" (click)="this.seccion=2"><i [ngClass]="oIconService.getIcon('fav')"></i>Género</span></li>
+</ul>
+
+<!--Sección Update-->
+<div *ngIf="seccion==0">
+  <app-libro-lista></app-libro-lista>
+</div>
