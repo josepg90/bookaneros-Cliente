@@ -63,7 +63,10 @@ export class LoginComponent implements OnInit {
     this.oSessionService.login(JSON.stringify(loginData)).subscribe(data => {
       localStorage.setItem("user", JSON.stringify(data.toString()));
       if (data != null) {
+        
         this.oRouter.navigate(['/home']);
+
+        window.location.reload();
       } else {
         localStorage.clear();
       }

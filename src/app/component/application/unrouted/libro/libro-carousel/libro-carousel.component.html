@@ -99,6 +99,32 @@
           </div>
         </div>
 
+        <div class="carousel-item">
+          <div class="d-none d-lg-block">
+            <div class="slide-box">
+              <mat-card class="example-card2" *ngFor="let libro of aLibros | slice:12:16; let i= index;">
+                <mat-card-header>
+
+                  <mat-card-title><a [href]="'libro/'+libro.id"> {{libro.titulo}} </a></mat-card-title>
+                  <mat-card-subtitle>{{libro.tipolibro.genero}}</mat-card-subtitle>
+                </mat-card-header>
+                <div class="carousel-img-centrar">
+                  <img mat-card-image [src]="'http://localhost:8082/file/' + libro.imagen"/>
+                  <div class="carousel-img-centrar" *ngIf="libro.novedad==true"><span class="novedad">NEW</span></div> 
+                </div>
+                <mat-card-actions>
+                  <div>
+                    <i class="fa fa-star fa-lg"><span>4.6</span></i>
+                  </div> 
+                </mat-card-actions>
+              </mat-card>
+            </div>
+          </div>
+          <div class="d-block d-sm-none">
+            <img class="d-block w-100" src="https://picsum.photos/600/400/?image=1&random" alt="Second slide">
+          </div>
+        </div>
+
         <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
           <span aria-hidden="true"><i class="fas fa-arrow-left fa-3x"></i></span>
           <span class="visually-hidden">Previous</span>

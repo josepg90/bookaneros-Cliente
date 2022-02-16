@@ -34,7 +34,8 @@ export class IconService {
       case strIcon == "registrarse": return "fas fa-user-plus";
       case strIcon == "libro": return "fas fa-book";
       case strIcon == "fav": return "fa fa-heart";
-
+      case strIcon == "comentario": return "far fa-comment-dots";
+      case strIcon == "peticion": return "fas fa-envelope-square";	
       // 
       case strIcon == "acciones": return "fas fa-tools";
       case strIcon == "view": return "fas fa-eye";
