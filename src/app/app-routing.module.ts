@@ -11,6 +11,7 @@ import { SessionResolver } from './resolver/session-resolve';
 import { UsuarioViewComponent } from './component/application/routed/usuario/view/usuario-view.component';
 import { DashboardComponent } from './component/application/routed/dashboard/dashboard.component';
 import { PeticionesComponent } from './component/application/routed/peticiones/peticiones.component';
+import { FavoritosComponent } from './component/application/routed/usuario/favoritos/favoritos.component';
 
 const routes: Routes = [
   { path:'', component: HomeComponent, resolve: { message: SessionResolver }  },
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path:'libro', component: LibroPlistComponent, resolve: { message: SessionResolver } },
   { path:'usuario/:id', component: UsuarioViewComponent, resolve: { message: SessionResolver } },
   { path:'dashboard', component: DashboardComponent, resolve: { message: SessionResolver } },
-  { path:'peticiones', component: PeticionesComponent, resolve: { message: SessionResolver } }
+  { path:'peticiones', component: PeticionesComponent, resolve: { message: SessionResolver } },
+  { path:'favoritos', component: FavoritosComponent, resolve: { message: SessionResolver } }
 
 
 
