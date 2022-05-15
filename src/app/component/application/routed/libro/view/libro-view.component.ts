@@ -23,6 +23,7 @@ export class LibroViewComponent implements OnInit {
   strResult: string = null;
   oLibro: ILibro;
   oUserSession: IUsuario;
+  oMedia: any;
 
   constructor(
     private oLibroService: LibroService,
@@ -43,6 +44,7 @@ export class LibroViewComponent implements OnInit {
 
     this.id = this.oActivatedRoute.snapshot.params.id
     this.getOne();
+    this.getValoracion();
   }
 
   ngOnInit(): void {
@@ -95,6 +97,19 @@ export class LibroViewComponent implements OnInit {
       });
   };
 
+  getValoracion = () => {
+    this.oLibroService
+      .getValoracion(this.id)
+      .subscribe((oMedia: any) => {
+        this.oMedia = oMedia;
+        console.log(oMedia);
+        if (this.oMedia == null){
+          this.oMedia = "Sin valorar";
+        }
+
+      });
+  };
+
   print(id: number) {
 
     this.oLibroService.get(this.id).subscribe((oData: ILibro) => {
@@ -135,7 +150,7 @@ export class LibroViewComponent implements OnInit {
       doc.text(this.oLibro.fecha_publicacion + "", 60, 120)
 
       doc.setFontSize(18)
-      doc.text('Resumen', 20, 130)
+      doc.text('Resumen:', 20, 130)
       doc.setFontSize(12)
 
       var str = this.oLibro.resumen;

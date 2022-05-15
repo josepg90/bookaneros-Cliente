@@ -45,4 +45,8 @@ import { API_URL, httpOptions } from "src/environments/environment";
       
       return this.http.get<IPageLibro>(this.sURL + "?page=" + (page - 1) + "&size=" + rpp + strOrderUrl, httpOptions);
     }
+
+    getValoracion(id: number): Observable<any> {
+      return this.http.get<any>(this.sURL + "/countValoracion/" + id, httpOptions);
+    }
   }

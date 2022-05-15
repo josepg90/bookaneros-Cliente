@@ -43,6 +43,8 @@ export class LibroCardComponent implements OnInit {
   genero: string;
   id_tipolibro: number;
   applyClass: string;
+  id: number = null;
+  oMedia: any;
 
   get f() {
     return this.oForm.controls;
@@ -112,6 +114,19 @@ export class LibroCardComponent implements OnInit {
 
     })
   }
+
+  getValoracion = () => {
+    this.oLibroService
+      .getValoracion(this.id)
+      .subscribe((oMedia: any) => {
+        this.oMedia = oMedia;
+        console.log(oMedia);
+        if (this.oMedia == null){
+          this.oMedia = "Sin valorar";
+        }
+
+      });
+  };
 
   jumpToPage = () => {
     this.getPage();

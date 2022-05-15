@@ -9,7 +9,7 @@
             <div class="libro-view-col-1-img">
                 <img mat-card-image [src]="'http://localhost:8082/file/' + oLibro?.imagen" height="400px"
                     width="300px" />
-                <app-star-rate></app-star-rate>
+                <app-star-rate [id_libro]="oLibro?.id"></app-star-rate>
             </div>
         </div>
         <div class="libro-view-col-3">
@@ -41,7 +41,7 @@
                     </tr>
                     <tr>
                         <th>Valoración</th>
-                        <td><i class="fa fa-star fa-lg"><span>4.6</span></i></td>
+                        <td><i class="fa fa-star fa-lg"><span>{{oMedia}}</span></i></td>
                     </tr>
 
                 </tbody>

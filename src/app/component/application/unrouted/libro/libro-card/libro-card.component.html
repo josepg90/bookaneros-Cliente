@@ -28,9 +28,9 @@
   </div>
   <div class="libros-contenedor-libros">
     <mat-card class="example-card" *ngFor="let libro of aLibros">
-      <mat-card-header>
+      <mat-card-header >
 
-        <mat-card-title><a [href]="'libro/'+libro.id"> {{libro.titulo}} </a></mat-card-title>
+        <mat-card-title ><a [href]="'libro/'+libro.id"> {{libro.titulo}} </a></mat-card-title>
         <div class="libros-contenedor-libros-favoritos"><i class="fa fa-heart fa-lg"></i></div>
         <mat-card-subtitle>{{libro.tipolibro.genero}}</mat-card-subtitle>
       </mat-card-header>
@@ -40,7 +40,7 @@
        </div>
       <div class="star-rate-position">
         <div>
-          <i class="fa fa-star fa-lg"><span>4.6</span></i>
+          <i class="fa fa-star fa-lg"><app-favoritos-valoracion-new-unrouted [id]="libro?.id"></app-favoritos-valoracion-new-unrouted></i>
         </div>   
       </div>
     </mat-card>
