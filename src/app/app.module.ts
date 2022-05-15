@@ -55,6 +55,9 @@ import { UsuarioNewUnroutedComponent } from './component/application/unrouted/us
 import { UsuarioListaUnroutedComponent } from './component/application/unrouted/usuario/usuario-lista-unrouted/usuario-lista-unrouted.component';
 import { MenuListaUpdateDeleteComponent } from './component/application/routed/dashboard/menu-lista-update-delete/menu-lista-update-delete.component';
 import { FavoritosValoracionNewUnroutedComponent } from './component/application/unrouted/favoritosValoracion/favoritos-valoracion-new-unrouted/favoritos-valoracion-new-unrouted.component';
+import { FavoritosComponent } from './component/application/routed/usuario/favoritos/favoritos.component';
+import { LibroCardFavoritosComponent } from './component/application/unrouted/libro/libro-card-favoritos/libro-card-favoritos.component';
+import { FavoritosStateUnroutedComponent } from './component/application/unrouted/favoritosValoracion/favoritos-state-unrouted/favoritos-state-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +96,10 @@ import { FavoritosValoracionNewUnroutedComponent } from './component/application
     UsuarioNewUnroutedComponent,
     UsuarioListaUnroutedComponent,
     MenuListaUpdateDeleteComponent,
-    FavoritosValoracionNewUnroutedComponent
+    FavoritosValoracionNewUnroutedComponent,
+    FavoritosComponent,
+    LibroCardFavoritosComponent,
+    FavoritosStateUnroutedComponent
   ],
   imports: [
     HttpClientModule,

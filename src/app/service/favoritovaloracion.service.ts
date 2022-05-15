@@ -31,4 +31,9 @@ import { API_URL, httpOptions } from "src/environments/environment";
         return this.http.put<number>(this.sURL + "/" + oFavoritoValoracion.id, oFavoritoValoracion, httpOptions);
     }
 
+    getFavoritoUsuario(filterUsuario: number, filterLibro: number): Observable<any> {
+        
+      return this.http.get<any>(this.sURL + "/favoritoUsuario?filterUsuario=" + filterUsuario + "&filterLibro=" + filterLibro, httpOptions);
+  }
+
   }

@@ -1,0 +1,19 @@
+.libros-contenedor-libros-favoritos-false, .libros-contenedor-libros-favoritos-true {
+    padding: 0.5rem;
+  }
+  
+  .libros-contenedor-libros-favoritos-true{
+    color: #ff7171;
+  }
+
+  .libros-contenedor-libros-favoritos-false:hover {
+    color: #ff7171;
+    transform: scale(1.4) perspective(4px);
+    transition: all 0.6s ease;
+  }
+
+  .libros-contenedor-libros-favoritos-true:hover {
+    color: #fff;
+    transform: scale(1.4) perspective(4px);
+    transition: all 0.6s ease;
+  }

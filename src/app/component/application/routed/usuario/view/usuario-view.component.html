@@ -4,7 +4,7 @@
         
         <ul class="usuario-menu">
             <li class="active"><span class="menu-active"><i [ngClass]="oIconService.getIcon('nombre')"></i>Opiniones</span></li>
-            <li><span class="menu-active"><i [ngClass]="oIconService.getIcon('fav')"></i>Favoritos</span></li>
+            <li  [class.active]="strUrl=='/favoritos'" [routerLink]="['/favoritos']"><span class="menu-active"><i [ngClass]="oIconService.getIcon('fav')"></i>Favoritos</span></li>
             <li><span class="menu-active"><i [ngClass]="oIconService.getIcon('libro')"></i>Algo</span></li>
         </ul>
 

@@ -49,4 +49,19 @@ import { API_URL, httpOptions } from "src/environments/environment";
     getValoracion(id: number): Observable<any> {
       return this.http.get<any>(this.sURL + "/countValoracion/" + id, httpOptions);
     }
+
+    getFavoritos(rpp: number, page: number, filter: string, order: string, direction: string): Observable<IPageLibro> {
+      let strOrderUrl: string = "";
+      if (order) {
+        strOrderUrl += "&sort=" + order + "," + direction;
+      }
+      
+      if (filter) {
+        strOrderUrl += "&filter=" + filter;
+      }
+      
+      console.log(this.sURL + "?page=" + (page - 1) + "&size=" + rpp + strOrderUrl);
+      
+      return this.http.get<IPageLibro>(this.sURL + "/favoritos?page=" + (page - 1) + "&size=" + rpp + strOrderUrl, httpOptions);
+    }
   }

@@ -20,6 +20,7 @@ export class UsuarioViewComponent implements OnInit {
   strOperation: string = "view";
   strTitleSingular:string= "usuario";
   oUsuarioSession: IUsuario;
+  strUrl: String = "";
 
 
   constructor(
