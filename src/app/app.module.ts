@@ -58,6 +58,11 @@ import { FavoritosValoracionNewUnroutedComponent } from './component/application
 import { FavoritosComponent } from './component/application/routed/usuario/favoritos/favoritos.component';
 import { LibroCardFavoritosComponent } from './component/application/unrouted/libro/libro-card-favoritos/libro-card-favoritos.component';
 import { FavoritosStateUnroutedComponent } from './component/application/unrouted/favoritosValoracion/favoritos-state-unrouted/favoritos-state-unrouted.component';
+import { NovedadComponent } from './component/application/routed/novedad/novedad.component';
+import { LibroCardNovedadComponent } from './component/application/unrouted/libro/libro-card-novedad/libro-card-novedad.component';
+import { TipolibroUpdateUnroutedComponent } from './component/application/unrouted/tipolibro/tipolibro-update-unrouted/tipolibro-update-unrouted.component';
+import { TipolibroListaupdateUnroutedComponent } from './component/application/unrouted/tipolibro/tipolibro-listaupdate-unrouted/tipolibro-listaupdate-unrouted.component';
+import { TipolibroDeleteUnroutedComponent } from './component/application/unrouted/tipolibro/tipolibro-delete-unrouted/tipolibro-delete-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +104,12 @@ import { FavoritosStateUnroutedComponent } from './component/application/unroute
     FavoritosValoracionNewUnroutedComponent,
     FavoritosComponent,
     LibroCardFavoritosComponent,
-    FavoritosStateUnroutedComponent
+    FavoritosStateUnroutedComponent,
+    NovedadComponent,
+    LibroCardNovedadComponent,
+    TipolibroUpdateUnroutedComponent,
+    TipolibroListaupdateUnroutedComponent,
+    TipolibroDeleteUnroutedComponent
   ],
   imports: [
     HttpClientModule,

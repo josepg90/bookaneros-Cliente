@@ -126,7 +126,7 @@ export class OpinionUpdateUnroutedComponent implements OnInit {
             toast: true,
             position: 'middle',
             showConfirmButton: false,
-            timer: 3000,
+            timer: 2500,
             timerProgressBar: true,
             didOpen: (toast: { addEventListener: (arg0: string, arg1: any) => void; }) => {
               toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -137,7 +137,7 @@ export class OpinionUpdateUnroutedComponent implements OnInit {
       this.closeModal();
       setTimeout(() => {
         this.reloadCurrentPage(); 
-     }, 1000);
+     }, 2500);
           Toast.fire({
             icon: 'success',
             title: 'Editado correctamente'

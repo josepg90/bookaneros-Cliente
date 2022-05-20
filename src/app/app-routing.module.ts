@@ -12,6 +12,7 @@ import { UsuarioViewComponent } from './component/application/routed/usuario/vie
 import { DashboardComponent } from './component/application/routed/dashboard/dashboard.component';
 import { PeticionesComponent } from './component/application/routed/peticiones/peticiones.component';
 import { FavoritosComponent } from './component/application/routed/usuario/favoritos/favoritos.component';
+import { NovedadComponent } from './component/application/routed/novedad/novedad.component';
 
 const routes: Routes = [
   { path:'', component: HomeComponent, resolve: { message: SessionResolver }  },
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path:'usuario/:id', component: UsuarioViewComponent, resolve: { message: SessionResolver } },
   { path:'dashboard', component: DashboardComponent, resolve: { message: SessionResolver } },
   { path:'peticiones', component: PeticionesComponent, resolve: { message: SessionResolver } },
-  { path:'favoritos', component: FavoritosComponent, resolve: { message: SessionResolver } }
+  { path:'favoritos', component: FavoritosComponent, resolve: { message: SessionResolver } },
+  { path:'novedad', component: NovedadComponent, resolve: { message: SessionResolver } }
 
 
 

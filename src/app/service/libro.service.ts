@@ -64,4 +64,21 @@ import { API_URL, httpOptions } from "src/environments/environment";
       
       return this.http.get<IPageLibro>(this.sURL + "/favoritos?page=" + (page - 1) + "&size=" + rpp + strOrderUrl, httpOptions);
     }
+
+    getNovedad(rpp: number, page: number, filter: string, order: string, direction: string, tipolibro: number): Observable<IPageLibro> {
+      let strOrderUrl: string = "";
+      if (order) {
+        strOrderUrl += "&sort=" + order + "," + direction;
+      }
+      if (tipolibro!=null) {
+        strOrderUrl += "&filtertype=" + tipolibro;
+      }
+      if (filter) {
+        strOrderUrl += "&filter=" + filter;
+      }
+      
+      console.log(this.sURL + "?page=" + (page - 1) + "&size=" + rpp + strOrderUrl);
+      
+      return this.http.get<IPageLibro>(this.sURL + "/novedad?page=" + "?page=" + (page - 1) + "&size=" + rpp + strOrderUrl, httpOptions);
+    }
   }

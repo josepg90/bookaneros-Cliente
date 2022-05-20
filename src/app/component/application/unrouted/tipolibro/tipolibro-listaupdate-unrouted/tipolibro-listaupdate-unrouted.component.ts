@@ -1,19 +1,24 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
-import { ILibro, IPageLibro } from 'src/app/model/libro-interfaces';
+import { ILibro } from 'src/app/model/libro-interfaces';
+import { IPageTipoLibro, ITipoLibro } from 'src/app/model/tipolibro-interfaces';
 import { IUsuario } from 'src/app/model/usuario-interfaces';
 import { IconService } from 'src/app/service/icon.service';
-import { LibroService } from 'src/app/service/libro.service';
 import { PaginationService } from 'src/app/service/pagination.service';
+import { TipolibroService } from 'src/app/service/tipolibro.service';
+import { TipolibroDeleteUnroutedComponent } from '../tipolibro-delete-unrouted/tipolibro-delete-unrouted.component';
+import { TipolibroUpdateUnroutedComponent } from '../tipolibro-update-unrouted/tipolibro-update-unrouted.component';
 
 @Component({
-  selector: 'app-libro-lista',
-  templateUrl: './libro-lista.component.html',
-  styleUrls: ['./libro-lista.component.scss']
+  selector: 'app-tipolibro-listaupdate-unrouted',
+  templateUrl: './tipolibro-listaupdate-unrouted.component.html',
+  styleUrls: ['./tipolibro-listaupdate-unrouted.component.scss']
 })
-export class LibroListaComponent implements OnInit {
+export class TipolibroListaupdateUnroutedComponent implements OnInit {
+
   @Input() id_tipolibro: number = null;
   @Input() mode: boolean = true; //true=edición; false=selección
   @Output() selection = new EventEmitter<number>();
@@ -23,7 +28,7 @@ export class LibroListaComponent implements OnInit {
   strOperation: string = "plist"
   strTitleSingular: string = "Libro";
   strTitlePlural: string = "Libros";
-  aLibros: ILibro[];
+  aLibros: ITipoLibro[];
   aPaginationBar: string[];
   nTotalElements: number;
   nTotalPages: number;
@@ -37,6 +42,7 @@ export class LibroListaComponent implements OnInit {
   oUserSession: IUsuario;
   subjectFiltro$ = new Subject();
   barraPaginacion: string[];
+  id: number;
 
 
 
@@ -45,8 +51,8 @@ export class LibroListaComponent implements OnInit {
     private oRoute: ActivatedRoute,
     private oRouter: Router,
     private oPaginationService: PaginationService,
-    private oLibroService: LibroService,
-
+    private oTipoLibroService: TipolibroService,   
+    public matDialog: MatDialog,
     public oIconService: IconService
   ) {
 
@@ -59,7 +65,7 @@ export class LibroListaComponent implements OnInit {
     }*/
     this.id_tipolibro = this.oRoute.snapshot.params.id_tipolibro;
     if (this.id_tipolibro) {
-      this.strFilteredMessage = "Listado filtrado por el tipo de libro " + this.id_tipolibro;
+      this.strFilteredMessage = "Listado filtrado por el tipo de producto " + this.id_tipolibro;
     } else {
       this.strFilteredMessage = "";
     }
@@ -76,7 +82,7 @@ export class LibroListaComponent implements OnInit {
 
   getPage = () => {
     console.log("buscando...", this.strFilter);
-    this.oLibroService.getPage(this.nPageSize, this.nPage, this.strFilter, this.strSortField, this.strSortDirection, this.id_tipolibro).subscribe((oPage: IPageLibro) => {
+    this.oTipoLibroService.getPage(this.nPageSize, this.nPage, this.strFilter, this.strSortField, this.strSortDirection).subscribe((oPage: IPageTipoLibro) => {
       if (this.strFilter) {
         this.strFilteredMessage = "Listado filtrado: " + this.strFilter;
       } else {
@@ -122,4 +128,34 @@ export class LibroListaComponent implements OnInit {
     this.selection.emit(id);
   }
 
+  openModalUpdate(id: number) {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component-update";
+    dialogConfig.height = "375px";
+    dialogConfig.width = "600px";
+    dialogConfig.data = { id: this.id}
+    console.log(this.id);
+    
+    // https://material.angular.io/components/dialog/overview
+    const modalDialog = this.matDialog.open(TipolibroUpdateUnroutedComponent, dialogConfig);
+  }
+
+  openModalDelete(id: number) {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component-delete";
+    dialogConfig.height = "375px";
+    dialogConfig.width = "600px";
+    dialogConfig.data = { id: this.id}
+    console.log(this.id);
+    
+    // https://material.angular.io/components/dialog/overview
+    const modalDialog = this.matDialog.open(TipolibroDeleteUnroutedComponent, dialogConfig);
+  }
+  reloadCurrentPage() {
+    window.location.reload();
+   }
 }

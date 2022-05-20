@@ -45,9 +45,9 @@ export class TipolibroService {
     );
   }
 
-  updateOne(oTipoProducto: ITipoLibro): Observable<ITipoLibro> {
-    return this.http.put<ITipoLibro>(
-      this.sURL + '/',
+  updateOne(oTipoProducto: ITipoLibro): Observable<number> {
+    return this.http.put<number>(
+      this.sURL + '/' +  oTipoProducto.id,
       oTipoProducto,
       httpOptions
     );

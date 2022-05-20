@@ -1,0 +1,107 @@
+<div class="justify-content-between">
+    <div class="col-md text-start">
+      <h6>{{strFilteredMessage}}</h6>
+    </div>
+    
+    <div class="col-md text-end">
+      <h4 class="text-muted">{{nTotalElements}} {{strTitlePlural}}</h4>
+    </div>
+  </div>
+  
+  <div class="row justify-content-between">
+    <div class="col-md text-start">
+      <nav aria-label="pagination">
+        <ul class="pagination">
+          <li class="page-item" aria-current="page" *ngFor="let p of aPaginationBar"
+            [ngClass]="{'active': (nPage+'' == p)}">
+            <a class="page-link" (click)="nPage=(+p);jumpToPage()" href="#">{{p}}</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  
+    <div class="col-md text-center">
+      <form>
+        <div class="input-group input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i [ngClass]="oIconService.getIcon('filtro')"></i></span>
+          </div>
+          <input type="text" class="form-control" placeholder="{{'Filtro de ' + strTitlePlural}}" placeholder="Search"
+            (keyup)="onKeyUpFilter($event)" [(ngModel)]="strFilter" name="buscar" aria-label="Small"
+            aria-describedby="inputGroup-sizing-sm" />
+        </div>
+      </form>
+    </div>
+  
+    <div class="col-md text-end">
+      <div class="dropdown mb-3">
+        <button class="libro-boton dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Registros por página: {{nPageSize}}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" (click)="nPageSize=10;getPage()">10</a></li>
+          <li><a class="dropdown-item" (click)="nPageSize=50;getPage()">50</a></li>
+          <li><a class="dropdown-item" (click)="nPageSize=100;getPage()">100</a></li>
+          <li><a class="dropdown-item" (click)="nPageSize=1000;getPage()">1000</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row justify-content-center">
+    <div class="col-md table-responsive-md">
+      <table class="table table-striped">
+        <thead>
+          <tr class="text-center align-middle">
+            <th (click)="doSetOrder('id')"><i [ngClass]="oIconService.getIcon('id')"></i> ID
+              <i [ngClass]="oIconService.getIcon('flechaUp')" *ngIf="strSortField=='id'&&strSortDirection=='asc'"></i>
+              <i [ngClass]="oIconService.getIcon('flechaDown')"
+                *ngIf="strSortField=='id'&&strSortDirection=='desc'"></i>
+  
+            </th>
+            <th (click)="doSetOrder('tipolibro')">
+              <i [ngClass]="oIconService.getIcon('fav')"></i> Género
+              <i [ngClass]="oIconService.getIcon('flechaUp')"
+                *ngIf="strSortField=='tipolibro'&&strSortDirection=='asc'"></i>
+              <i [ngClass]="oIconService.getIcon('flechaDown')"
+                *ngIf="strSortField=='tipolibro'&&strSortDirection=='desc'"></i>
+  
+            </th>
+  
+            <th><i [ngClass]="oIconService.getIcon('acciones')"></i> Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let fila of aLibros"  class="align-middle">
+            <td class="text-center">{{fila.id}}</td>
+            <td class="text-center">{{fila.genero}}</td>            
+            
+            <!-- REdireccionamiento a TipoProducto Wildcart
+              <td>
+              <button class="btn btn-light btn-sm"
+                  [routerLink]="['/' + strEntity + '/' + strOperation + '/tipoproducto/' + fila.tipolibro.id]">
+                  <i [ngClass]="oIconService.getIcon('tipoproducto')"></i> ({{fila.tipolibro.id}})
+                  {{fila.tipolibro.genero}}</button>
+            </td>-->
+            <td class="text-center">
+              
+              <div class="btn-group btn-group-sm" role="group" *ngIf="mode">
+                
+                <button type="button" class="libro-boton" (click)="this.id=this.fila.id; openModalUpdate(this.id)"><i
+                    class="fas fa-pen"></i></button>
+                <button type="button" class="libro-boton" (click)="this.id=this.fila.id; openModalDelete(this.id)"><i
+                    class="fas fa-trash"></i></button>
+  
+                <!-- 
+                <ng-container *ngTemplateOutlet="toolTemplate; context: { $implicit: fila }"></ng-container>
+                -->
+  
+              </div>
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -1,0 +1,29 @@
+<div class="tipolibro-delete">
+    <div class="tipolibro-delete-contenido">
+        <h1><i [ngClass]="oIconService.getIcon('remove')"></i>Eliminar Género</h1>
+        <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">
+            <div>
+                <div class="tipolibro-delete-form-row">
+                    <label for="genero">Género</label>
+                    <div>
+                        <div>
+                            <div>
+                                <input type="text" class="form-control" id="genero" formControlName="genero" class="form-control" required="required" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+  
+                <div class="tipolibro-delete-form-row tipolibro-delete-cancelar-centrar">
+                    
+                            <button mat-raised-button type="submit" class="tipolibro-delete-boton">
+                                <i [ngClass]="oIconService.getIcon('remove')"></i>
+                                Eliminar Género Literario</button>
+                </div>
+            </div>    
+        </form>
+        <div class="tipolibro-delete-form-row tipolibro-delete-cancelar-centrar">
+            <button mat-raised-button class="update-tipolibro-boton" (click)="closeModal()">Cancelar</button>
+        </div>
+    </div>
+  </div>

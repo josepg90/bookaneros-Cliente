@@ -1,0 +1,37 @@
+<div class="tipolibro-update">
+    <div class="tipolibro-update-contenido">
+        <h1><i [ngClass]="oIconService.getIcon('new')"></i>Editar Género</h1>
+        <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">
+            <div>
+                <div class="tipolibro-update-form-row">
+                    <label for="genero">Género</label>
+                    <div>
+                        <div>
+                            <div>
+                                <input type="text" class="form-control" id="genero" formControlName="genero" class="form-control" required="required"
+                                    [ngClass]="{'is-valid' : f.genero.dirty && !(f.genero.errors?.required || f.genero.errors?.minlength) }">
+                                <div class="texto-muted" *ngIf="f.genero.dirty && f.genero.errors?.required" class="text-danger">
+                                    Se debe introducir un Género de Libro válido
+                                </div>
+                                <div class="texto-muted" *ngIf="f.genero.dirty && f.genero.errors?.minlength" class="text-danger">
+                                    El Género de Libro introducido es demasiado corto
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+  
+                <div class="tipolibro-update-form-row tipolibro-update-cancelar-centrar">
+                    
+                            <button mat-raised-button type="submit" class="update-tipolibro-boton"
+                                [disabled]="oForm.invalid || oForm.pristine"><i
+                                    [ngClass]="oIconService.getIcon('new')"></i>
+                                Editar Género</button>
+                </div>
+            </div>    
+        </form>
+        <div class="tipolibro-update-form-row tipolibro-update-cancelar-centrar">
+            <button mat-raised-button class="update-tipolibro-boton" (click)="closeModal()">Cancelar</button>
+        </div>
+    </div>
+  </div>
