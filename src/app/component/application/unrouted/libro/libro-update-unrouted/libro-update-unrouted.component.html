@@ -1,0 +1,181 @@
+<div class="tipolibro-update">
+    <div class="tipolibro-update-contenido">
+        <h1><i [ngClass]="oIconService.getIcon('edit')"></i>Editar Libro</h1>
+        <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">
+            <div>
+                <div class="libro-update-form-row">
+                    <label for="codigo">Código</label>
+                    <div>
+                        <div>
+                            <div>
+                                <input type="text" class="form-control" id="codigo" formControlName="codigo" required="required"
+                                    [ngClass]="{'is-valid' : f.codigo.dirty && !(f.codigo.errors?.required || f.codigo.errors?.minlength) }">
+                                <div class="texto-muted" *ngIf="f.codigo.dirty && f.codigo.errors?.required" class="text-danger">
+                                    Se debe introducir un Código válido
+                                </div>
+                                <div class="texto-muted" *ngIf="f.codigo.dirty && f.codigo.errors?.minlength" class="text-danger">
+                                    El Código introducido es demasiado corto
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="libro-update-form-row">
+                    <label for="titulo">Título</label>
+                    <div>
+                        <div>
+                            <div>
+                                <input type="text" class="form-control" id="titulo" formControlName="titulo" required="required" 
+                                    [ngClass]="{'is-valid' : f.titulo.dirty && !(f.titulo.errors?.required || f.titulo.errors?.minlength) }">
+                                <div *ngIf="f.titulo.dirty && f.titulo.errors?.required" class="text-danger">
+                                    Se debe introducir un Título válido
+                                </div>
+                                <div *ngIf="f.titulo.dirty && f.titulo.errors?.minlength" class="text-danger">
+                                    El Título introducido es demasiado corto
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="libro-update-form-row">
+                    <label for="autor">Autor</label>
+                    <div>
+                        <div>
+                            <div>
+                                <input type="text" class="form-control" id="autor" formControlName="autor" required="required"
+                                    [ngClass]="{'is-valid' : f.autor.dirty && !(f.autor.errors?.required || f.autor.errors?.minlength) }">
+                                <div *ngIf="f.autor.dirty && f.autor.errors?.required" class="text-danger">
+                                    Se debe introducir un Autor valido
+                                </div>
+                                <div *ngIf="f.autor.dirty && f.autor.errors?.minlength" class="text-danger">
+                                    El Autor introducido es demasiado corto
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="libro-update-form-row">
+                    <label for="fecha_publicacion">Publicación</label>
+                    <div>
+                      <div>
+                          <div>
+                              <input type="text" name="fecha_publicacion" id="fecha_publicacion" formControlName="fecha_publicacion"
+                                  class="text ui-widget-content ui-corner-all" />
+                              <div *ngIf="f.fecha_publicacion.dirty && f.fecha_publicacion.errors?.required" class="text-danger">
+                                  Se debe introducir una fecha de publicación correcta
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="libro-update-form-row">
+                  <label for="resumen">Resumen</label>
+                  <div>
+                      <div>
+                          <div>
+                              <textarea type="text" class="form-control" id="resumen" formControlName="resumen" rows="6" required="required"
+                                  [ngClass]="{'is-valid' : f.resumen.dirty && !(f.resumen.errors?.required || f.resumen.errors?.minlength) }"></textarea>
+                              <div *ngIf="f.resumen.dirty && f.resumen.errors?.required" class="text-danger">
+                                  Se debe introducir un Resumen valido
+                              </div>
+                              <div *ngIf="f.resumen.dirty && f.resumen.errors?.minlength" class="text-danger">
+                                  El Resumen introducido es demasiado corto
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+  
+                <div class="libro-update-form-row">
+                  <label for="imagen">Imágen</label>
+                  <div>
+                      <div>
+                          <div class="input-group">
+                              <input type="text" class="form-control" id="imagen" formControlName="imagen">
+                                <input #imageInput type="file" accept="image/*" class="form-control-file " lang="es" name="imagen"
+                                    (change)="processFile($event)" />
+                                <span *ngIf="imageSrc != null" class="d-inline-block input-group-text">
+                                    <img [src]="imageSrc" alt="" style="height:40px" />
+                                </span>
+                                <span>
+                                    <img [src]="'http://localhost:8082/file/' + oLibro2Show.imagen" style="height:40px" class="input-group-text" />
+                                </span>
+                <!--<div *ngIf="strOperation=='edit'">
+                    <img [src]="'http://localhost:8082/file/' + oLibro2Show.imagen" style="height:100px" class="my-3" />
+                </div>
+                              <div *ngIf="f.imagen.dirty && f.imagen.errors?.required" class="text-danger">
+                                  Se debe introducir una Imágen valida
+                              </div>
+                              <div *ngIf="f.imagen.dirty && f.imagen.errors?.minlength" class="text-danger">
+                                  La Imágen introducido es demasiado corto
+                              </div>-->
+                          </div>
+                      </div>
+                  </div>
+                </div>
+  
+                <div class="libro-update-form-row">
+                  <label for="paginas">Páginas</label>
+                  <div>
+                      <div>
+                          <div>
+                              <input type="text" class="form-control" id="paginas" formControlName="paginas" required="required"
+                                  [ngClass]="{'is-valid' : f.paginas.dirty && !(f.paginas.errors?.required || f.paginas.errors?.minlength) }">
+                              <div *ngIf="f.paginas.dirty && f.paginas.errors?.required" class="text-danger">
+                                  Se debe introducir un Número valida
+                              </div>
+                              <div *ngIf="f.paginas.dirty && f.paginas.errors?.minlength" class="text-danger">
+                                  El Número introducido es demasiado corto
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+  
+                <div class="libro-update-form-row">
+                  <label for="novedad">Novedad</label>
+                  <div>
+                      <div>
+                          <div>
+                              <input class="form-check-input" type="checkbox" id="novedad" formControlName="novedad">
+                                
+                          </div>
+                      </div>
+                  </div>
+                </div>
+  
+                <div class="libro-update-form-row">
+                  <label for="tipolibro">Género</label>
+                  <div class="genero">
+                      <div>
+                          <div> 
+                            <div class="input-group">
+                              <input type="text" class="form-control" id="tipolibro" formControlName="tipolibro"
+                              [ngClass]="{'is-valid' : f.tipolibro.dirty && !(f.tipolibro.errors?.required || f.tipolibro.errors?.minlength) }">
+                              <input type="text" class="form-control" id="genero" formControlName="genero" readonly>
+                              <button type="button" class="libro-boton-genero" id="botonProducto" (click)="openModal()">
+                                Buscar Género
+                              </button>
+                              <div *ngIf="f.tipolibro.dirty && f.tipolibro.errors?.required" class="text-danger">
+                                Se debe introducir un género
+                              </div>
+                            </div>                            
+                          </div>
+                      </div>
+                  </div>
+                </div>
+  
+                <div class="libro-update-form-row libro-update-cancelar-centrar">
+                    
+                            <button mat-raised-button type="submit" class="update-libro-boton"
+                                [disabled]="oForm.invalid || oForm.pristine"><i
+                                    [ngClass]="oIconService.getIcon('edit')"></i>
+                                Editar Libro</button>
+                </div>
+            </div>    
+        </form>
+        <div class="libro-update-form-row libro-update-cancelar-centrar">
+            <button mat-raised-button class="update-libro-boton" (click)="closeModal()">Cancelar</button>
+        </div>
+    </div>
+  </div>

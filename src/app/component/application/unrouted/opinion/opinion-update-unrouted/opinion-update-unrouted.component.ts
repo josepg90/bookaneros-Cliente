@@ -87,6 +87,7 @@ export class OpinionUpdateUnroutedComponent implements OnInit {
           libro: [this.oPost.libro.id, [Validators.required, Validators.minLength(5)]],
           usuario: [this.oPost.usuario.id, [Validators.required, Validators.minLength(5)]]
         });
+        console.log(this.oPost);
       });
            
   };

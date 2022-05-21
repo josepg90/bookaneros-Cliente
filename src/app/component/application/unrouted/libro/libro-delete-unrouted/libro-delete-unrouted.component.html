@@ -1,0 +1,61 @@
+<div class="libro-delete">
+    <div class="libro-delete-contenido">
+        <h1><i [ngClass]="oIconService.getIcon('edit')"></i>Eliminar Libro</h1>
+        <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">
+            <div>
+                
+                <div class="libro-delete-form-row">
+                    <label for="titulo">Título</label>
+                    <div>
+                        <div>
+                            <div>
+                                <input type="text" class="form-control" id="titulo" formControlName="titulo" required="required" readonly>
+                                <div *ngIf="f.titulo.dirty && f.titulo.errors?.required" class="text-danger">
+                                    Se debe introducir un Título válido
+                                </div>
+                                <div *ngIf="f.titulo.dirty && f.titulo.errors?.minlength" class="text-danger">
+                                    El Título introducido es demasiado corto
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="libro-delete-form-row">
+                    <label for="autor">Autor</label>
+                    <div>
+                        <div>
+                            <div>
+                                <input type="text" class="form-control" id="autor" formControlName="autor" required="required" readonly>
+                                <div *ngIf="f.autor.dirty && f.autor.errors?.required" class="text-danger">
+                                    Se debe introducir un Autor valido
+                                </div>
+                                <div *ngIf="f.autor.dirty && f.autor.errors?.minlength" class="text-danger">
+                                    El Autor introducido es demasiado corto
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="libro-delete-form-row">
+                    <label for="imagen">Imágen</label>
+                    
+                            <div class="libro-delete-form-row libro-delete-cancelar-centrar">                            
+                                <img [src]="'http://localhost:8082/file/' + oLibro2Show.imagen" style="height:180px"  />                                  
+                            </div>   
+                        
+                  </div>
+  
+                <div class="libro-delete-form-row libro-delete-cancelar-centrar">
+                    
+                            <button mat-raised-button type="submit" class="libro-delete-boton"
+                                [disabled]="oForm.invalid || oForm.pristine"><i
+                                    [ngClass]="oIconService.getIcon('edit')"></i>
+                                Eliminar Libro</button>
+                </div>
+            </div>    
+        </form>
+        <div class="libro-delete-form-row libro-delete-cancelar-centrar">
+            <button mat-raised-button class="libro-delete-boton" (click)="closeModal()">Cancelar</button>
+        </div>
+    </div>
+  </div>

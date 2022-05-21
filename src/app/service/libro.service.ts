@@ -17,8 +17,8 @@ import { API_URL, httpOptions } from "src/environments/environment";
       return this.http.get<ILibro>(this.sURL + "/" + id, httpOptions);
     }
   
-    removeOne(id: number): Observable<ILibro> {
-      return this.http.delete<ILibro>(this.sURL + "/" + id, httpOptions);
+    removeOne(id: number): Observable<number> {
+      return this.http.delete<number>(this.sURL + "/" + id, httpOptions);
     }
   
     newOne(oLibro: ILibro2Send): Observable<ILibro> {
@@ -26,7 +26,7 @@ import { API_URL, httpOptions } from "src/environments/environment";
     }
   
     update(oLibro: ILibro2Send): Observable<ILibro> {
-      return this.http.put<ILibro>(this.sURL + "/", oLibro, httpOptions);
+      return this.http.put<ILibro>(this.sURL + "/" , oLibro, httpOptions);
     }
   
     getPage(rpp: number, page: number, filter: string, order: string, direction: string, tipolibro: number): Observable<IPageLibro> {

@@ -91,8 +91,9 @@ export class UsuarioUpdateUnroutedComponent implements OnInit {
           password: [this.oUsuario2Show.password, [Validators.required, Validators.minLength(5)]],
           email: [this.oUsuario2Show.email, [Validators.required, Validators.minLength(5)]]
         });
+        console.log(this.oUsuario2Show);
       }); 
-      console.log(this.oUsuario2Show);
+      
            
   };
 

@@ -63,6 +63,8 @@ import { LibroCardNovedadComponent } from './component/application/unrouted/libr
 import { TipolibroUpdateUnroutedComponent } from './component/application/unrouted/tipolibro/tipolibro-update-unrouted/tipolibro-update-unrouted.component';
 import { TipolibroListaupdateUnroutedComponent } from './component/application/unrouted/tipolibro/tipolibro-listaupdate-unrouted/tipolibro-listaupdate-unrouted.component';
 import { TipolibroDeleteUnroutedComponent } from './component/application/unrouted/tipolibro/tipolibro-delete-unrouted/tipolibro-delete-unrouted.component';
+import { LibroUpdateUnroutedComponent } from './component/application/unrouted/libro/libro-update-unrouted/libro-update-unrouted.component';
+import { LibroDeleteUnroutedComponent } from './component/application/unrouted/libro/libro-delete-unrouted/libro-delete-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -109,7 +111,9 @@ import { TipolibroDeleteUnroutedComponent } from './component/application/unrout
     LibroCardNovedadComponent,
     TipolibroUpdateUnroutedComponent,
     TipolibroListaupdateUnroutedComponent,
-    TipolibroDeleteUnroutedComponent
+    TipolibroDeleteUnroutedComponent,
+    LibroUpdateUnroutedComponent,
+    LibroDeleteUnroutedComponent
   ],
   imports: [
     HttpClientModule,

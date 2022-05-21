@@ -119,7 +119,7 @@ export class LibroNewUnroutedComponent implements OnInit {
     if (this.oForm.valid) {
       if (this.oForm) {
         this.oLibro2Send = {
-          id: null,
+          id: this.id,
         codigo: this.oForm.value.codigo,
         titulo: this.oForm.value.titulo,
         autor: this.oForm.value.autor,

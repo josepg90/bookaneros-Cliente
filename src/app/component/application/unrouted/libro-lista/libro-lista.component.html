@@ -126,9 +126,9 @@
               
               <div class="btn-group btn-group-sm" role="group" *ngIf="mode">
                 
-                <button type="button" class="libro-boton" [routerLink]="['/producto/edit/' + fila.id]"><i
+                <button type="button" class="libro-boton" (click)="this.id=this.fila.id; openModalUpdate(this.id)"><i
                     class="fas fa-pen"></i></button>
-                <button type="button" class="libro-boton" [routerLink]="['/producto/remove/' + fila.id]"><i
+                <button type="button" class="libro-boton" (click)="this.id=this.fila.id; openModalDelete(this.id)"><i
                     class="fas fa-trash"></i></button>
   
                 <!-- 

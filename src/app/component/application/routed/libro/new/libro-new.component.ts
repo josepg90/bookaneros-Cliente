@@ -24,7 +24,7 @@ export class LibroNewComponent implements OnInit {
   strTitleSingular: string = 'Libro';
   strTitlePlural: string = 'Libros';
   oLibro2Send: ILibro2Send = null;
-  oLibro2Show: ILibro = null;
+  oLibro2Show: ILibro2Send = null;
   oForm: FormGroup = null;
   strResult: string = null;
   oTipoLibro: ITipoLibro;
@@ -139,8 +139,8 @@ export class LibroNewComponent implements OnInit {
         } else {
           this.oProductoService
             .update(this.oLibro2Send)
-            .subscribe((oProducto: ILibro) => {
-              if (oProducto.id) {
+            .subscribe((oLibro: ILibro) => {
+              if (oLibro.id) {
                 this.strResult = this.strTitleSingular + ' modificado correctamente';
               } else {
                 this.strResult = this.strTitleSingular + ': error en la modificación del registro';

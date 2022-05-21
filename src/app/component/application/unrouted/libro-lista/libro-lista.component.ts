@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
@@ -7,6 +8,8 @@ import { IUsuario } from 'src/app/model/usuario-interfaces';
 import { IconService } from 'src/app/service/icon.service';
 import { LibroService } from 'src/app/service/libro.service';
 import { PaginationService } from 'src/app/service/pagination.service';
+import { LibroDeleteUnroutedComponent } from '../libro/libro-delete-unrouted/libro-delete-unrouted.component';
+import { LibroUpdateUnroutedComponent } from '../libro/libro-update-unrouted/libro-update-unrouted.component';
 
 @Component({
   selector: 'app-libro-lista',
@@ -37,7 +40,7 @@ export class LibroListaComponent implements OnInit {
   oUserSession: IUsuario;
   subjectFiltro$ = new Subject();
   barraPaginacion: string[];
-
+  id: number;
 
 
 
@@ -46,7 +49,7 @@ export class LibroListaComponent implements OnInit {
     private oRouter: Router,
     private oPaginationService: PaginationService,
     private oLibroService: LibroService,
-
+    public matDialog: MatDialog,
     public oIconService: IconService
   ) {
 
@@ -122,4 +125,34 @@ export class LibroListaComponent implements OnInit {
     this.selection.emit(id);
   }
 
+  openModalUpdate(id: number) {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component-update";
+    dialogConfig.height = "900px";
+    dialogConfig.width = "600px";
+    dialogConfig.data = { id: this.id}
+    console.log(this.id);
+    
+    // https://material.angular.io/components/dialog/overview
+    const modalDialog = this.matDialog.open(LibroUpdateUnroutedComponent, dialogConfig);
+  }
+
+  openModalDelete(id: number) {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component-delete";
+    dialogConfig.height = "650px";
+    dialogConfig.width = "600px";
+    dialogConfig.data = { id: this.id}
+    console.log(this.id);
+    
+    // https://material.angular.io/components/dialog/overview
+    const modalDialog = this.matDialog.open(LibroDeleteUnroutedComponent, dialogConfig);
+  }
+  reloadCurrentPage() {
+    window.location.reload();
+   }
 }
