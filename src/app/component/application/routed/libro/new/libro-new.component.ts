@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IconService } from 'src/app/service/icon.service';
@@ -16,12 +16,15 @@ declare let $: any;
 })
 export class LibroNewComponent implements OnInit {
 
+  @Input() strOperation: string = null;
+  @Input() id: number = null;
+  @Output() msg = new EventEmitter<any>();
+
   strEntity: string = 'libro';
-  strOperation: string = 'new';
   strTitleSingular: string = 'Libro';
   strTitlePlural: string = 'Libros';
   oLibro2Send: ILibro2Send = null;
-  id: number = null;
+  oLibro2Show: ILibro = null;
   oForm: FormGroup = null;
   strResult: string = null;
   oTipoLibro: ITipoLibro;
@@ -73,6 +76,84 @@ export class LibroNewComponent implements OnInit {
     });
   }
 
+  processFile($event: any) {
+    const reader = new FileReader();
+
+    if ($event.target.files && $event.target.files.length) {
+      this.selectedFiles = $event.target.files;
+      if (this.selectedFiles) {
+        this.file2Send = this.selectedFiles.item(0);
+        this.selectedFile = this.file2Send.name;
+        if (this.file2Send) {
+          reader.readAsDataURL(this.file2Send);
+          reader.onload = () => {
+            this.imageSrc = reader.result as string;
+            this.oForm.controls['imagen'].markAsDirty();
+            //this.oForm.patchValue({
+            //  imagen: reader.result
+            //});
+
+          };
+        }
+      }
+    }
+  }
+
+  selectedFiles?: FileList;
+  imageSrc: string = null;
+  file2Send: File = null;
+  selectedFile: string;
+
+  save(img:number): void {
+    if (this.oForm.valid) {
+      if (this.oForm) {
+        this.oLibro2Send = {
+          id: this.id, 
+        codigo: this.oForm.value.codigo,
+        titulo: this.oForm.value.titulo,
+        autor: this.oForm.value.autor,
+        fecha_publicacion: this.oForm.value.fecha,
+        resumen: this.oForm.value.resumen,
+        imagen:img,
+        paginas: this.oForm.value.paginas,
+        novedad: this.oForm.value.novedad,
+        tipolibro: {
+          id: this.oForm.value.tipolibro,
+        }
+        }
+        //console.log(this.oProducto2Send)
+        if (this.strOperation == "new") {
+          this.oProductoService
+            .newOne(this.oLibro2Send)
+            .subscribe((oProduct: ILibro) => {
+              console.log('dentro de new');
+              if (oProduct.id) {
+                this.id = oProduct.id;
+                this.strResult = 'El/La ' + this.strTitleSingular + ' se ha creado correctamente con el id: ' + oProduct.id;
+              } else {
+                this.strResult = 'Error en la creación de ' + this.strTitleSingular;
+              }
+              //this.openPopup();
+              this.msg.emit({ strMsg: this.strResult, id: this.id });
+            });
+        } else {
+          this.oProductoService
+            .update(this.oLibro2Send)
+            .subscribe((oProducto: ILibro) => {
+              if (oProducto.id) {
+                this.strResult = this.strTitleSingular + ' modificado correctamente';
+              } else {
+                this.strResult = this.strTitleSingular + ': error en la modificación del registro';
+              }
+              //this.openPopup();
+
+              this.msg.emit({ strMsg: this.strResult, id: this.id });
+            });
+        }
+      }
+    }
+  }
+
   onSubmit(): void {
     if (this.oForm) {
       this.oLibro2Send = {
@@ -112,5 +193,6 @@ export class LibroNewComponent implements OnInit {
   goBack(): void {
     this.oLocation.back();
   }
+  
 
 }

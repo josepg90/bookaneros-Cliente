@@ -91,14 +91,21 @@
                 <div>
                     <div>
                         <div>
-                            <input type="text" class="form-control" id="imagen" formControlName="imagen" required="required"
-                                [ngClass]="{'is-valid' : f.imagen.dirty && !(f.imagen.errors?.required || f.imagen.errors?.minlength) }">
+                            <input type="text" class="form-control" id="imagen" formControlName="imagen">
+                                <input #imageInput type="file" accept="image/*" class="form-control-file mt-4" lang="es" name="imagen"
+                  (change)="processFile($event)" />
+              <div *ngIf="imageSrc != null">
+                  <img [src]="imageSrc" alt="" style="height:100px" class="my-3" />
+              </div>
+              <!--<div *ngIf="strOperation=='edit'">
+                  <img [src]="'http://localhost:8082/file/' + oLibro2Show.imagen" style="height:100px" class="my-3" />
+              </div>
                             <div *ngIf="f.imagen.dirty && f.imagen.errors?.required" class="text-danger">
                                 Se debe introducir una Imágen valida
                             </div>
                             <div *ngIf="f.imagen.dirty && f.imagen.errors?.minlength" class="text-danger">
                                 La Imágen introducido es demasiado corto
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
