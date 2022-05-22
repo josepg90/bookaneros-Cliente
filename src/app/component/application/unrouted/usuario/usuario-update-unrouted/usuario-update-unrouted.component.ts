@@ -72,8 +72,12 @@ export class UsuarioUpdateUnroutedComponent implements OnInit {
     this.oForm = this.oFormBuilder.group({
       login: ['', [Validators.required, Validators.minLength(5)]],
       password: ['', [Validators.required, Validators.minLength(5)]],
-      email: ['', [Validators.required, Validators.minLength(5)]]
-      
+      email: ['', [Validators.required, Validators.minLength(5)]],
+      nombre: [''],
+      apellido1: [''],
+      apellido2: [''],
+      pais: [''],
+      intereses: ['']      
     });
 
     this.href = this.oRouter.url;
@@ -92,7 +96,12 @@ export class UsuarioUpdateUnroutedComponent implements OnInit {
             [Validators.required, Validators.minLength(5)]
           ],
           password: [this.oUsuario2Show.password, [Validators.required, Validators.minLength(5)]],
-          email: [this.oUsuario2Show.email, [Validators.required, Validators.minLength(5)]]
+          email: [this.oUsuario2Show.email, [Validators.required, Validators.minLength(5)]],
+          nombre: [this.oUsuario2Show.nombre],
+          apellido1: [this.oUsuario2Show.apellido1],
+          apellido2: [this.oUsuario2Show.apellido2],
+          pais: [this.oUsuario2Show.pais],
+          intereses: [this.oUsuario2Show.intereses]  
         });
         console.log(this.oUsuario2Show);
       }); 
@@ -106,9 +115,14 @@ export class UsuarioUpdateUnroutedComponent implements OnInit {
         id: this.oForm.value.id,
         login: this.oForm.value.login,
         password: this.oForm.value.password,
-        email: this.oForm.value.email
+        email: this.oForm.value.email,
+        nombre: this.oForm.value?.nombre,
+        apellido1: this.oForm.value?.apellido1,
+        apellido2: this.oForm.value?.apellido2,
+        pais: this.oForm.value?.pais,
+        intereses: this.oForm.value?.intereses
       };
-
+      console.log(this.oUsuario2Send);
       this.update();
     }
   }

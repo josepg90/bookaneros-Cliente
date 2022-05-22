@@ -39,8 +39,12 @@ export class RegistroModalComponent implements OnInit {
     this.oForm = this.oFormBuilder.group({
       login: ['', [Validators.required, Validators.minLength(5)]],
       password: ['', [Validators.required, Validators.minLength(5)]],
-      email: ['', [Validators.required, Validators.minLength(5)]]
-
+      email: ['', [Validators.required, Validators.minLength(5)]],
+      nombre: [''],
+      apellido1: [''],
+      apellido2: [''],
+      pais: [''],
+      intereses: ['']  
     });
     }
 
@@ -51,6 +55,11 @@ export class RegistroModalComponent implements OnInit {
           login: this.oForm.value.login,
           password: this.oForm.value.password,
           email: this.oForm.value.email,
+          nombre: this.oForm.value.nombre,
+          apellido1: this.oForm.value.apellido1,
+          apellido2: this.oForm.value.apellido2,
+          pais: this.oForm.value.pais,
+          intereses: this.oForm.value.intereses
         };
         console.log(this.usuario);
         

@@ -54,7 +54,7 @@ export class UsuarioViewComponent implements OnInit {
     // The user can't close the dialog by clicking outside its body
     dialogConfig.disableClose = true;
     dialogConfig.id = "modal-component-update";
-    dialogConfig.height = "500px";
+    dialogConfig.height = "800px";
     dialogConfig.width = "600px";
     dialogConfig.data = { id: this.oUsuarioSession.id}
     console.log(this.oUsuarioSession.id);

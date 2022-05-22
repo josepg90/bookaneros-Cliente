@@ -50,9 +50,22 @@ export class PeticionesComponent implements OnInit {
     this.oForm = this.oFormBuilder.group({
       
       titulo: ['', Validators.required],
-      cuerpo: ['', Validators.required],
-      fecha_publicacion: ['', Validators.required],
+      peticion: ['', Validators.required],
+      fecha: ['', Validators.required],
+      enproceso: [''],
+      realizado: [''],
       usuario: ['']
+    });
+    $('#fecha').datetimepicker({
+      defaultDate: "+1w",
+      numberOfMonths: 1,
+      dateFormat: 'dd-mm-yy',
+      timeFormat: 'hh:mm',
+      showAnim: "fold",
+      onClose: (dateText: string, inst: any) => {
+        this.oForm.controls['fecha'].setValue(dateText);
+        this.oForm.controls['fecha'].markAsDirty();
+      }
     });
   }
 
@@ -61,14 +74,16 @@ export class PeticionesComponent implements OnInit {
       this.oPeticion2Send = {
         id: null,
         titulo: this.oForm.value.titulo,
-        cuerpo: this.oForm.value.cuerpo,
-        fecha: this.oForm.value.fecha_publicacion.replace("-", "/").replace("-", "/"),
+        peticion: this.oForm.value.peticion,
+        fecha: this.oForm.value.fecha.replace("-", "/").replace("-", "/"),
+        enproceso: false,
+        realizado: false,
         usuario: {
           id: this.oUserSession.id,
         }
       };
       console.log(this.oPeticion2Send);
-      
+            
       this.new();      
     }
   }
@@ -83,7 +98,7 @@ export class PeticionesComponent implements OnInit {
             toast: true,
             position: 'middle',
             showConfirmButton: false,
-            timer: 3000,
+            timer: 2000,
             timerProgressBar: true,
             didOpen: (toast: { addEventListener: (arg0: string, arg1: any) => void; }) => {
               toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -96,6 +111,9 @@ export class PeticionesComponent implements OnInit {
             icon: 'success',
             title: 'Creado correctamente'
           })
+          setTimeout(() => {
+            window.location.reload();
+        }, 2000);
           
         } else {
           Swal.fire({

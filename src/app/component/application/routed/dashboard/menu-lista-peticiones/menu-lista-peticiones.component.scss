@@ -1,0 +1,35 @@
+.menu-lista-peticiones {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    justify-content: center;
+  }
+
+  li {
+    background-color: #412722;
+    padding: 9px 14px;
+    border-radius: 5px;
+    border: #111 solid 1px;
+    width:140px;
+    font-size: 1.2rem;
+    text-shadow: 0.2rem 0.2rem 0.8rem rgba(0,0,0,0.7); 
+    text-align: center;
+  }
+
+  li:hover {
+    color: #111;
+    background-color: #8A6552;
+  }
+
+  i {
+      margin-right: 10px;
+  }
+
+  .mat-h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 60px;
+    color:#412722;
+  }

@@ -66,6 +66,8 @@ import { TipolibroDeleteUnroutedComponent } from './component/application/unrout
 import { LibroUpdateUnroutedComponent } from './component/application/unrouted/libro/libro-update-unrouted/libro-update-unrouted.component';
 import { LibroDeleteUnroutedComponent } from './component/application/unrouted/libro/libro-delete-unrouted/libro-delete-unrouted.component';
 import { UsuarioListaupdateUnroutedComponent } from './component/application/unrouted/usuario/usuario-listaupdate-unrouted/usuario-listaupdate-unrouted.component';
+import { MenuListaPeticionesComponent } from './component/application/routed/dashboard/menu-lista-peticiones/menu-lista-peticiones.component';
+import { PeticionesListaUnroutedComponent } from './component/application/unrouted/peticiones/peticiones-lista-unrouted/peticiones-lista-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -115,7 +117,9 @@ import { UsuarioListaupdateUnroutedComponent } from './component/application/unr
     TipolibroDeleteUnroutedComponent,
     LibroUpdateUnroutedComponent,
     LibroDeleteUnroutedComponent,
-    UsuarioListaupdateUnroutedComponent
+    UsuarioListaupdateUnroutedComponent,
+    MenuListaPeticionesComponent,
+    PeticionesListaUnroutedComponent
   ],
   imports: [
     HttpClientModule,

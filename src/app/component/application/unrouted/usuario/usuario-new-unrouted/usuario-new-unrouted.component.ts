@@ -51,7 +51,12 @@ export class UsuarioNewUnroutedComponent implements OnInit {
       
       login: ['', [Validators.required, Validators.minLength(5)]],
       password: ['', [Validators.required, Validators.minLength(5)]],
-      email: ['', [Validators.required, Validators.minLength(5)]]
+      email: ['', [Validators.required, Validators.minLength(5)]],
+      nombre: [''],
+      apellido1: [''],
+      apellido2: [''],
+      pais: [''],
+      intereses: ['']  
     });
   }
 
@@ -61,7 +66,12 @@ export class UsuarioNewUnroutedComponent implements OnInit {
         id: null,
         login: this.oForm.value.login,
         password: this.oForm.value.password,
-        email: this.oForm.value.email
+        email: this.oForm.value.email,
+        nombre: this.oForm.value.nombre,
+        apellido1: this.oForm.value.apellido1,
+        apellido2: this.oForm.value.apellido2,
+        pais: this.oForm.value.pais,
+        intereses: this.oForm.value.intereses
       };
       console.log(this.oUsuario2Send);
       

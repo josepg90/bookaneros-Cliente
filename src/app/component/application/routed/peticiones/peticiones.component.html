@@ -12,7 +12,7 @@
                     <div>
                         <div class="row mb-3">
                             <div>
-                                <input type="text" class="form-control" id="titulo" formControlName="titulo"
+                                <input type="text" class="form-control" id="titulo" formControlName="titulo" required="required"
                                     [ngClass]="{'is-valid' : f.titulo.dirty && !(f.titulo.errors?.required || f.titulo.errors?.minlength) }">
                                 <div *ngIf="f.titulo.dirty && f.titulo.errors?.required" class="text-danger">
                                     Se debe introducir un título
@@ -25,17 +25,17 @@
                     </div>
                 </div>
                 <div class="peticiones-new-form-row">
-                    <label for="opinion" class="col-sm-2 col-form-label">Opinión</label>
+                    <label for="peticion" class="col-sm-2 col-form-label">Petición</label>
                     <div>
                         <div class="row mb-3">
                             <div>
-                                <textarea type="text" class="form-control" id="titulo" formControlName="cuerpo" rows="6"
-                                    [ngClass]="{'is-valid' : f.cuerpo.dirty && !(f.cuerpo.errors?.required || f.cuerpo.errors?.minlength) }"></textarea>
-                                <div *ngIf="f.cuerpo.dirty && f.cuerpo.errors?.required" class="text-danger">
-                                    Se debe introducir una opinión
+                                <textarea type="text" class="form-control" id="peticion" formControlName="peticion" rows="6" required="required"
+                                    [ngClass]="{'is-valid' : f.peticion.dirty && !(f.peticion.errors?.required || f.peticion.errors?.minlength) }"></textarea>
+                                <div *ngIf="f.peticion.dirty && f.peticion.errors?.required" class="text-danger">
+                                    Se debe introducir una peticion
                                 </div>
-                                <div *ngIf="f.cuerpo.dirty && f.cuerpo.errors?.minlength" class="text-danger">
-                                    La opinión introducida es demasiado corta
+                                <div *ngIf="f.peticion.dirty && f.peticion.errors?.minlength" class="text-danger">
+                                    La peticion introducida es demasiado corta
                                 </div>
                             </div>
                         </div>
@@ -43,13 +43,13 @@
                 </div>
                 <div class="peticiones-new-form-row">
                     
-                        <label for="fecha_publicacion">Fecha</label>
+                        <label for="fecha">Fecha</label>
                         <div>
-                            <input type="text" name="fecha_publicacion" id="fecha_publicacion"
-                                formControlName="fecha_publicacion" class="text ui-widget-content ui-corner-all" />
-                            <div *ngIf="f.fecha_publicacion.dirty && f.fecha_publicacion.errors?.required"
+                            <input type="text" name="fecha" id="fecha"
+                                formControlName="fecha" class="text ui-widget-content ui-corner-all" />
+                            <div *ngIf="f.fecha.dirty && f.fecha.errors?.required"
                                 class="text-danger">
-                                Se debe introducir una fecha de publicación correcta
+                                Se debe introducir una fecha correcta
                             </div>
                         </div>
                     

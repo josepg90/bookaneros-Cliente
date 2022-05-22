@@ -1,0 +1,19 @@
+<ul class="menu-lista-peticiones">
+    <li class="active" (click)="this.seccion=0"><span class="menu-active"><i [ngClass]="oIconService.getIcon('libro')"></i>Recibidas</span></li>
+    <li><span class="menu-active" (click)="this.seccion=1"><i [ngClass]="oIconService.getIcon('usuario')"></i>En Proceso</span></li>
+    <li (click)="this.seccion=2"><span class="menu-active"><i [ngClass]="oIconService.getIcon('fav')"></i>Realizadas</span></li>
+</ul>
+
+<!--Sección Update-->
+<div *ngIf="seccion==0">
+  <h1 class="mat-h1">Peticiones Recibidas</h1>
+  <app-peticiones-lista-unrouted [accion]="seccion"></app-peticiones-lista-unrouted>
+</div>
+<div *ngIf="seccion==1">
+  <h1 class="mat-h1">Peticiones En Proceso</h1>
+  <app-peticiones-lista-unrouted [accion]="seccion"></app-peticiones-lista-unrouted>
+</div>
+<div *ngIf="seccion==2">
+  <h1 class="mat-h1">Peticiones Realizadas</h1>
+  <app-peticiones-lista-unrouted [accion]="seccion"></app-peticiones-lista-unrouted>
+</div>

@@ -1,0 +1,159 @@
+.peticion-contenedor-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin:5% 10%;
+}
+
+.peticion-contenedor-filtros{
+    width:25%;
+    height: 800px;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.peticion-contenedor-filtros-diferentes {
+    padding: 30px;
+}
+
+  h3 {
+    flex-basis:100%;
+    color: #fff;
+  }
+
+  .peticion-lista-peticiones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+  }
+
+.peticion-lista-flex{
+    display:flex;
+    justify-content: center;
+}
+
+.libro-view-peticion {
+    width: 48%;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 25px;
+    margin: 0 0 30px;
+    height: 100%;
+}
+
+.peticion-header {
+    height: 15%;
+    background-color: rgba(0,0,0,0.4);
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.6rem;
+}
+
+.peticion-header > span:nth-child(1) {
+    margin-left:25px;
+}
+
+.peticion-header > span:nth-child(2) {
+    margin-right:25px;
+}
+
+.peticion-cuerpo {
+    width:90%;
+    //background-color: rgba(0,0,0,0.5);
+    margin: 20px auto;
+    padding-bottom:5px;
+    font-size: 1.2rem;
+}
+
+.peticion-cuerpo div:nth-child(1) {
+    font-size: 1.4rem;
+}
+
+.peticion-cuerpo div{
+    padding:5px 5px 0 5px;
+}
+
+.peticion-footer {
+    height: 15%;
+    background-color: rgba(0,0,0,0.4);
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+}
+.peticion-footer span, .post-header span {
+    padding: 0 25px;
+}
+
+.peticion-header span:nth-child(1) {
+    color: #DBD3AD;
+}
+
+.peticion-footer div button{
+    margin-left: 10px;
+}
+
+.peticion-footer div {
+    margin-left: 20px;
+}
+
+
+span i {
+    margin-right: 15px;
+    font-size:1.2rem;
+    color: #fff;
+}
+
+.boton-buscar {
+    background-color: #5e3023;
+    color: #fff;
+    font-size: 1.2rem;
+    line-height: normal;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.peticion-boton {
+	//background-color: #8A6552;
+	//background-color: #A8C686;
+	background-color: #5E3023;
+	margin: 7px 0;
+    color: #fff;
+	padding: 3px 14px; 
+	font-size: 1.2rem;
+	line-height: normal;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	text-shadow: 0.2rem 0.2rem 0.8rem rgba(0,0,0,0.25);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5);
+    
+}
+.peticion-boton:hover {
+	text-shadow: 0.4rem 0.4rem 1.6rem rgba(0, 0, 0, 1);
+	color: #111;
+	background-color: #8A6552;
+	box-shadow: 0px 0px 4px 6px #5E3023 ;
+}
+.disabled {
+    background-color: #000 !important;
+	margin: 7px 0;
+    color: #f00 !important;
+	padding: 3px 14px; 
+	font-size: 1.2rem;
+	line-height: normal;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	//text-shadow: 0.2rem 0.2rem 0.8rem rgba(0,0,0,0.25);
+	//box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5); 
+}

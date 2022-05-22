@@ -115,7 +115,7 @@ export class LibroViewComponent implements OnInit {
     this.oLibroService.get(this.id).subscribe((oData: ILibro) => {
       this.oLibro = oData;
       console.log(this.oLibro);
-      
+      console.log('http://localhost:8082/file/' + this.oLibro?.imagen);
        var imgData2 = 'http://localhost:8082/file/' + this.oLibro?.imagen;       
       
       var doc = new jsPDF()

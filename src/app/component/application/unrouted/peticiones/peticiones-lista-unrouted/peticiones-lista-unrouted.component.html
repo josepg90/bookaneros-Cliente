@@ -1,0 +1,66 @@
+<div class="peticion-contenedor-row">
+    <!--<div class="opinion-contenedor-filtros">
+        <form>
+            <div class="input-group input-group-sm opinion-contenedor-filtros-diferentes">
+                <h3>Buscar Libro</h3>
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i [ngClass]="oIconService.getIcon('filtro')"
+                            (click)="strFilter=''; this.getPeticiones()"></i></span>
+                </div>
+                <input type="text" class="form-control" placeholder="{{'Filtro de ' + strTitlePlural}}"
+                    placeholder="Search" (keyup)="onKeyUpFilter($event)" [(ngModel)]="strFilter" name="buscar"
+                    aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
+            </div>
+            <div class="input-group input-group-sm opinion-contenedor-filtros-diferentes">
+                <h3>Buscar por Usuario</h3>
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i [ngClass]="oIconService.getIcon('filtro')"
+                            (click)="login=''; this.id_usuario=null; this.getPeticiones()"></i></span>
+                </div>
+                <input type="text" class="form-control" id="login" readonly placeholder="Filtro de Usuario"
+                (keyup)="onKeyUpFilter($event)" [(ngModel)]="login" name="genero"
+                    aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
+                <button type="button" class="boton-buscar" id="botonProducto" (click)="openModalUsuario()">
+                    Buscar
+                </button>
+            </div>
+        </form>
+    </div>-->
+
+    <div class="peticion-lista-peticiones">
+        <div class="libro-view-peticion" *ngFor="let peticiones of aPeticiones">
+            <div class="peticion-header">
+                <span><i [ngClass]="oIconService.getIcon('libro')"></i>{{peticiones.titulo}}</span>
+                <span><i [ngClass]="oIconService.getIcon('usuario')"></i>{{peticiones.usuario.login}}</span>
+            </div>
+            <div>
+                <div class="peticion-cuerpo">
+                    <div>
+                        <p>"{{peticiones.peticion}}"</p>
+                    </div>
+                </div>
+            </div>            
+            <div class="peticion-footer">
+                <div>
+                    <button type="button" [disabled]="this.peticiones.enproceso" [ngClass]="{
+                        'disabled': this.peticiones.enproceso,
+                        'peticion-boton': !this.peticiones.enproceso
+                    }" (click)="this.id=this.peticiones.id; this.titulo=this.peticiones.titulo; this.peticion=this.peticiones.peticion;
+                    this.fecha=this.peticiones.fecha; this.enproceso_booleano=true; this.realizado_booleano=false;
+                    this.usuario=this.peticiones.usuario; this.update(this.id, this.titulo, this.peticion, this.fecha, this.enproceso_booleano,this.realizado_booleano, this.usuario);">
+                        <i [ngClass]="oIconService.getIcon('edit')"></i>
+                    </button>
+                    <button type="button" [disabled]="this.peticiones.realizado" [ngClass]="{
+                        'disabled': this.peticiones.realizado,
+                        'peticion-boton': !this.peticiones.realizado
+                    }" (click)="this.id=this.peticiones.id; this.titulo=this.peticiones.titulo; this.peticion=this.peticiones.peticion;
+                    this.fecha=this.peticiones.fecha; this.enproceso_booleano=true; this.realizado_booleano=true;
+                    this.usuario=this.peticiones.usuario; this.update(this.id, this.titulo, this.peticion, this.fecha, this.enproceso_booleano,this.realizado_booleano, this.usuario);">
+                        <i [ngClass]="oIconService.getIcon('remove')"></i>
+                    </button>
+                </div>
+                <span>{{peticiones.fecha}}</span>
+            </div>
+        </div>
+    </div>
+</div>

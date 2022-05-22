@@ -85,6 +85,29 @@
                 *ngIf="strSortField=='email'&&strSortDirection=='desc'"></i>
   
             </th>
+
+            <th (click)="doSetOrder('nombre')">
+              <i [ngClass]="oIconService.getIcon('nombre')"></i> Nombre
+              <i [ngClass]="oIconService.getIcon('flechaUp')"
+                *ngIf="strSortField=='nombre'&&strSortDirection=='asc'"></i>
+              <i [ngClass]="oIconService.getIcon('flechaDown')"
+                *ngIf="strSortField=='nombre'&&strSortDirection=='desc'"></i>  
+            </th>
+            <th (click)="doSetOrder('pais')">
+              <i [ngClass]="oIconService.getIcon('nombre')"></i> País
+              <i [ngClass]="oIconService.getIcon('flechaUp')"
+                *ngIf="strSortField=='pais'&&strSortDirection=='asc'"></i>
+              <i [ngClass]="oIconService.getIcon('flechaDown')"
+                *ngIf="strSortField=='pais'&&strSortDirection=='desc'"></i>  
+            </th>
+            <th (click)="doSetOrder('intereses')">
+              <i [ngClass]="oIconService.getIcon('nombre')"></i> Intereses
+              <i [ngClass]="oIconService.getIcon('flechaUp')"
+                *ngIf="strSortField=='intereses'&&strSortDirection=='asc'"></i>
+              <i [ngClass]="oIconService.getIcon('flechaDown')"
+                *ngIf="strSortField=='intereses'&&strSortDirection=='desc'"></i>  
+            </th>
+            
   
             <th><i [ngClass]="oIconService.getIcon('acciones')"></i> Acciones</th>
           </tr>
@@ -95,6 +118,9 @@
             <td class="text-center">{{fila.login}}</td>
             <td style="text-align: center;">{{fila.password}}</td>
             <td style="text-align: center;">{{fila.email}}</td>
+            <td style="text-align: center;">{{fila.nombre}} {{fila.apellido1}} {{fila.apellido2}}</td>
+            <td style="text-align: center;">{{fila.pais}}</td>
+            <td style="text-align: center;">{{fila.intereses}}</td>
             <td class="text-center">
               
               <div class="btn-group btn-group-sm" role="group" *ngIf="mode">
