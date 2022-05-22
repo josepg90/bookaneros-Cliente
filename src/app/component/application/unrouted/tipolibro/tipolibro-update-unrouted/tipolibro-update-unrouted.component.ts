@@ -137,11 +137,7 @@ export class TipolibroUpdateUnroutedComponent implements OnInit {
             text: 'Algo ha fallado'            
           })
         }
-      });
-      setTimeout(() => {
-        window.location.reload();
-    }, 2500);
-      
+      });      
   };
 
   cerrar(): void {

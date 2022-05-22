@@ -208,9 +208,6 @@ export class LibroUpdateUnroutedComponent implements OnInit {
 
               this.msg.emit({ strMsg: this.strResult, id: this.id });
             });
-            setTimeout(() => {
-              window.location.reload();
-          }, 2500);
       }
     }
   }

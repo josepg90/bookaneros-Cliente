@@ -114,16 +114,7 @@ export class UsuarioDeleteUnroutedComponent implements OnInit {
           'Tu usuario ha sido eliminado.',
           'success'
         )
-      }
-
-      if(this.href!='/dashboard'){
-        this.closeSession();
-      } else {
-        setTimeout(() => {
-          window.location.reload();
-      }, 2500);
-      }
-            
+      }            
       this.closeModal();      
     })
 

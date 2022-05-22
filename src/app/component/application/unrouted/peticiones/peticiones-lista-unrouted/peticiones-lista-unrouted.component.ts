@@ -184,15 +184,18 @@ export class PeticionesListaUnroutedComponent implements OnInit {
           })
           
       
-      setTimeout(() => {
-        this.reloadCurrentPage(); 
-     }, 2500);
+     // setTimeout(() => {
+     //   this.reloadCurrentPage(); 
+     //}, 2500);
           Toast.fire({
             icon: 'success',
             title: 'Editado correctamente'
           })
           
-          this.cerrar();
+          if(!this.oPeticiones2Send.realizado && this.oPeticiones2Send.enproceso){
+            this.getPeticiones();
+          } 
+
         } else {
           Swal.fire({
             icon: 'error',

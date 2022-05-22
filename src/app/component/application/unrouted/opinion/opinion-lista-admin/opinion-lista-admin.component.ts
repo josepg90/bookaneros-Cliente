@@ -124,7 +124,7 @@ export class OpinionListaAdminComponent implements OnInit {
     console.log(this.id);
     
     // https://material.angular.io/components/dialog/overview
-    const modalDialog = this.matDialog.open(OpinionUpdateUnroutedComponent, dialogConfig);
+    const modalDialog = this.matDialog.open(OpinionUpdateUnroutedComponent, dialogConfig).afterClosed().subscribe(() => this.getPage());
   }
 
   openModalDelete(id: number) {
@@ -138,7 +138,7 @@ export class OpinionListaAdminComponent implements OnInit {
     console.log(this.id);
     
     // https://material.angular.io/components/dialog/overview
-    const modalDialog = this.matDialog.open(OpinionDeleteUnroutedComponent, dialogConfig);
+    const modalDialog = this.matDialog.open(OpinionDeleteUnroutedComponent, dialogConfig).afterClosed().subscribe(() => this.getPage());
   }
 
   openModalUsuario() {

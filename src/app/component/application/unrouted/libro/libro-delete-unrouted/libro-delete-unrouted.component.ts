@@ -123,10 +123,7 @@ export class LibroDeleteUnroutedComponent implements OnInit {
           'El Libro ha sido eliminado.',
           'success'
         )
-      } setTimeout(() => {
-        window.location.reload();
-    }, 2500);   
-      
+      }       
       this.closeModal();      
     })
 

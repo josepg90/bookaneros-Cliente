@@ -139,7 +139,7 @@ export class TipolibroListaupdateUnroutedComponent implements OnInit {
     console.log(this.id);
     
     // https://material.angular.io/components/dialog/overview
-    const modalDialog = this.matDialog.open(TipolibroUpdateUnroutedComponent, dialogConfig);
+    const modalDialog = this.matDialog.open(TipolibroUpdateUnroutedComponent, dialogConfig).afterClosed().subscribe(() => this.getPage());
   }
 
   openModalDelete(id: number) {
@@ -153,7 +153,8 @@ export class TipolibroListaupdateUnroutedComponent implements OnInit {
     console.log(this.id);
     
     // https://material.angular.io/components/dialog/overview
-    const modalDialog = this.matDialog.open(TipolibroDeleteUnroutedComponent, dialogConfig);
+    const modalDialog = this.matDialog.open(TipolibroDeleteUnroutedComponent, dialogConfig).afterClosed().subscribe(() => this.getPage());
+    this.reloadCurrentPage();
   }
   reloadCurrentPage() {
     window.location.reload();

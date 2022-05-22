@@ -154,10 +154,7 @@ export class UsuarioUpdateUnroutedComponent implements OnInit {
 
           if(this.href!='/dashboard'){
             this.loguearUpdate();
-          } else {
-            setTimeout(() => {
-              window.location.reload();
-          }, 2500);
+          
           }          
           
         } else {

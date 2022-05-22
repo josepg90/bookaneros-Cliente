@@ -136,7 +136,7 @@ export class UsuarioListaupdateUnroutedComponent implements OnInit {
     console.log(this.id);
     
     // https://material.angular.io/components/dialog/overview
-    const modalDialog = this.matDialog.open(UsuarioUpdateUnroutedComponent, dialogConfig);
+    const modalDialog = this.matDialog.open(UsuarioUpdateUnroutedComponent, dialogConfig).afterClosed().subscribe(() => this.getPage());
   }
 
   openModalDelete(id: number) {
@@ -150,7 +150,7 @@ export class UsuarioListaupdateUnroutedComponent implements OnInit {
     console.log(this.id);
     
     // https://material.angular.io/components/dialog/overview
-    const modalDialog = this.matDialog.open(UsuarioDeleteUnroutedComponent, dialogConfig);
+    const modalDialog = this.matDialog.open(UsuarioDeleteUnroutedComponent, dialogConfig).afterClosed().subscribe(() => this.getPage());
   }
   reloadCurrentPage() {
     window.location.reload();

@@ -136,7 +136,7 @@ export class LibroListaComponent implements OnInit {
     console.log(this.id);
     
     // https://material.angular.io/components/dialog/overview
-    const modalDialog = this.matDialog.open(LibroUpdateUnroutedComponent, dialogConfig);
+    const modalDialog = this.matDialog.open(LibroUpdateUnroutedComponent, dialogConfig).afterClosed().subscribe(() => this.getPage());
   }
 
   openModalDelete(id: number) {
@@ -150,7 +150,7 @@ export class LibroListaComponent implements OnInit {
     console.log(this.id);
     
     // https://material.angular.io/components/dialog/overview
-    const modalDialog = this.matDialog.open(LibroDeleteUnroutedComponent, dialogConfig);
+    const modalDialog = this.matDialog.open(LibroDeleteUnroutedComponent, dialogConfig).afterClosed().subscribe(() => this.getPage());
   }
   reloadCurrentPage() {
     window.location.reload();

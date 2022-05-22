@@ -75,11 +75,7 @@ removeAsk() {
       )
     }    
     this.closeModal();
-    setTimeout(() => {
-      this.reloadCurrentPage(); 
-   }, 1000);
-         
-  })
+ })
 }
 
 removeOne() {

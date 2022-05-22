@@ -136,9 +136,7 @@ export class OpinionUpdateUnroutedComponent implements OnInit {
           })
           
       this.closeModal();
-      setTimeout(() => {
-        this.reloadCurrentPage(); 
-     }, 2500);
+      
           Toast.fire({
             icon: 'success',
             title: 'Editado correctamente'
