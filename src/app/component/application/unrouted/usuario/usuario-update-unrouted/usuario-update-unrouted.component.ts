@@ -34,7 +34,7 @@ export class UsuarioUpdateUnroutedComponent implements OnInit {
   strResult: string = null;
   oUsuarioSession: IUsuario;
   oUserSession: IUsuario;
-  
+  public href: string = "";
 
   get f() {
     return this.oForm.controls;
@@ -75,6 +75,9 @@ export class UsuarioUpdateUnroutedComponent implements OnInit {
       email: ['', [Validators.required, Validators.minLength(5)]]
       
     });
+
+    this.href = this.oRouter.url;
+        console.log(this.oRouter.url);
   }
 
   getOne = (): void => {
@@ -121,7 +124,7 @@ export class UsuarioUpdateUnroutedComponent implements OnInit {
             toast: true,
             position: 'middle',
             showConfirmButton: false,
-            timer: 3000,
+            timer: 2500,
             timerProgressBar: true,
             didOpen: (toast: { addEventListener: (arg0: string, arg1: any) => void; }) => {
               toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -134,7 +137,14 @@ export class UsuarioUpdateUnroutedComponent implements OnInit {
             icon: 'success',
             title: 'Editado correctamente'
           })
-          this.loguearUpdate();
+
+          if(this.href!='/dashboard'){
+            this.loguearUpdate();
+          } else {
+            setTimeout(() => {
+              window.location.reload();
+          }, 2500);
+          }          
           
         } else {
           Swal.fire({
@@ -159,7 +169,7 @@ export class UsuarioUpdateUnroutedComponent implements OnInit {
 
         setTimeout(() => {
           window.location.reload();
-      }, 2000);
+      }, 2500);
 
         this.oRouter.navigate(['/usuario/' + this.id]);
         console.log(data2);

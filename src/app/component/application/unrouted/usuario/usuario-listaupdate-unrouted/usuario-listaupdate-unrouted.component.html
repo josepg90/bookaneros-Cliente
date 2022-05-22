@@ -35,7 +35,7 @@
   
     <div class="col-md text-end">
       <div class="dropdown mb-3">
-        <button class="libro-boton dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+        <button class="usuario-boton dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
           aria-expanded="false">
           Registros por página: {{nPageSize}}
         </button>
@@ -60,12 +60,29 @@
                 *ngIf="strSortField=='id'&&strSortDirection=='desc'"></i>
   
             </th>
-            <th (click)="doSetOrder('genero')">
-              <i [ngClass]="oIconService.getIcon('fav')"></i> Género
+          
+            <th (click)="doSetOrder('login')">
+              <i [ngClass]="oIconService.getIcon('usuario')"></i> Login
               <i [ngClass]="oIconService.getIcon('flechaUp')"
-                *ngIf="strSortField=='genero'&&strSortDirection=='asc'"></i>
+                *ngIf="strSortField=='login'&&strSortDirection=='asc'"></i>
               <i [ngClass]="oIconService.getIcon('flechaDown')"
-                *ngIf="strSortField=='genero'&&strSortDirection=='desc'"></i>
+                *ngIf="strSortField=='login'&&strSortDirection=='desc'"></i>
+  
+            </th>
+            <th (click)="doSetOrder('password')">
+              <i [ngClass]="oIconService.getIcon('nombre')"></i> Password
+              <i [ngClass]="oIconService.getIcon('flechaUp')"
+                *ngIf="strSortField=='password'&&strSortDirection=='asc'"></i>
+              <i [ngClass]="oIconService.getIcon('flechaDown')"
+                *ngIf="strSortField=='password'&&strSortDirection=='desc'"></i>
+  
+            </th>
+            <th (click)="doSetOrder('email')">
+              <i [ngClass]="oIconService.getIcon('email')"></i> Email
+              <i [ngClass]="oIconService.getIcon('flechaUp')"
+                *ngIf="strSortField=='email'&&strSortDirection=='asc'"></i>
+              <i [ngClass]="oIconService.getIcon('flechaDown')"
+                *ngIf="strSortField=='email'&&strSortDirection=='desc'"></i>
   
             </th>
   
@@ -73,24 +90,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let fila of aLibros"  class="align-middle">
+          <tr *ngFor="let fila of aUsuarios"  class="align-middle">
             <td class="text-center">{{fila.id}}</td>
-            <td class="text-center">{{fila.genero}}</td>            
-            
-            <!-- REdireccionamiento a TipoProducto Wildcart
-              <td>
-              <button class="btn btn-light btn-sm"
-                  [routerLink]="['/' + strEntity + '/' + strOperation + '/tipoproducto/' + fila.tipolibro.id]">
-                  <i [ngClass]="oIconService.getIcon('tipoproducto')"></i> ({{fila.tipolibro.id}})
-                  {{fila.tipolibro.genero}}</button>
-            </td>-->
+            <td class="text-center">{{fila.login}}</td>
+            <td style="text-align: center;">{{fila.password}}</td>
+            <td style="text-align: center;">{{fila.email}}</td>
             <td class="text-center">
               
               <div class="btn-group btn-group-sm" role="group" *ngIf="mode">
                 
-                <button type="button" class="libro-boton" (click)="this.id=this.fila.id; openModalUpdate(this.id)"><i
+                <button type="button" class="usuario-boton" (click)="this.id=this.fila.id; openModalUpdate(this.id)"><i
                     class="fas fa-pen"></i></button>
-                <button type="button" class="libro-boton" (click)="this.id=this.fila.id; openModalDelete(this.id)"><i
+                <button type="button" class="usuario-boton" (click)="this.id=this.fila.id; openModalDelete(this.id)"><i
                     class="fas fa-trash"></i></button>
   
                 <!-- 

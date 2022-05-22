@@ -1,12 +1,12 @@
 .justify-content-between {
     margin: auto;
-    width: 65%;
+    width: 85%;
 
 }
 
 .justify-content-center {
 	background-color: rgba(0,0,0,0.6);
-    width: 65%;
+    width: 85%;
     margin: auto;
     padding: 30px;
 }
@@ -16,7 +16,7 @@ th, tr, td {
     font-size: 1.4rem;
 }
 
-.libro-boton {
+.usuario-boton {
 	//background-color: #8A6552;
 	//background-color: #A8C686;
 	background-color: #5E3023;
@@ -33,7 +33,7 @@ th, tr, td {
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5);
     
 }
-.libro-boton:hover {
+.usuario-boton:hover {
 	text-shadow: 0.4rem 0.4rem 1.6rem rgba(0, 0, 0, 1);
 	color: #111;
 	background-color: #8A6552;

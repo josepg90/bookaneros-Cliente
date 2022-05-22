@@ -29,6 +29,7 @@ export class UsuarioDeleteUnroutedComponent implements OnInit {
   strTitlePlural: string = "Usuarios";
   oForm: FormGroup;
   oUsuario2Show: IUsuario;
+  public href: string = "";
 
   get f() {
     return this.oForm.controls;
@@ -70,6 +71,9 @@ export class UsuarioDeleteUnroutedComponent implements OnInit {
       email: ['', [Validators.required, Validators.minLength(5)]]
       
     });
+
+    this.href = this.oRouter.url;
+    console.log(this.oRouter.url);
   }
 
   getOne = (): void => {
@@ -111,8 +115,15 @@ export class UsuarioDeleteUnroutedComponent implements OnInit {
           'success'
         )
       }
-      this.closeSession();     
-      
+
+      if(this.href!='/dashboard'){
+        this.closeSession();
+      } else {
+        setTimeout(() => {
+          window.location.reload();
+      }, 2500);
+      }
+            
       this.closeModal();      
     })
 

@@ -115,15 +115,14 @@ export class LibroViewComponent implements OnInit {
     this.oLibroService.get(this.id).subscribe((oData: ILibro) => {
       this.oLibro = oData;
       console.log(this.oLibro);
-
-      // You'll need to make your image into a Data URL
-      // Use http://dataurl.net/#dataurlmaker
-      //var imgData = "'http://localhost:8082/file/' + this.oLibro?.imagen"
+      
+       var imgData2 = 'http://localhost:8082/file/' + this.oLibro?.imagen;       
+      
       var doc = new jsPDF()
 
       doc.setFontSize(20)
       doc.text('Ficha Técnica', 25, 25)
-      //doc.addImage('', 'JPEG', 140, 15, 40, 35)
+      doc.addImage(imgData2, 'JPG', 140, 15, 60, 90)
       doc.setFontSize(18)
       doc.text('Título:', 20, 80)
       doc.setFontSize(16)
@@ -189,7 +188,7 @@ export class LibroViewComponent implements OnInit {
       //doc.setFontSize(14)
       //doc.text(this.oLibro.resumen, 60, 130)
 
-      doc.save("ficha-tecnica.pdf");
+      doc.save(this.oLibro.titulo + "- Ficha Tecnica.pdf");
 
     })
 
