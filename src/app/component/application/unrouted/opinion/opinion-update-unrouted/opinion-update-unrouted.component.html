@@ -1,6 +1,6 @@
 <div class="opinion-update">
     <div class="opinion-update-contenido">
-        <h1><i [ngClass]="oIconService.getIcon('new')"></i>Editar Opinion</h1>
+        <h1><i [ngClass]="oIconService.getIcon('edit')"></i>Editar Opinion</h1>
         <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">
             <div>
                 <div class="opinion-update-form-row">
@@ -60,7 +60,7 @@
 
                 <div class="opinion-update-form-row">
                 <button mat-raised-button type="submit" class="update-opinion-boton"
-                    [disabled]="oForm.invalid || oForm.pristine"><i [ngClass]="oIconService.getIcon('new')"></i>
+                    [disabled]="oForm.invalid || oForm.pristine"><i [ngClass]="oIconService.getIcon('edit')"></i>
                     Editar Opinión</button>
 </div>
             </div>

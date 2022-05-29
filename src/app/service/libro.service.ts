@@ -81,4 +81,21 @@ import { API_URL, httpOptions } from "src/environments/environment";
       
       return this.http.get<IPageLibro>(this.sURL + "/novedad?page=" + "?page=" + (page - 1) + "&size=" + rpp + strOrderUrl, httpOptions);
     }
+
+    getSugerencias(rpp: number, page: number, tipolibro1: number, order: string, direction: string, tipolibro2: number): Observable<IPageLibro> {
+      let strOrderUrl: string = "";
+      if (order) {
+        strOrderUrl += "&sort=" + order + "," + direction;
+      }
+      if (tipolibro1!=null) {
+        strOrderUrl += "&idTipoLibro1=" + tipolibro1;
+      }
+      if (tipolibro2) {
+        strOrderUrl += "&idTipoLibro2=" + tipolibro2;
+      }
+      
+      console.log(this.sURL + "/sugerencias?page=" + (page - 1) + "&size=" + rpp + strOrderUrl);
+      
+      return this.http.get<IPageLibro>(this.sURL + "/sugerencias?page=" + (page - 1) + "&size=" + rpp + strOrderUrl, httpOptions);
+    }
   }

@@ -68,6 +68,7 @@ import { LibroDeleteUnroutedComponent } from './component/application/unrouted/l
 import { UsuarioListaupdateUnroutedComponent } from './component/application/unrouted/usuario/usuario-listaupdate-unrouted/usuario-listaupdate-unrouted.component';
 import { MenuListaPeticionesComponent } from './component/application/routed/dashboard/menu-lista-peticiones/menu-lista-peticiones.component';
 import { PeticionesListaUnroutedComponent } from './component/application/unrouted/peticiones/peticiones-lista-unrouted/peticiones-lista-unrouted.component';
+import { SugerenciasComponent } from './component/application/unrouted/sugerencias/sugerencias.component';
 
 @NgModule({
   declarations: [
@@ -119,7 +120,8 @@ import { PeticionesListaUnroutedComponent } from './component/application/unrout
     LibroDeleteUnroutedComponent,
     UsuarioListaupdateUnroutedComponent,
     MenuListaPeticionesComponent,
-    PeticionesListaUnroutedComponent
+    PeticionesListaUnroutedComponent,
+    SugerenciasComponent
   ],
   imports: [
     HttpClientModule,

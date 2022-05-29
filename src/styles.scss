@@ -10,6 +10,9 @@ mat-card-title, mat-card-subtitle, li, a, span, input, th, td, p, button, label,
     font-family: 'Dancing Script', cursive !important;
     //font-size: 1.1rem !important;  
 }
+.mat-card-header-text{
+    margin:0 0 0 6px !important;
+}
 i .icon-margin{
     font-family: "Font Awesome 5 Free" !important;
     margin-right: 1.2rem;

@@ -1,0 +1,42 @@
+<div class="libros-contenedor-row">
+    <h1>Sugerencias</h1>
+    <div class="libros-contenedor-libros">
+      <mat-card class="example-card" *ngIf="aSugerencias[0].id">
+        <mat-card-header >
+  
+          <mat-card-title ><a [href]="'libro/'+aSugerencias[0]?.id"> {{aSugerencias[0].titulo}} </a></mat-card-title>
+          <app-favoritos-state-unrouted [id]="aSugerencias[0]?.id"></app-favoritos-state-unrouted>
+          <mat-card-subtitle>{{aSugerencias[0]?.tipolibro.genero}}</mat-card-subtitle>
+        </mat-card-header>
+        <div class="libros-img-centrar">
+          <img mat-card-image [src]="'http://localhost:8082/file/' + aSugerencias[0]?.imagen"/>
+          <div class="libros-img-centrar" *ngIf="aSugerencias[0]?.novedad==true"><span class="novedad">NEW</span></div> 
+         </div>
+        <div class="star-rate-position">
+          <div>
+            <i class="fa fa-star fa-lg"><app-favoritos-valoracion-new-unrouted [id]="aSugerencias[0]?.id"></app-favoritos-valoracion-new-unrouted></i>
+          </div>   
+        </div>
+      </mat-card>
+      <mat-card class="example-card" *ngIf="aSugerencias[1]?.id">
+        <mat-card-header >
+  
+          <mat-card-title ><a [href]="'libro/'+aSugerencias[1].id"> {{aSugerencias[1].titulo}} </a></mat-card-title>
+          <app-favoritos-state-unrouted [id]="aSugerencias[1]?.id"></app-favoritos-state-unrouted>
+          <mat-card-subtitle>{{aSugerencias[1].tipolibro.genero}}</mat-card-subtitle>
+        </mat-card-header>
+        <div class="libros-img-centrar">
+          <img mat-card-image [src]="'http://localhost:8082/file/' + aSugerencias[1].imagen"/>
+          <div class="libros-img-centrar" *ngIf="aSugerencias[1].novedad==true"><span class="novedad">NEW</span></div> 
+         </div>
+        <div class="star-rate-position">
+          <div>
+            <i class="fa fa-star fa-lg"><app-favoritos-valoracion-new-unrouted [id]="aSugerencias[1]?.id"></app-favoritos-valoracion-new-unrouted></i>
+          </div>   
+        </div>
+      </mat-card>
+    </div>  
+    <div class="sugerencias-edit-form-row sugerencias-edit-cancelar-centrar">
+        <button mat-raised-button class="sugerencias-edit-boton" (click)="closeModal()">Cancelar</button>
+    </div>
+</div>
