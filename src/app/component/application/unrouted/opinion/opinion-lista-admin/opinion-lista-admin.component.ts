@@ -21,14 +21,14 @@ export class OpinionListaAdminComponent implements OnInit {
   strEntity: string = "post"
   strOperation: string = "plist"
   strTitleSingular: string = "Post";
-  strTitlePlural: string = "Posts";
+  strTitlePlural: string = "Títulos";
   aPosts: IPost[];
   id: number;
   aPaginationBar: string[];
   nTotalElements: number;
   nTotalPages: number;
   nPage: number;
-  nPageSize: number = 20;
+  nPageSize: number = 10;
   strResult: string = null;
   strFilter: string = "";
   strSortField: string = "";

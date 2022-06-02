@@ -69,6 +69,7 @@ import { UsuarioListaupdateUnroutedComponent } from './component/application/unr
 import { MenuListaPeticionesComponent } from './component/application/routed/dashboard/menu-lista-peticiones/menu-lista-peticiones.component';
 import { PeticionesListaUnroutedComponent } from './component/application/unrouted/peticiones/peticiones-lista-unrouted/peticiones-lista-unrouted.component';
 import { SugerenciasComponent } from './component/application/unrouted/sugerencias/sugerencias.component';
+import { HeaderNoHomeComponent } from './component/shared/unrouted/header-no-home/header-no-home.component';
 
 @NgModule({
   declarations: [
@@ -121,7 +122,8 @@ import { SugerenciasComponent } from './component/application/unrouted/sugerenci
     UsuarioListaupdateUnroutedComponent,
     MenuListaPeticionesComponent,
     PeticionesListaUnroutedComponent,
-    SugerenciasComponent
+    SugerenciasComponent,
+    HeaderNoHomeComponent
   ],
   imports: [
     HttpClientModule,

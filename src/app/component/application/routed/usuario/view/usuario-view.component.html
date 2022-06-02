@@ -1,9 +1,10 @@
 <app-menu></app-menu>
-<div class="profile-view-centrado">
+<app-header-no-home [title]="strTitleSingular"></app-header-no-home>
+<div class="profile-view-centrado" *ngIf="seccion==1">
     <div class="profile-view-interior-centrado">
         
         <ul class="usuario-menu">
-            <li class="active"><span class="menu-active"><i [ngClass]="oIconService.getIcon('nombre')"></i>Opiniones</span></li>
+            <li class="active" (click)="this.seccion=0"><span class="menu-active"><i [ngClass]="oIconService.getIcon('nombre')"></i>Opiniones</span></li>
             <li  [class.active]="strUrl=='/favoritos'" [routerLink]="['/favoritos']"><span class="menu-active"><i [ngClass]="oIconService.getIcon('fav')"></i>Favoritos</span></li>
             <li><span class="menu-active"><i [ngClass]="oIconService.getIcon('libro')"></i>Algo</span></li>
         </ul>
@@ -86,5 +87,12 @@
         </div>
     </div>
 </div>
+<div *ngIf="seccion==0">
+    <div class="text-center my-5">
+        <button type="button" class="usuario-view-botones paginacion-centrar" (click)="this.seccion=1"><i class="fas fa-arrow-circle-left"></i> Volver Perfil Usuario </button>
+    </div>
+    <app-opinion-lista-usuario></app-opinion-lista-usuario>
+    
+  </div>
 
 <app-footer></app-footer>

@@ -16,6 +16,7 @@ import { PaginationService } from 'src/app/service/pagination.service';
 export class LibroPlistComponent implements OnInit {
   
   oUserSession: IUsuario;
+  strTitleSingular: string = "Libros";
 
   constructor(
     private oRoute: ActivatedRoute,

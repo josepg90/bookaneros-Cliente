@@ -11,6 +11,7 @@ import { PaginationService } from 'src/app/service/pagination.service';
 export class FavoritosComponent implements OnInit {
 
   oUserSession: IUsuario;
+  strTitleSingular:string= "Favoritos";
   
   constructor(
     private oRoute: ActivatedRoute,

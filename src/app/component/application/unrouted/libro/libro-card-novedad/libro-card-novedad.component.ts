@@ -27,7 +27,7 @@ export class LibroCardNovedadComponent implements OnInit {
   nTotalElements: number;
   nTotalPages: number;
   nPage: number;
-  nPageSize: number = 20;
+  nPageSize: number = 10;
   strResult: string = null;
   strFilter: string = "";
   strSortField: string = "";

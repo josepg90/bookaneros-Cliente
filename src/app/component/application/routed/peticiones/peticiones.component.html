@@ -1,10 +1,10 @@
 <app-menu></app-menu>
 
-<app-header></app-header>
+<app-header-no-home [title]="strTitleSingular"></app-header-no-home>
 
 <div class="peticiones-new">
     <div class="peticiones-new-contenido">
-        <h1>Petición o Sugerencia</h1>
+        <h1>Escriba aquí su petición o sugerencia</h1>
         <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">
             <div>
                 <div class="peticiones-new-form-row">

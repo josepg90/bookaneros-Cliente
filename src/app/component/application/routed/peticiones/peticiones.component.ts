@@ -15,10 +15,8 @@ declare var Swal: any;
 })
 export class PeticionesComponent implements OnInit {
 
-  strEntity: string = 'opinion';
-  strOperation: string = 'new';
-  strTitleSingular: string = 'Opinion';
-  strTitlePlural: string = 'Opiniones';
+  strTitleSingular: string = 'Peticiones y Sugerencias';
+  strTitlePlural: string = 'Peticiones y Sugerencias';
   oPeticion2Send: IPeticion2Send = null;
   id: number = null;
   oForm: FormGroup = null;

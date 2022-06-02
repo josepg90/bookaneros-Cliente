@@ -29,7 +29,7 @@ export class LibroCardComponent implements OnInit {
   nTotalElements: number;
   nTotalPages: number;
   nPage: number;
-  nPageSize: number = 40;
+  nPageSize: number = 9;
   strResult: string = null;
   strFilter: string = "";
   strSortField: string = "";

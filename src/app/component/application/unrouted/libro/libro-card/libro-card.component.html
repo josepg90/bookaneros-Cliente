@@ -23,7 +23,34 @@
             Buscar
           </button>
       </div>
-        
+      
+        <div class="col-md text-center">
+          <div class="dropdown mb-3">
+            <button class="libro-boton dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Registros por página: {{nPageSize}}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" (click)="nPageSize=9;getPage()">9</a></li>
+              <li><a class="dropdown-item" (click)="nPageSize=18;getPage()">18</a></li>
+              <li><a class="dropdown-item" (click)="nPageSize=36;getPage()">36</a></li>
+              <li><a class="dropdown-item" (click)="nPageSize=72;getPage()">72</a></li>
+              <li><a class="dropdown-item" (click)="nPageSize=142;getPage()">142</a></li>
+              <li><a class="dropdown-item" (click)="nPageSize=284;getPage()">284</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md paginacion-centrar">
+          <nav aria-label="pagination">
+            <ul class="pagination">
+              <li class="page-item" aria-current="page" *ngFor="let p of aPaginationBar"
+                [ngClass]="{'active': (nPage+'' == p)}">
+                <a class="page-link" (click)="nPage=(+p);jumpToPage()" href="#">{{p}}</a>
+              </li>
+            </ul>
+          </nav>
+        </div>        
+       
     </form>
   </div>
   <div class="libros-contenedor-libros">
@@ -45,5 +72,5 @@
       </div>
     </mat-card>
   </div>
-
+  
 </div>

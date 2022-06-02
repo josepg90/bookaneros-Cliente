@@ -9,6 +9,7 @@ import { PaginationService } from 'src/app/service/pagination.service';
 import { IconService } from 'src/app/service/icon.service';
 import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { SessionService } from 'src/app/service/session.service';
 
 @Component({
   selector: 'app-sugerencias',
@@ -43,6 +44,7 @@ export class SugerenciasComponent implements OnInit {
   applyClass: string;
   id: number = null;
   oMedia: any;
+  strUsuarioSession: string;
   listaIdLibros: number [] = [];
   aSugerencias: ILibro [] = [];
   indexList: number=0;
@@ -60,19 +62,29 @@ export class SugerenciasComponent implements OnInit {
     private oPaginationService: PaginationService,
     private oLibroService: LibroService,
     public oIconService: IconService,
-    public matDialog: MatDialog
+    public matDialog: MatDialog,
+    private oSessionService: SessionService
   ) {
+    if (this.oRoute.snapshot.data.message) {
+      this.oUserSession = this.oRoute.snapshot.data.message;
+      localStorage.setItem('user', JSON.stringify(this.oRoute.snapshot.data.message));
+      console.log(this.oRoute.snapshot.data.message);
+    } else {
+      localStorage.clear();
+      //oRouter.navigate(['/home']);
+    }
     this.nPage = 1;
     this.id_tipolibro1 = data.id_tipolibro1;
     this.id_tipolibro2 = data.id_tipolibro2;
     this.listaIdLibros = data.listaIdLibroPasada;
-    this.getSugerencias();
+    
    }
 
   ngOnInit(): void {
     this.subjectFiltro$.pipe(
       debounceTime(1000)
     ).subscribe(() => this.getSugerencias());
+    this.getSugerencias();
   }
 
   getSugerencias = () => {

@@ -2,15 +2,30 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
-    margin:5%;
+    margin:0 10%;
 }
 
-.opinion-lista-opiniones {
+.opinion-contenedor-filtros{
+    width:25%;
+    height: 800px;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.opinion-contenedor-filtros-diferentes {
+    padding: 30px;
+}
+
+  h3 {
+    flex-basis:100%;
+    color: #fff;
+  }
+
+  .opinion-lista-opiniones {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 75%;
+    height: 100%;
   }
 
 .opinion-lista-flex{
@@ -19,10 +34,10 @@
 }
 
 .libro-view-post {
-    width: 100%;
+    width: 80%;
     background-color: rgba(0,0,0,0.5);
     border-radius: 25px;
-    margin: 0 0 50px;
+    margin: 0 0 30px;
 }
 
 .post-header {
@@ -37,16 +52,15 @@
 }
 
 .post-cuerpo {
-    width:95%;
+    width:90%;
     //background-color: rgba(0,0,0,0.5);
     margin: 20px auto;
     padding-bottom:20px;
-    font-size: 1.3rem;
-    border-radius: 25px;
+    font-size: 1.2rem;
 }
 
 .post-cuerpo div:nth-child(1) {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
 }
 
 .post-cuerpo div{
@@ -59,17 +73,24 @@
     border-bottom-right-radius: 25px;
     border-bottom-left-radius: 25px;
     display:flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     font-size: 1.2rem;
 }
 .post-footer span, .post-header span {
-    padding-right: 25px;
+    padding: 0 25px;
 }
 
 .post-header span:nth-child(1) {
-    padding-left: 30px;
     color: #DBD3AD;
+}
+
+.post-footer div button{
+    margin-left: 10px;
+}
+
+.post-footer div {
+    margin-left: 20px;
 }
 
 hr{
@@ -82,5 +103,83 @@ hr{
 span i {
     margin-right: 15px;
     font-size:1.2rem;
-    color: #fff;    
+    color: #fff;
+}
+
+.boton-buscar {
+    background-color: #5e3023;
+    color: #fff;
+    font-size: 1.2rem;
+    line-height: normal;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.opinion-boton {
+	//background-color: #8A6552;
+	//background-color: #A8C686;
+	background-color: #5E3023;
+	margin: 10px 0;
+    color: #fff;
+	padding: 9px 14px; 
+	font-size: 1.2rem;
+	line-height: normal;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	text-shadow: 0.2rem 0.2rem 0.8rem rgba(0,0,0,0.25);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5);
+    
+}
+.opinion-boton:hover {
+	text-shadow: 0.4rem 0.4rem 1.6rem rgba(0, 0, 0, 1);
+	color: #111;
+	background-color: #8A6552;
+	box-shadow: 0px 0px 4px 6px #5E3023 ;
+}
+
+.libro-boton {
+	//background-color: #8A6552;
+	//background-color: #A8C686;
+	background-color: #5E3023;
+	margin: 10px 0;
+    color: #fff;
+	padding: 9px 14px; 
+	font-size: 1.2rem;
+	line-height: normal;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	text-shadow: 0.2rem 0.2rem 0.8rem rgba(0,0,0,0.25);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5);
+    
+}
+.libro-boton:hover {
+	text-shadow: 0.4rem 0.4rem 1.6rem rgba(0, 0, 0, 1);
+	color: #111;
+	background-color: #8A6552;
+	box-shadow: 0px 0px 4px 6px #5E3023 ;
+}
+
+.page-link {
+	background-color: #8A6552;
+	border-color: #8A6552;
+	color: #fff;
+}
+
+.page-item.active .page-link {
+	background-color: #5E3023;
+	border-color: #5E3023;
+	color: #fff;
+	box-shadow: 0px 0px 1px 2px #5E3023 ;
+}
+
+.paginacion-centrar{
+    display: flex;
+    justify-content: center;
+    padding-top:20px;
 }

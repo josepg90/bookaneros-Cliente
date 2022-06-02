@@ -52,7 +52,8 @@ export class FavoritosStateUnroutedComponent implements OnInit {
   }
 
   esFavorito(): void {
-    
+    console.log(this.oUserSession.id);
+    console.log(this.id);
     this.oFavoritoValoracionService
       .getFavoritoUsuario(this.oUserSession.id, this.id)
       .subscribe((bFavorito: any) => {

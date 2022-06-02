@@ -11,6 +11,7 @@ import { PaginationService } from 'src/app/service/pagination.service';
 export class NovedadComponent implements OnInit {
 
   oUserSession: IUsuario;
+  strTitleSingular: string = "Novedades";
   
   constructor(
     private oRoute: ActivatedRoute,

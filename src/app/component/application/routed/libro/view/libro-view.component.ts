@@ -14,10 +14,10 @@ declare let jsPDF: any;
 })
 export class LibroViewComponent implements OnInit {
 
-  strEntity: string = "producto"
+  strEntity: string = "ficha técnica"
   strOperation: string = "view"
-  strTitleSingular: string = "Producto";
-  strTitlePlural: string = "Productos";
+  strTitleSingular: string = "Ficha Técnica";
+  strTitlePlural: string = "Fichas Técnicas";
   id: number = null;
   strUsuarioSession: string;
   strResult: string = null;

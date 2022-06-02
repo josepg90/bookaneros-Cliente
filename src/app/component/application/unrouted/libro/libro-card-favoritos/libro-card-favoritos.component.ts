@@ -11,6 +11,7 @@ import { IUsuario } from 'src/app/model/usuario-interfaces';
 import { Subject } from 'rxjs';
 import { TipolibroPlistUnroutedComponent } from '../../tipolibro/tipolibro-plist-unrouted/tipolibro-plist-unrouted.component';
 import { SugerenciasComponent } from '../../sugerencias/sugerencias.component';
+import { SessionService } from 'src/app/service/session.service';
 
 @Component({
   selector: 'app-libro-card-favoritos',
@@ -50,6 +51,7 @@ export class LibroCardFavoritosComponent implements OnInit {
   indexList: number=0;
   id_tipolibro1: number;
   id_tipolibro2: number;
+  strUsuarioSession: string;
 
   get f() {
     return this.oForm.controls;
@@ -62,9 +64,17 @@ export class LibroCardFavoritosComponent implements OnInit {
     private oPaginationService: PaginationService,
     private oLibroService: LibroService,
     public oIconService: IconService,
-    public matDialog: MatDialog
+    public matDialog: MatDialog,
+    private oSessionService: SessionService
   ) {
-
+    if (this.oRoute.snapshot.data.message) {
+      this.strUsuarioSession = this.oRoute.snapshot.data.message;
+      localStorage.setItem('user', JSON.stringify(this.oRoute.snapshot.data.message));
+      console.log(this.strUsuarioSession);
+    } else {
+      localStorage.clear();
+      //oRouter.navigate(['/home']);
+    }
     this.nPage = 1;
     this.getPage();
    }
@@ -79,7 +89,7 @@ export class LibroCardFavoritosComponent implements OnInit {
     
     console.log("buscando...", this.strFilter);
 
-    this.oLibroService.getFavoritos(this.nPageSize, this.nPage, this.strFilter, this.strSortField, this.strSortDirection).subscribe((oPage: IPageLibro) => {
+    this.oLibroService.getFavoritos(this.nPageSize, this.nPage, this.strFilter, this.strSortField, this.strSortDirection, this.id_tipolibro).subscribe((oPage: IPageLibro) => {
       if (this.strFilter) {
         this.strFilteredMessage = "Listado filtrado: " + this.strFilter;
       } else {
@@ -207,7 +217,7 @@ export class LibroCardFavoritosComponent implements OnInit {
     // https://material.angular.io/components/dialog/overview
     const modalDialog = this.matDialog.open(SugerenciasComponent, dialogConfig);
     
-    modalDialog.afterClosed().subscribe(res => {
+    /*modalDialog.afterClosed().subscribe(res => {
       console.log(res.data);
       console.log(res.data2);
 
@@ -216,6 +226,6 @@ export class LibroCardFavoritosComponent implements OnInit {
 
       this.getPage();
       
-    })
+    })*/
   }
 }
