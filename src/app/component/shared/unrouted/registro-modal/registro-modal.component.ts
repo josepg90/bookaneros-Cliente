@@ -39,7 +39,7 @@ export class RegistroModalComponent implements OnInit {
     this.oForm = this.oFormBuilder.group({
       login: ['', [Validators.required, Validators.minLength(5)]],
       password: ['', [Validators.required, Validators.minLength(5)]],
-      email: ['', [Validators.required, Validators.minLength(5)]],
+      email: ['', [ Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       nombre: [''],
       apellido1: [''],
       apellido2: [''],

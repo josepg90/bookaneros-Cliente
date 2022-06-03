@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
     // The user can't close the dialog by clicking outside its body
     dialogConfig.disableClose = true;
     dialogConfig.id = "modal-component";
-    dialogConfig.height = "600px";
+    dialogConfig.height = "650px";
     dialogConfig.width = "600px";
     // https://material.angular.io/components/dialog/overview
     const modalDialog = this.matDialog.open(RegistroModalComponent, dialogConfig);

@@ -29,7 +29,7 @@
       <div class="modal-imput">
         <input class="modal-imput" type="email" formControlName="email" id="email" class="form-control"
           placeholder="Correo Electrónico" required="required"
-          [ngClass]="{'is-valid' : f.email.dirty && !(f.email.errors?.required || f.email.errors?.minlength) }">
+          [ngClass]="{'is-valid' : !(f.email.errors?.required) && f.email.valid}">
         <div *ngIf="f.email.dirty && f.email.errors?.required" class="text-danger">
           Se debe introducir un correo de elctrónico válido
         </div>

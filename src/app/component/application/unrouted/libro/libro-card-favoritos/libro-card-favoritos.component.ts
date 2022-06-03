@@ -29,7 +29,7 @@ export class LibroCardFavoritosComponent implements OnInit {
   nTotalElements: number;
   nTotalPages: number;
   nPage: number;
-  nPageSize: number = 20;
+  nPageSize: number = 9;
   strResult: string = null;
   strFilter: string = "";
   strSortField: string = "";
@@ -205,7 +205,7 @@ export class LibroCardFavoritosComponent implements OnInit {
     // The user can't close the dialog by clicking outside its body
     dialogConfig.disableClose = true;
     dialogConfig.id = "modal-component";
-    dialogConfig.height = "700px";
+    dialogConfig.height = "750px";
     dialogConfig.width = "900px";
     dialogConfig.data = {
       //pasamos dos id tipolibro para las sugerenecias

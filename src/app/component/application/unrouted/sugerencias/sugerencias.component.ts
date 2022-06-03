@@ -180,29 +180,4 @@ export class SugerenciasComponent implements OnInit {
   closeModal() {
     this.dialogRef.close({ event: 'close'});
   }
-
-
-  /*openModal() {
-
-    const dialogConfig = new MatDialogConfig();
-    // The user can't close the dialog by clicking outside its body
-    dialogConfig.disableClose = true;
-    dialogConfig.id = "modal-component";
-    dialogConfig.height = "550px";
-    dialogConfig.width = "600px";
-    // https://material.angular.io/components/dialog/overview
-    const modalDialog = this.matDialog.open(TipolibroPlistUnroutedComponent, dialogConfig);
-
-    modalDialog.afterClosed().subscribe(res => {
-      console.log(res.data);
-      console.log(res.data2);
-
-      this.genero= res.data2;
-      this.id_tipolibro= res.data;
-
-      this.getPage();
-      
-    })
-  }*/
-
 }
